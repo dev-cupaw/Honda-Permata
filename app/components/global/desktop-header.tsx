@@ -80,8 +80,13 @@ export function DesktopHeader() {
     <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
       <div className="container mx-auto flex h-24 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
-          <Image src="/placeholder.svg?height=40&width=40" alt="Honda Logo" width={40} height={40} />
-          <div className="text-lg font-bold">Honda Permata Serpong</div>
+          <Image 
+            src="/honda-permata-logo/logo-hondapermata.svg" 
+            alt="Honda Permata Serpong Logo" 
+            width={120} 
+            height={28} 
+            className="h-7 w-auto object-contain"
+          />
         </Link>
         <NavigationMenu>
           <NavigationMenuList>
@@ -95,6 +100,11 @@ export function DesktopHeader() {
               <NavigationMenuContent>
                 {/* MegaMenu is rendered outside NavigationMenuContent to allow full width */}
               </NavigationMenuContent>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/tentang" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>Tentang</NavigationMenuLink>
+              </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Link href="/promo" legacyBehavior passHref>
@@ -119,7 +129,12 @@ export function DesktopHeader() {
           </a>
         </Button>
       </div>
-      <MegaMenu isOpen={isMegaMenuOpen} onClose={handleCloseMegaMenu} />
+      <MegaMenu 
+        isOpen={isMegaMenuOpen} 
+        onClose={handleCloseMegaMenu}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      />
     </header>
   )
 }

@@ -7,97 +7,99 @@ import { AnimatePresence, motion } from "framer-motion"
 
 interface MegaMenuProps {
   isOpen: boolean
-  onClose: () => void // Add onClose prop
+  onClose: () => void
+  onMouseEnter?: () => void
+  onMouseLeave?: () => void
 }
 
 const cars = [
   {
     name: "Honda STEP WGN",
     price: "629.000.000",
-    image: "/placeholder.svg?height=150&width=150",
+    image: "/mobil-megamenu/Honda-STEP-WGN.webp",
     link: "/car/honda-step-wgn",
     isNew: true,
   },
   {
     name: "Honda HR-V",
     price: "399.900.000",
-    image: "/placeholder.svg?height=150&width=150",
+    image: "/mobil-megamenu/Honda-HR-V.webp",
     link: "/car/honda-hr-v",
     isNew: true,
   },
   {
     name: "Honda Civic RS",
     price: "699.000.000",
-    image: "/placeholder.svg?height=150&width=150",
+    image: "/mobil-megamenu/Honda-Civic-RS.webp",
     link: "/car/honda-civic-rs",
     isNew: true,
   },
   {
     name: "Honda City Hatchback RS",
     price: "384.500.000",
-    image: "/placeholder.svg?height=150&width=150",
+    image: "/mobil-megamenu/Honda-City-Hatchback-RS.webp",
     link: "/car/honda-city-hatchback-rs",
     isNew: false,
   },
   {
     name: "New Honda Brio",
     price: "170.400.000",
-    image: "/placeholder.svg?height=150&width=150",
+    image: "/mobil-megamenu/New-Honda-Brio.webp",
     link: "/car/new-honda-brio",
     isNew: false,
   },
   {
     name: "Honda WR-V",
     price: "280.700.000",
-    image: "/placeholder.svg?height=150&width=150",
+    image: "/mobil-megamenu/Honda-WR-V.webp",
     link: "/car/honda-wr-v",
     isNew: false,
   },
   {
     name: "Honda Civic Type R",
     price: "1.445.500.000",
-    image: "/placeholder.svg?height=150&width=150",
+    image: "/mobil-megamenu/Honda-Civic-Type-R.webp",
     link: "/car/honda-civic-type-r",
     isNew: false,
   },
   {
     name: "All New Honda CR-V",
     price: "759.000.000",
-    image: "/placeholder.svg?height=150&width=150",
+    image: "/mobil-megamenu/All-New-Honda-CR-V.webp",
     link: "/car/all-new-honda-cr-v",
     isNew: false,
   },
   {
     name: "New Honda City",
     price: "402.000.000",
-    image: "/placeholder.svg?height=150&width=150",
+    image: "/mobil-megamenu/New-Honda-City.webp",
     link: "/car/new-honda-city",
     isNew: false,
   },
   {
     name: "Honda BR-V N7X",
     price: "297.300.000",
-    image: "/placeholder.svg?height=150&width=150",
+    image: "/mobil-megamenu/Honda-BR-V-N7X.webp",
     link: "/car/honda-br-v-n7x",
     isNew: false,
   },
   {
     name: "All New Honda Accord",
     price: "970.900.000",
-    image: "/placeholder.svg?height=150&width=150",
+    image: "/mobil-megamenu/All-New-Honda-Accord.webp",
     link: "/car/all-new-honda-accord",
     isNew: false,
   },
   {
     name: "Honda e:N1",
     price: "HUBUNGI DEALER",
-    image: "/placeholder.svg?height=150&width=150",
+    image: "/mobil-megamenu/Honda-e-N1.webp",
     link: "/car/honda-e-n1",
     isNew: false,
   },
 ]
 
-export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
+export function MegaMenu({ isOpen, onClose, onMouseEnter, onMouseLeave }: MegaMenuProps) {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -107,6 +109,8 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.2 }}
           className="absolute left-0 w-full bg-white shadow-xl"
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
         >
           <div className="container mx-auto px-4 py-5 md:px-6">
             <div className="absolute -top-px left-0 h-px w-full bg-honda-gray-light" />

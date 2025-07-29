@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button" // Import Button for the close b
 const features = [
   {
     id: 1,
-    image: "/placeholder.svg?height=300&width=400&text=Interior+Spacious",
+    image: "/Honda-STEP-WGN/stepwgn1211-1.webp",
     title: "Interior Luas & Fleksibel",
     description:
       "Dengan ruang yang dapat bertransformasi sesuai kebutuhan, interior Honda STEP WGN e:HEV adalah bagian dari lebih dari 100 fungsi cerdas yang menghadirkan kenyamanan premium untuk keluarga Anda.",
@@ -17,28 +17,28 @@ const features = [
   },
   {
     id: 2,
-    image: "/placeholder.svg?height=300&width=400&text=Hybrid+Technology",
+    image: "/Honda-STEP-WGN/stepwgn1211-2.webp",
     title: "Teknologi e:HEV Hybrid",
     description:
       "Sistem hybrid canggih yang menggabungkan mesin bensin dengan motor listrik untuk efisiensi bahan bakar optimal. Teknologi ini memberikan performa yang responsif sambil mengurangi emisi dan konsumsi bahan bakar.",
   },
   {
     id: 3,
-    image: "/placeholder.svg?height=300&width=400&text=Honda+SENSING",
+    image: "/Honda-STEP-WGN/stepwgn1211-3.webp",
     title: "Honda SENSING",
     description:
       "Paket lengkap teknologi keselamatan aktif yang mencakup Collision Mitigation Braking System, Road Departure Mitigation, Adaptive Cruise Control, dan Lane Keeping Assist System untuk perlindungan maksimal.",
   },
   {
     id: 4,
-    image: "/placeholder.svg?height=300&width=400&text=Waku+Waku+Gate",
+    image: "/Honda-STEP-WGN/stepwgn1211-4.webp",
     title: "WAKU WAKU Gate",
     description:
       "Pintu belakang inovatif yang dapat dibuka ke atas dan ke bawah, memberikan fleksibilitas akses yang luar biasa. Fitur unik ini memudahkan loading barang dalam berbagai situasi dan kondisi parkir.",
   },
   {
     id: 5,
-    image: "/placeholder.svg?height=300&width=400&text=Premium+Comfort",
+    image: "/Honda-STEP-WGN/stepwgn1211-5.webp",
     title: "Kenyamanan Premium",
     description:
       "Interior berkualitas tinggi dengan material premium, sistem AC dual zone, kursi captain seat di baris kedua, dan berbagai fitur kenyamanan lainnya untuk pengalaman berkendara yang mewah.",

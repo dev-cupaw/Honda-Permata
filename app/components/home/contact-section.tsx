@@ -31,7 +31,7 @@ export function ContactSection() {
     <section
       className="parallax-bg relative min-h-screen w-full"
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('/placeholder.svg?height=1080&width=1920')`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/section-kontak/Honda-2015.webp')`,
       }}
     >
       <div className="container mx-auto px-4 py-20">

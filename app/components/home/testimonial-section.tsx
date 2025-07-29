@@ -7,37 +7,37 @@ const testimonials = [
     name: "Ibu Santi",
     location: "Tangerang",
     body: "Pelayanan di Honda Permata Serpong juara! Saya dibantu Elon Musk dari awal sampai akhir, prosesnya cepat dan nggak ribet. Mobil Honda CR-V impian akhirnya di tangan!",
-    img: "/placeholder.svg?height=32&width=32",
+    img: "/section-testimoni/Ibu-Santi.webp",
   },
   {
     name: "Bapak Budi",
     location: "Gading Serpong",
     body: "Cari Honda Brio di Gading Serpong? Langsung aja ke Elon Musk. Orangnya ramah, penjelasannya detail, dan bantu banget cariin promo terbaik. Highly recommended!",
-    img: "/placeholder.svg?height=32&width=32",
+    img: "/section-testimoni/Bapak-Budi.webp",
   },
   {
     name: "Mbak Rina",
     location: "Serpong",
     body: "Setelah keliling beberapa dealer, cuma di sini yang saya ngerasa nyaman. Mas Elon Musk sabar banget ngejelasin semua fitur Honda HR-V. Service after sales-nya juga oke banget!",
-    img: "/placeholder.svg?height=32&width=32",
+    img: "/section-testimoni/Mbak-Rina.webp",
   },
   {
     name: "Bapak Rahman",
     location: "Jakarta Barat",
     body: "Awalnya bingung mau beli Honda tipe apa, tapi setelah konsultasi sama Mas Elon Musk, semua jadi jelas. Beliau ngerti banget kebutuhan keluarga saya, akhirnya pilih Honda BR-V.",
-    img: "/placeholder.svg?height=32&width=32",
+    img: "/section-testimoni/Bapak-Rahman.webp",
   },
   {
     name: "Ibu Diana",
     location: "Gading Serpong",
     body: "Saya udah langganan sama Mas Elon Musk sejak 2016. Dulu beli Honda Jazz, sekarang tukar tambah ke Honda HR-V. Pelayanannya konsisten luar biasa!",
-    img: "/placeholder.svg?height=32&width=32",
+    img: "/section-testimoni/Ibu-Diana.webp",
   },
   {
     name: "Sdr. Kevin",
     location: "Tangerang Selatan",
     body: "Pertama kali beli mobil, agak deg-degan. Tapi Mas Elon Musk bikin saya tenang. Semua pertanyaan dijawab sabar, dan dikasih opsi pembiayaan yang pas. Terima kasih!",
-    img: "/placeholder.svg?height=32&width=32",
+    img: "/section-testimoni/Sdr-Kevin.webp",
   },
 ]
 
@@ -79,22 +79,22 @@ export function TestimonialSection() {
         </div>
         <div className="relative mt-16 overflow-hidden">
           {/* Baris pertama - bergerak ke kiri (default) */}
-          <Marquee pauseOnHover className="[--duration:15s] mb-4">
+          <Marquee pauseOnHover className="[--duration:20s] [--gap:1rem] mb-4">
             {firstRow.map((review, index) => (
               <ReviewCard key={`${review.name}-${index}`} {...review} />
             ))}
           </Marquee>
           
           {/* Baris kedua - bergerak ke kanan (reverse) */}
-          <Marquee reverse pauseOnHover className="[--duration:15s]">
+          <Marquee reverse pauseOnHover className="[--duration:20s] [--gap:1rem]">
             {secondRow.map((review, index) => (
               <ReviewCard key={`${review.name}-${index}-second`} {...review} />
             ))}
           </Marquee>
           
           {/* Gradient overlay untuk fade effect */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-honda-light to-transparent z-10"></div>
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-honda-light to-transparent z-10"></div>
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-white to-transparent z-10"></div>
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-white to-transparent z-10"></div>
         </div>
       </div>
     </section>

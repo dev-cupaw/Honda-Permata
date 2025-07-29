@@ -7,8 +7,8 @@ export function HeroSection() {
   return (
     <section className="relative h-[60vh] lg:h-screen w-full overflow-hidden">
       <Image
-        src="/placeholder.svg?height=1080&width=1920&text=Honda+STEP+WGN+Hero"
-        alt="Honda STEP WGN"
+        src="/Honda-STEP-WGN/Banner-Product-Desktop.webp"
+        alt="Honda STEP WGN e:HEV - Banner Desktop"
         fill
         className="object-cover"
         priority

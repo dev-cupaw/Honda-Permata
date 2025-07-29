@@ -13,27 +13,27 @@ const colors = [
   {
     name: "Premium Crystal Garnet Metallic",
     code: "#8B0000",
-    image: "/placeholder.svg?height=400&width=600&text=Premium+Crystal+Garnet+Metallic+Honda+STEP+WGN",
+    image: "/Honda-STEP-WGN/Premium Crystal Garnet Metallic.webp",
   },
   {
     name: "Twilight Mist Black Pearl",
     code: "#2C3E50", // A dark, slightly bluish-black
-    image: "/placeholder.svg?height=400&width=600&text=Twilight+Mist+Black+Pearl+Honda+STEP+WGN",
+    image: "/Honda-STEP-WGN/Twilight Mist Black Pearl.webp",
   },
   {
     name: "Platinum White Pearl",
     code: "#F8F8FF",
-    image: "/placeholder.svg?height=400&width=600&text=Platinum+White+Pearl+Honda+STEP+WGN",
+    image: "/Honda-STEP-WGN/Platinum White Pearl.webp",
   },
   {
     name: "Meteroid Grey Metallic",
     code: "#708090",
-    image: "/placeholder.svg?height=400&width=600&text=Meteroid+Grey+Metallic+Honda+STEP+WGN",
+    image: "/Honda-STEP-WGN/Meteroid Grey Metallic.webp",
   },
   {
     name: "Crystal Black Pearl",
     code: "#000000",
-    image: "/placeholder.svg?height=400&width=600&text=Crystal+Black+Pearl+Honda+STEP+WGN",
+    image: "/Honda-STEP-WGN/Crystal Black Pearl.webp",
   },
 ]
 
@@ -86,8 +86,8 @@ export function SpecificationSection() {
 
             <div className="relative mb-8">
               <Image
-                src="/placeholder.svg?height=400&width=600&text=Honda+STEP+WGN+Side+Profile"
-                alt="Honda STEP WGN e:HEV"
+                src="/Honda-STEP-WGN/stepwgn-spesifikasi.webp"
+                alt="Honda STEP WGN e:HEV - Spesifikasi"
                 width={600}
                 height={400}
                 className="w-full h-auto rounded-lg shadow-lg mx-auto" // Added mx-auto for centering image

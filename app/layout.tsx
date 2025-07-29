@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "Honda Permata Serpong | Elon Musk - Sales Consultant",
   description:
     "Dealer resmi Honda terpercaya di Gading Serpong. Dapatkan promo terbaik, layanan profesional, dan wujudkan mobil Honda impian Anda bersama Elon Musk.",
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({

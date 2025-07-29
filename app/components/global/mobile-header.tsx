@@ -17,22 +17,22 @@ export function MobileHeader() {
       <header className="w-full border-b bg-white shadow-sm lg:hidden">
         {" "}
         {/* Removed sticky classes here */}
-        <div className="container mx-auto flex h-16 items-center justify-between px-4">
-          <Button variant="ghost" size="icon" onClick={() => setIsLeftDrawerOpen(true)}>
-            <Menu className="h-6 w-6" />
+        <div className="container mx-auto flex h-20 items-center justify-between px-4">
+          <Button variant="ghost" size="icon" onClick={() => setIsLeftDrawerOpen(true)} className="h-12 w-12">
+            <Menu className="h-8 w-8 !size-8" />
             <span className="sr-only">Open main menu</span>
           </Button>
           <Link href="/" className="flex items-center justify-center">
             <Image
-              src="/placeholder.svg?height=24&width=100"
-              alt="Honda Logo"
+              src="/honda-permata-logo/logo-hondapermata.svg"
+              alt="Honda Permata Serpong Logo"
               width={100}
-              height={24}
+              height={28}
               className="h-6 w-auto object-contain"
             />
           </Link>
-          <Button variant="ghost" size="icon" onClick={() => setIsRightDrawerOpen(true)}>
-            <Grid3x3 className="h-6 w-6" />
+          <Button variant="ghost" size="icon" onClick={() => setIsRightDrawerOpen(true)} className="h-12 w-12">
+            <Grid3x3 className="h-8 w-8 !size-8" />
             <span className="sr-only">Open car menu</span>
           </Button>
         </div>

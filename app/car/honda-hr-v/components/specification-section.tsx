@@ -31,7 +31,7 @@ const hrvVariants = [
       "Walk-Away Auto Lock",
       "Rear Seat Reminder",
     ],
-    image: "/placeholder.svg?height=400&width=600&text=Honda+HR-V+E+CVT",
+    image: "/honda-hr-v/Spesifikasi - New Honda HR-V E CVT.png",
   },
   {
     name: "New Honda HR-V E+ CVT",
@@ -46,7 +46,7 @@ const hrvVariants = [
       "Wireless Charging Console",
       "4 Speakers + 4 Tweeters",
     ],
-    image: "/placeholder.svg?height=400&width=600&text=Honda+HR-V+E+Plus+CVT",
+    image: "/honda-hr-v/spesifikasi - New Honda HR-V E+ CVT.png",
   },
   {
     name: "New Honda HR-V e:HEV",
@@ -67,7 +67,7 @@ const hrvVariants = [
       "Door Visor",
       "Exhaust Pipe Finisher",
     ],
-    image: "/placeholder.svg?height=400&width=600&text=Honda+HR-V+e:HEV",
+    image: "/honda-hr-v/spesifikasi - New Honda HR-V e-HEV.png",
   },
   {
     name: "New Honda HR-V RS e:HEV",
@@ -85,7 +85,7 @@ const hrvVariants = [
       "6 Airbags (Front, Side & Side Curtains)",
       "Auto Wiper",
     ],
-    image: "/placeholder.svg?height=400&width=600&text=Honda+HR-V+RS+e:HEV",
+    image: "/honda-hr-v/Spesifikasi - New Honda HR-V RS e-HEV.png",
   },
 ]
 
@@ -93,27 +93,37 @@ const hrvColors = [
   {
     name: "Sand Khaki Pearl Two Tone",
     code: "rgb(137, 127, 106)",
-    image: "/placeholder.svg?height=400&width=600&text=Sand+Khaki+Pearl+Two+Tone+Honda+HR-V",
+    image: "/honda-hr-v/New Honda HR-V E CVT - Sand Khaki Pearl Two Tone.png",
   },
   {
     name: "Platinum White Pearl",
     code: "rgb(234, 234, 233)",
-    image: "/placeholder.svg?height=400&width=600&text=Platinum+White+Pearl+Honda+HR-V",
+    image: "/honda-hr-v/New Honda HR-V E CVT - Platinum White Pearl.png",
   },
   {
     name: "Meteoroid Gray Metallic",
     code: "rgb(130, 131, 133)",
-    image: "/placeholder.svg?height=400&width=600&text=Meteoroid+Gray+Metallic+Honda+HR-V",
+    image: "/honda-hr-v/New Honda HR-V E CVT - Meteoroid Gray Metallic.png",
   },
   {
     name: "Crystal Black Pearl",
     code: "rgb(0, 0, 0)",
-    image: "/placeholder.svg?height=400&width=600&text=Crystal+Black+Pearl+Honda+HR-V",
+    image: "/honda-hr-v/New Honda HR-V E CVT - Crystal Black Pearl.png",
   },
   {
     name: "Sand Khaki Pearl",
     code: "rgb(137, 127, 106)",
-    image: "/placeholder.svg?height=400&width=600&text=Sand+Khaki+Pearl+Honda+HR-V",
+    image: "/honda-hr-v/New Honda HR-V E CVT - Sand Khaki Pearl.png",
+  },
+  {
+    name: "Ignite Red Metallic (Type RS)",
+    code: "rgb(204, 51, 51)",
+    image: "/honda-hr-v/New Honda HR-V RS e-HEV - Ignite Red Metallic (Type RS).png",
+  },
+  {
+    name: "Ignite Red Metallic Two Tone (Type RS)",
+    code: "rgb(204, 51, 51)",
+    image: "/honda-hr-v/New Honda HR-V RS e-HEV - Ignite Red Metallic Two Tone (Type RS).png",
   },
 ]
 

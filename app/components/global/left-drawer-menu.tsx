@@ -7,7 +7,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sh
 
 const menuItems = [
   { href: "/", label: "Beranda" },
-  { href: "/about", label: "About" },
+  { href: "/tentang", label: "Tentang" },
   { href: "/promo", label: "Promo" },
   { href: "/testimoni", label: "Testimoni" },
   { href: "/kontak", label: "Kontak" },
@@ -18,17 +18,23 @@ export function LeftDrawerMenu({ isOpen, setIsOpen }: { isOpen: boolean; setIsOp
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetContent side="left" className="w-[80vw] bg-white p-0">
         <SheetHeader className="border-b p-4">
-          <SheetTitle>
-            <Image src="/placeholder.svg?height=30&width=120" alt="Honda Logo" width={120} height={30} />
+          <SheetTitle className="flex justify-start">
+            <Image 
+              src="/honda-permata-logo/honda-logo-icon.webp" 
+              alt="Honda Logo" 
+              width={120} 
+              height={120} 
+              className="h-17 w-17 object-contain"
+            />
           </SheetTitle>
         </SheetHeader>
         <div className="flex h-full flex-col justify-between p-6">
-          <nav className="flex flex-col gap-4">
+          <nav className="flex flex-col gap-8 text-left">
             {menuItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-lg font-medium text-honda-gray-dark transition-colors hover:text-honda-red-primary"
+                className="text-xl font-medium text-honda-gray-dark transition-colors hover:text-honda-red-primary"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
@@ -38,11 +44,11 @@ export function LeftDrawerMenu({ isOpen, setIsOpen }: { isOpen: boolean; setIsOp
           <Button
             asChild
             variant="destructive"
-            size="lg"
-            className="w-full bg-honda-red-primary hover:bg-honda-red-dark"
+            size="default"
+            className="w-full bg-honda-red-primary text-sm hover:bg-honda-red-dark"
           >
             <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer">
-              <Phone className="mr-2 h-5 w-5" /> WhatsApp Elon Musk
+              <Phone className="mr-2 h-4 w-4" /> WhatsApp Elon Musk
             </a>
           </Button>
         </div>
