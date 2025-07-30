@@ -9,46 +9,41 @@ import { cn } from "@/lib/utils"
 
 const civicRsColors = [
   {
-    name: "Rallye Red",
+    name: "Canyon River Blue Metallic",
+    code: "#4682B4",
+    image: "/honda-civic-rs/Canyon River Blue Metallic.webp",
+  },
+  {
+    name: "Ignite Red Metallic",
     code: "#DC143C",
-    image: "/placeholder.svg?height=400&width=600&text=Rallye+Red+Honda+Civic+RS",
+    image: "/honda-civic-rs/Ignite Red Metallic.webp",
   },
   {
     name: "Crystal Black Pearl",
     code: "#000000",
-    image: "/placeholder.svg?height=400&width=600&text=Crystal+Black+Pearl+Honda+Civic+RS",
+    image: "/honda-civic-rs/Crystal Black Pearl.webp",
   },
   {
     name: "Platinum White Pearl",
     code: "#F8F8FF",
-    image: "/placeholder.svg?height=400&width=600&text=Platinum+White+Pearl+Honda+Civic+RS",
-  },
-  {
-    name: "Meteoroid Gray Metallic",
-    code: "#708090",
-    image: "/placeholder.svg?height=400&width=600&text=Meteoroid+Gray+Metallic+Honda+Civic+RS",
-  },
-  {
-    name: "Sonic Gray Pearl",
-    code: "#A9A9A9",
-    image: "/placeholder.svg?height=400&width=600&text=Sonic+Gray+Pearl+Honda+Civic+RS",
+    image: "/honda-civic-rs/Platinum White Pearl.webp",
   },
 ]
 
 const specifications = [
-  { label: "Mesin", value: "2.0L DOHC i-VTEC Engine + Electric Motor (203 PS)" },
-  { label: "Velg", value: '17" Sporty Black Matte Alloy Wheels' },
-  { label: "Cluster Meter", value: "10.2\" Interactive Cluster Meter with Customized Display" },
-  { label: "Display Audio", value: "9\" Advanced Capacitive Touchscreen Display Audio" },
-  { label: "Konektivitas", value: "Display Audio with Google built-in" },
-  { label: "Audio System", value: "12 Speakers BOSE" },
-  { label: "Keselamatan", value: "Honda Sensing" },
-  { label: "Koneksi", value: "Honda CONNECT" },
-  { label: "Kamera", value: "LaneWatch™" },
-  { label: "Auto Lock", value: "Walk Away Auto Lock" },
-  { label: "Reminder", value: "Rear Seat Reminder" },
-  { label: "Smart Key", value: "Honda Smart Key Card" },
-  { label: "Mode Berkendara", value: "4 Drive Mode (Normal, ECON, SPORT, Individual)" },
+  { label: "Engine", value: "2.0L DOHC i-VTEC Engine + Electric Motor (203 PS)" },
+  { label: "Wheels", value: '17" Sporty Black Matte Alloy Wheels' },
+  { label: "Instrument Cluster", value: "10.2\" Interactive Cluster Meter with Customized Display" },
+  { label: "Infotainment", value: "9\" Advanced Capacitive Touchscreen Display Audio" },
+  { label: "Audio System", value: "Display Audio with Google built-in" },
+  { label: "Speakers", value: "12 Speakers BOSE" },
+  { label: "Safety", value: "Honda Sensing" },
+  { label: "Connectivity", value: "Honda CONNECT" },
+  { label: "Camera System", value: "LaneWatch™" },
+  { label: "Convenience", value: "Walk Away Auto Lock" },
+  { label: "Safety Feature", value: "Rear Seat Reminder" },
+  { label: "Key System", value: "Honda Smart Key Card" },
+  { label: "Drive Modes", value: "4 Drive Mode (Normal, ECON, SPORT, Individual)" },
 ]
 
 export function SpecificationSection() {
@@ -66,12 +61,12 @@ export function SpecificationSection() {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold text-honda-gray-dark text-center mb-12">Honda Civic RS</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-honda-gray-dark text-center mb-12">New Honda Civic RS e:HEV</h2>
 
             <div className="relative mb-8">
               <Image
-                src="/placeholder.svg?height=400&width=600&text=Honda+Civic+RS+Side+Profile"
-                alt="Honda Civic RS"
+                src="/honda-civic-rs/civic-rs-spesifikasi.webp"
+                alt="New Honda Civic RS e:HEV Specifications - 2.0L Hybrid Engine 203 PS"
                 width={600}
                 height={400}
                 className="w-full h-auto rounded-lg shadow-lg mx-auto"
@@ -83,7 +78,7 @@ export function SpecificationSection() {
               size="lg"
               className="w-full max-w-sm mx-auto bg-honda-red-primary hover:bg-honda-red-dark text-white font-bold py-6 text-xl flex items-center justify-center gap-2"
             >
-              Rp 616.800.000 <ChevronRight className="h-5 w-5" />
+              Rp 699.000.000 <ChevronRight className="h-5 w-5" />
             </Button>
 
             <div className="space-y-6 mt-12 text-left">
@@ -111,7 +106,7 @@ export function SpecificationSection() {
             <DialogContent className="w-screen h-screen max-w-full max-h-full bg-white p-0 m-0 flex flex-col">
               <DialogHeader className="flex-shrink-0 p-4 border-b border-honda-gray-light relative">
                 <DialogTitle className="text-2xl font-bold text-honda-gray-dark text-left pl-4">
-                  Honda Civic RS
+                  New Honda Civic RS e:HEV
                 </DialogTitle>
                 <DialogClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
                   <span className="sr-only">Close</span>
@@ -203,7 +198,7 @@ export function SpecificationSection() {
                   <h3 className="text-xl font-bold text-honda-red-primary mb-4">DETAIL</h3>
                   <div className="grid grid-cols-2 gap-y-2 text-honda-gray-dark">
                     <span className="font-medium">Variant</span>
-                    <span>Honda Civic RS</span>
+                    <span>New Honda Civic RS e:HEV</span>
                     <span className="font-medium">Color</span>
                     <span className="flex items-center gap-2">
                       {selectedColor.name}

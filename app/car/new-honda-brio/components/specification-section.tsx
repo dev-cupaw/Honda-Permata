@@ -7,115 +7,255 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose } from "@
 import { ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
-import type { CarouselApi } from "@/components/ui/carousel" // Import type for CarouselApi
+import type { CarouselApi } from "@/components/ui/carousel"
 
-const brioColors = [
-  {
-    name: "Taffeta White",
-    code: "#F8F8FF",
-    image: "/placeholder.svg?height=400&width=600",
-  },
-  {
-    name: "Crystal Black Pearl",
-    code: "#000000",
-    image: "/placeholder.svg?height=400&width=600",
-  },
-  {
-    name: "Modern Steel Metallic",
-    code: "#708090",
-    image: "/placeholder.svg?height=400&width=600",
-  },
-  {
-    name: "Carnival Yellow",
-    code: "#FFD700",
-    image: "/placeholder.svg?height=400&width=600",
-  },
-  {
-    name: "Phoenix Orange Pearl",
-    code: "#FF4500",
-    image: "/placeholder.svg?height=400&width=600",
-  },
-]
+// Color configurations for each variant
+const brioColorsByVariant = {
+  "Honda Brio Satya S M/T": [
+    {
+      name: "Electric Lime Metallic",
+      code: "#32CD32",
+      image: "/honda brio/Honda Brio Satya S M-T - Electric Lime Metallic.webp",
+    },
+    {
+      name: "Rallye Red (Satya)",
+      code: "#DC143C",
+      image: "/honda brio/Honda Brio Satya S M-T - Rallye Red (Satya).webp",
+    },
+    {
+      name: "Taffeta White (Satya)",
+      code: "#F8F8FF",
+      image: "/honda brio/Honda Brio Satya S M-T - Taffeta White (Satya).webp",
+    },
+    {
+      name: "Meteroid Gray Metallic",
+      code: "#708090",
+      image: "/honda brio/Honda Brio Satya S M-T - Meteroid Gray Metallic.webp",
+    },
+    {
+      name: "Crystal Black Pearl",
+      code: "#000000",
+      image: "/honda brio/Honda Brio Satya S M-T - Crystal Black Pearl.webp",
+    },
+  ],
+  "Honda Brio Satya E M/T": [
+    {
+      name: "Electric Lime Metallic",
+      code: "#32CD32",
+      image: "/honda brio/Honda Brio Satya E M-T - Electric Lime Metallic.webp",
+    },
+    {
+      name: "Rallye Red (Satya)",
+      code: "#DC143C",
+      image: "/honda brio/Honda Brio Satya E M-T - Rallye Red (Satya).webp",
+    },
+    {
+      name: "Taffeta White (Satya)",
+      code: "#F8F8FF",
+      image: "/honda brio/Honda Brio Satya E M-T - Taffeta White (Satya).webp",
+    },
+    {
+      name: "Meteroid Gray Metallic",
+      code: "#708090",
+      image: "/honda brio/Honda Brio Satya E M-T - Meteroid Gray Metallic.webp",
+    },
+    {
+      name: "Crystal Black Pearl",
+      code: "#000000",
+      image: "/honda brio/Honda Brio Satya E M-T - Crystal Black Pearl.webp",
+    },
+  ],
+  "Honda Brio Satya E CVT": [
+    {
+      name: "Electric Lime Metallic",
+      code: "#32CD32",
+      image: "/honda brio/Honda Brio Satya E CVT - Electric Lime Metallic.webp",
+    },
+    {
+      name: "Rallye Red (Satya)",
+      code: "#DC143C",
+      image: "/honda brio/Honda Brio Satya E CVT - Rallye Red (Satya).webp",
+    },
+    {
+      name: "Taffeta White (Satya)",
+      code: "#F8F8FF",
+      image: "/honda brio/Honda Brio Satya E CVT - Taffeta White (Satya).webp",
+    },
+    {
+      name: "Meteroid Gray Metallic",
+      code: "#708090",
+      image: "/honda brio/Honda Brio Satya E CVT - Meteroid Gray Metallic.webp",
+    },
+    {
+      name: "Crystal Black Pearl",
+      code: "#000000",
+      image: "/honda brio/Honda Brio Satya E CVT - Crystal Black Pearl.webp",
+    },
+  ],
+  "Honda Brio RS M/T": [
+    {
+      name: "Electric Lime Metallic",
+      code: "#32CD32",
+      image: "/honda brio/Honda Brio RS M-T - Electric Lime Metallic.webp",
+    },
+    {
+      name: "Meteroid Gray Metallic",
+      code: "#708090",
+      image: "/honda brio/Honda Brio RS M-T - Meteroid Gray Metallic.webp",
+    },
+    {
+      name: "Crystal Black Pearl",
+      code: "#000000",
+      image: "/honda brio/Honda Brio RS M-T - Crystal Black Pearl.webp",
+    },
+    {
+      name: "Phoenix Orange Pearl Two Tone (RS)",
+      code: "#FF4500",
+      image: "/honda brio/Honda Brio RS M-T - Phoenix Orange Pearl Two Tone (RS).webp",
+    },
+    {
+      name: "Stellar Diamond Pearl (RS)",
+      code: "#E6E6FA",
+      image: "/honda brio/Honda Brio RS M-T - Stellar Diamond Pearl (RS).webp",
+    },
+  ],
+  "Honda Brio RS CVT": [
+    {
+      name: "Electric Lime Metallic",
+      code: "#32CD32",
+      image: "/honda brio/Honda Brio RS CVT - Electric Lime Metallic.webp",
+    },
+    {
+      name: "Meteroid Gray Metallic",
+      code: "#708090",
+      image: "/honda brio/Honda Brio RS CVT - Meteroid Gray Metallic.webp",
+    },
+    {
+      name: "Crystal Black Pearl",
+      code: "#000000",
+      image: "/honda brio/Honda Brio RS CVT - Crystal Black Pearl.webp",
+    },
+    {
+      name: "Phoenix Orange Pearl Two Tone (RS)",
+      code: "#FF4500",
+      image: "/honda brio/Honda Brio RS CVT - Phoenix Orange Pearl Two Tone (RS).webp",
+    },
+    {
+      name: "Stellar Diamond Pearl (RS)",
+      code: "#E6E6FA",
+      image: "/honda brio/Honda Brio RS CVT - Stellar Diamond Pearl (RS).webp",
+    },
+  ],
+}
 
 const brioVariants = [
   {
-    name: "New Honda Brio S M/T",
-    price: "Rp167.900.000",
+    name: "Honda Brio Satya S M/T",
+    price: "Rp170.400.000",
     specs: [
-      "1.2L SOHC i-VTEC Engine",
-      "5-Speed Manual Transmission",
-      "14” Steel Wheels",
-      "Halogen Headlights",
-      "2DIN Audio System",
-      "Dual Front SRS Airbags",
+      "1.2L i-VTEC 90PS with 4 cylinder",
+      "5 M/T",
+      "Digital A/C",
+      "Chrome Front Grille",
+      "14\" Trim Wheels",
+      "Black & Gray Interior Color with New Fabric Seat Pattern",
+      "Auto Up/Down Windows with Anti Pinch",
+      "2nd Row Adjustable Headrest",
+      "Tilt Steering",
+      "Electric Power Steering",
       "ABS + EBD",
+      "Parking Sensor",
+      "7\" Touchscreen Display Audio, USB Port, AM/FM Radio, Bluetooth, Hands-free Telephone, Screen Mirroring",
     ],
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/honda brio/Spesifikasi-Honda Brio Satya S M-T.webp",
   },
   {
-    name: "New Honda Brio E M/T",
-    price: "Rp182.800.000",
+    name: "Honda Brio Satya E M/T",
+    price: "Rp185.500.000",
     specs: [
-      "Memiliki fitur dari Brio S M/T, ditambah:",
-      "14” Alloy Wheels",
-      "Power Retractable Door Mirror",
+      "Memiliki semua fitur di tipe S, ditambah:",
+      "Headlamp with LED DRL",
+      "14\" Two Tone Alloy Wheels",
       "Rear Wiper",
-      "Seatback Pocket",
-      "Alarm System",
-    ],
-    image: "/placeholder.svg?height=400&width=600",
-  },
-  {
-    name: "New Honda Brio E CVT",
-    price: "Rp198.300.000",
-    specs: [
-      "Memiliki fitur dari Brio E M/T, ditambah:",
-      "CVT Transmission with Earth Dreams Technology",
-      "Digital AC",
+      "Audio Steering Switch with Illumination",
       "Auto Door Lock by Speed",
+      "Alarm System",
+      "Shifter Illumination",
     ],
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/honda brio/Spesifikasi Honda Brio Satya E M-T.webp",
   },
   {
-    name: "New Honda Brio RS M/T",
-    price: "Rp212.600.000",
+    name: "Honda Brio Satya E CVT",
+    price: "Rp202.500.000",
     specs: [
-      "Memiliki fitur dari Brio E CVT, ditambah:",
-      "Stylish RS Aero Kit",
-      "15” Sporty Alloy Wheels",
-      "LED Headlights with LED Daytime Running Lights",
-      "Black Front Grille",
-      "Side Under Spoiler",
-      "Rear Bumper with Diffuser",
-      "RS Emblem",
-      "6.2” Touchscreen Display Audio",
-      "Tweeter Speakers",
-      "Sporty Dashboard Design",
-      "Orange Stitching on Seats",
+      "Memiliki semua fitur di tipe S, ditambah:",
+      "Headlamp with LED DRL",
+      "14\" Two Tone Alloy Wheels",
+      "Rear Wiper",
+      "Audio Steering Switch with Illumination",
+      "Auto Door Lock by Speed",
+      "Alarm System",
+      "Shifter Illumination",
     ],
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/honda brio/Spesifikasi Honda Brio Satya E CVT.webp",
   },
   {
-    name: "New Honda Brio RS CVT",
-    price: "Rp228.400.000",
+    name: "Honda Brio RS M/T",
+    price: "Rp248.200.000",
     specs: [
-      "Memiliki fitur dari Brio RS M/T, ditambah:",
-      "CVT Transmission with Earth Dreams Technology",
-      "Paddle Shift",
-      "Cruise Control",
+      "Memiliki semua fitur di tipe E, ditambah:",
+      "LED Headlights with LED Day Running Light",
+      "Dark Chrome Front Grille with New RS Emblem",
+      "LED Fog Lights",
+      "One Push Ignition System",
       "Smart Entry System",
-      "Engine Start/Stop Button",
+      "1 Row Adjustable Headrest",
+      "Power Retractable Door Mirror with LED Turning Signal",
+      "15\" Dark Chrome Alloy Wheels",
+      "Smoked Rear Combi Lamp",
+      "Black Color Interior with Orange Stitch",
+      "Tailgate Spoiler with LED High Mount Stop Lamp",
+      "Rear Bumper with Diffuser",
+      "Sporty Dashboard Panel Pattern with Red & Gray Lining",
+      "Sporty Meter Cluster with Multi Information LCD Display",
+      "7\" Advanced Capacitive Touchscreen Display Audio with USB Port, AM/FM Radio, Bluetooth & HFT, Screen Mirroring, and Smartphone Connection",
+      "Tweeter Speakers",
+      "*Tambahan harga Rp 2,500,000 untuk two tone color",
     ],
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/honda brio/Spesifikasi Honda Brio RS M-T.webp",
+  },
+  {
+    name: "Honda Brio RS CVT",
+    price: "Rp258.200.000",
+    specs: [
+      "Memiliki semua fitur di tipe E, ditambah:",
+      "LED Headlights with LED Day Running Light",
+      "Dark Chrome Front Grille with New RS Emblem",
+      "LED Fog Lights",
+      "One Push Ignition System",
+      "Smart Entry System",
+      "1 Row Adjustable Headrest",
+      "Power Retractable Door Mirror with LED Turning Signal",
+      "15\" Dark Chrome Alloy Wheels",
+      "Smoked Rear Combi Lamp",
+      "Black Color Interior with Orange Stitch",
+      "Tailgate Spoiler with LED High Mount Stop Lamp",
+      "Rear Bumper with Diffuser",
+      "Sporty Dashboard Panel Pattern with Red & Gray Lining",
+      "Sporty Meter Cluster with Multi Information LCD Display",
+      "7\" Advanced Capacitive Touchscreen Display Audio with USB Port, AM/FM Radio, Bluetooth & HFT, Screen Mirroring, and Smartphone Connection",
+      "Tweeter Speakers",
+      "*Tambahan harga Rp 2,500,000 untuk two tone color",
+    ],
+    image: "/honda brio/Spesifikasi - Honda Brio RS CVT.webp",
   },
 ]
 
 export function SpecificationSection() {
   const [isColorModalOpen, setIsColorModalOpen] = useState(false)
-  const [selectedColor, setSelectedColor] = useState(brioColors[0])
   const [currentStep, setCurrentStep] = useState(1)
   const [api, setApi] = useState<CarouselApi>()
-  const [currentVariantIndex, setCurrentVariantIndex] = useState(0) // State to track current carousel item
+  const [currentVariantIndex, setCurrentVariantIndex] = useState(0)
 
   const totalSteps = 4
 
@@ -133,6 +273,15 @@ export function SpecificationSection() {
   }, [api])
 
   const currentVariant = brioVariants[currentVariantIndex]
+  const currentColors = brioColorsByVariant[currentVariant?.name as keyof typeof brioColorsByVariant] || []
+  const [selectedColor, setSelectedColor] = useState(currentColors[0])
+
+  // Update selected color when variant changes
+  useEffect(() => {
+    if (currentColors.length > 0) {
+      setSelectedColor(currentColors[0])
+    }
+  }, [currentVariantIndex, currentColors])
 
   return (
     <section className="py-16 lg:py-24 bg-white">
@@ -143,7 +292,7 @@ export function SpecificationSection() {
               align: "start",
               loop: false,
             }}
-            setApi={setApi} // Set the API instance
+            setApi={setApi}
             className="w-full"
           >
             <CarouselContent>
@@ -156,7 +305,7 @@ export function SpecificationSection() {
                         <div className="relative mb-6 w-full">
                           <Image
                             src={variant.image || "/placeholder.svg"}
-                            alt={variant.name}
+                            alt={`${variant.name} Specifications`}
                             width={600}
                             height={400}
                             className="w-full h-auto rounded-lg shadow-lg mx-auto"
@@ -215,8 +364,8 @@ export function SpecificationSection() {
               {/* Car Image */}
               <div className="relative w-full max-w-xl aspect-[3/2] mb-8">
                 <Image
-                  src={selectedColor.image || "/placeholder.svg"}
-                  alt={`${currentVariant?.name || "Honda Brio"} - ${selectedColor.name}`}
+                  src={selectedColor?.image || "/placeholder.svg"}
+                  alt={`${currentVariant?.name || "Honda Brio"} - ${selectedColor?.name || "Default Color"}`}
                   fill
                   className="object-contain"
                 />
@@ -260,21 +409,20 @@ export function SpecificationSection() {
 
               {/* Color Swatches */}
               <div className="flex flex-wrap justify-center gap-4 mb-6">
-                {brioColors.map((color) => (
+                {currentColors.map((color) => (
                   <button
                     key={color.name}
                     onClick={() => setSelectedColor(color)}
-                    className={`w-12 h-12 rounded-full transition-all duration-200 border ${
-                      selectedColor.name === color.name
-                        ? "border-honda-red-primary scale-110"
-                        : "border-gray-300 hover:border-honda-red-light"
-                    }`}
+                    className={`w-12 h-12 rounded-full transition-all duration-200 border ${selectedColor?.name === color.name
+                      ? "border-honda-red-primary scale-110"
+                      : "border-gray-300 hover:border-honda-red-light"
+                      }`}
                     style={{ backgroundColor: color.code }}
                     title={color.name}
                   />
                 ))}
               </div>
-              <p className="text-honda-gray-dark font-medium text-lg mb-8">{selectedColor.name}</p>
+              <p className="text-honda-gray-dark font-medium text-lg mb-8">{selectedColor?.name || "Pilih Warna"}</p>
 
               {/* Navigation Buttons */}
               <div className="flex justify-between w-full max-w-md mb-8">
@@ -304,11 +452,13 @@ export function SpecificationSection() {
                   <span>{currentVariant?.name || "N/A"}</span>
                   <span className="font-medium">Color</span>
                   <span className="flex items-center gap-2">
-                    {selectedColor.name}
-                    <span
-                      className="w-4 h-4 rounded-full border border-gray-300"
-                      style={{ backgroundColor: selectedColor.code }}
-                    ></span>
+                    {selectedColor?.name || "N/A"}
+                    {selectedColor && (
+                      <span
+                        className="w-4 h-4 rounded-full border border-gray-300"
+                        style={{ backgroundColor: selectedColor.code }}
+                      ></span>
+                    )}
                   </span>
                   <span className="font-medium">Maintenance</span>
                   <span>—</span>

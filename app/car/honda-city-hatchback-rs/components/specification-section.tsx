@@ -9,53 +9,60 @@ import { cn } from "@/lib/utils"
 
 const cityHatchbackColors = [
   {
-    name: "Rallye Red",
-    code: "#DC143C",
-    image: "/placeholder.svg?height=400&width=600&text=Rallye+Red+Honda+City+Hatchback+RS",
+    name: "Electric Lime Metallic",
+    code: "#32CD32",
+    image: "/honda-city-hatchback-rs/Electric Lime Metallic.webp",
+  },
+  {
+    name: "Phoenix Orange Pearl",
+    code: "#FF4500",
+    image: "/honda-city-hatchback-rs/Phoenix Orange Pearl.webp",
   },
   {
     name: "Crystal Black Pearl",
     code: "#000000",
-    image: "/placeholder.svg?height=400&width=600&text=Crystal+Black+Pearl+Honda+City+Hatchback+RS",
-  },
-  {
-    name: "Platinum White Pearl",
-    code: "#F8F8FF",
-    image: "/placeholder.svg?height=400&width=600&text=Platinum+White+Pearl+Honda+City+Hatchback+RS",
+    image: "/honda-city-hatchback-rs/Crystal Black Pearl.webp",
   },
   {
     name: "Meteoroid Gray Metallic",
     code: "#708090",
-    image: "/placeholder.svg?height=400&width=600&text=Meteoroid+Gray+Metallic+Honda+City+Hatchback+RS",
+    image: "/honda-city-hatchback-rs/Meteoroid Gray Metallic.webp",
   },
   {
-    name: "Ignite Red Metallic",
-    code: "#B22222",
-    image: "/placeholder.svg?height=400&width=600&text=Ignite+Red+Metallic+Honda+City+Hatchback+RS",
+    name: "Platinum White Pearl",
+    code: "#F8F8FF",
+    image: "/honda-city-hatchback-rs/Platinum White Pearl.webp",
+  },
+  {
+    name: "Rallye Red",
+    code: "#DC143C",
+    image: "/honda-city-hatchback-rs/Rallye Red.webp",
   },
 ]
 
 const specifications = [
-  { label: "Mesin", value: "1.5L DOHC i-VTEC 4-Cylinder" },
-  { label: "Tenaga Maksimum", value: "121 PS @ 6,600 rpm" },
-  { label: "Torsi Maksimum", value: "145 Nm @ 4,300 rpm" },
-  { label: "Transmisi", value: "CVT (Continuously Variable Transmission)" },
-  { label: "Sistem Penggerak", value: "Front Wheel Drive (FWD)" },
-  { label: "Lampu Depan", value: "Full LED Headlights with LED DRL" },
-  { label: "Velg", value: '16" Alloy Wheels' },
-  { label: "Rem Depan", value: "Ventilated Disc Brakes" },
-  { label: "Rem Belakang", value: "Drum Brakes" },
-  { label: "Suspensi Depan", value: "MacPherson Strut" },
-  { label: "Suspensi Belakang", value: "Torsion Beam" },
-  { label: "Audio System", value: '8" Touchscreen Display Audio' },
-  { label: "Konektivitas", value: "Apple CarPlay & Android Auto" },
-  { label: "AC", value: "Manual Air Conditioning" },
-  { label: "Kursi", value: "Sport Seats with Red Accents" },
-  { label: "Keselamatan", value: "Honda SENSING" },
-  { label: "Airbag", value: "6 Airbags" },
-  { label: "Stabilitas", value: "Vehicle Stability Assist (VSA)" },
-  { label: "Bantuan Tanjakan", value: "Hill Start Assist (HSA)" },
-  { label: "Konfigurasi Kursi", value: "Ultra Seat (60:40 Split)" },
+  { label: "Engine", value: "1.5L DOHC i-VTEC Engine (121 PS)" },
+  { label: "Transmission", value: "CVT with Earth Dreams Technology" },
+  { label: "Headlights", value: "Full LED Headlights with LED DRL" },
+  { label: "Fog Lights", value: "LED Fog Light" },
+  { label: "Side Mirrors", value: "Black Door Mirror with LED Turning Signal" },
+  { label: "Wheels", value: 'New 16" Sporty Alloy Wheels Design' },
+  { label: "Ignition", value: "One Push Ignition System" },
+  { label: "Climate Control", value: "Auto A/C with Red Illumination" },
+  { label: "Seats", value: "Suede-Fabric Leather Combi Trimmed Seats" },
+  { label: "Infotainment", value: '8" Capacitive Touchscreen Display Audio' },
+  { label: "Audio System", value: "8 Speakers" },
+  { label: "Power Outlet", value: "2nd Row Power Outlet" },
+  { label: "Camera System", value: "Multi-Angle Rear View Camera" },
+  { label: "Remote Start", value: "Remote Engine Start" },
+  { label: "Braking System", value: "ABS + EBD + BA" },
+  { label: "Safety Feature", value: "Brake Override System" },
+  { label: "Safety Suite", value: "Honda SENSING" },
+  { label: "Connectivity", value: "Honda CONNECT" },
+  { label: "Instrument Cluster", value: '7" Interactive TFT Meter Cluster' },
+  { label: "Camera System", value: "Honda LaneWatch" },
+  { label: "Headlight Feature", value: "Auto Headlight" },
+  { label: "Convenience", value: "Walk-Away Auto Lock" },
 ]
 
 export function SpecificationSection() {
@@ -74,13 +81,13 @@ export function SpecificationSection() {
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-3xl lg:text-4xl font-bold text-honda-gray-dark text-center mb-12">
-              Honda City Hatchback RS
+              New Honda City RS Hatchback CVT
             </h2>
 
             <div className="relative mb-8">
               <Image
-                src="/placeholder.svg?height=400&width=600&text=Honda+City+Hatchback+RS+Side+Profile"
-                alt="Honda City Hatchback RS"
+                src="/honda-city-hatchback-rs/spesifikasi.webp"
+                alt="New Honda City RS Hatchback CVT Specifications - 1.5L i-VTEC Engine 121 PS"
                 width={600}
                 height={400}
                 className="w-full h-auto rounded-lg shadow-lg mx-auto"
@@ -92,7 +99,7 @@ export function SpecificationSection() {
               size="lg"
               className="w-full max-w-sm mx-auto bg-honda-red-primary hover:bg-honda-red-dark text-white font-bold py-6 text-xl flex items-center justify-center gap-2"
             >
-              Rp 352.500.000 <ChevronRight className="h-5 w-5" />
+              Rp 384.500.000 <ChevronRight className="h-5 w-5" />
             </Button>
 
             <div className="space-y-6 mt-12 text-left">
@@ -120,7 +127,7 @@ export function SpecificationSection() {
             <DialogContent className="w-screen h-screen max-w-full max-h-full bg-white p-0 m-0 flex flex-col">
               <DialogHeader className="flex-shrink-0 p-4 border-b border-honda-gray-light relative">
                 <DialogTitle className="text-2xl font-bold text-honda-gray-dark text-left pl-4">
-                  Honda City Hatchback RS
+                  New Honda City RS Hatchback CVT
                 </DialogTitle>
                 <DialogClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
                   <span className="sr-only">Close</span>
@@ -212,7 +219,7 @@ export function SpecificationSection() {
                   <h3 className="text-xl font-bold text-honda-red-primary mb-4">DETAIL</h3>
                   <div className="grid grid-cols-2 gap-y-2 text-honda-gray-dark">
                     <span className="font-medium">Variant</span>
-                    <span>Honda City Hatchback RS</span>
+                    <span>New Honda City RS Hatchback CVT</span>
                     <span className="font-medium">Color</span>
                     <span className="flex items-center gap-2">
                       {selectedColor.name}

@@ -25,6 +25,7 @@ export function LeftDrawerMenu({ isOpen, setIsOpen }: { isOpen: boolean; setIsOp
               width={120} 
               height={120} 
               className="h-17 w-17 object-contain"
+              priority
             />
           </SheetTitle>
         </SheetHeader>

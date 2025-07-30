@@ -7,8 +7,8 @@ export function HeroSection() {
   return (
     <section className="relative h-[60vh] lg:h-screen w-full overflow-hidden">
       <Image
-        src="/placeholder.svg?height=1080&width=1920&text=New+Honda+Brio+Hero"
-        alt="New Honda Brio"
+        src="/honda brio/banner-utama.webp"
+        alt="New Honda Brio - Compact City Car"
         fill
         className="object-cover"
         priority

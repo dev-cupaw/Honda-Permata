@@ -9,39 +9,38 @@ import { Button } from "@/components/ui/button"
 const features = [
   {
     id: 1,
-    image: "/placeholder.svg?height=300&width=400&text=Civic+RS+Turbo+Engine",
-    title: "VTEC Turbo 1.5L Engine",
+    image: "/honda-civic-rs/tata-letak-1211-1.webp",
+    title: "2.0L DOHC i-VTEC Engine + Electric Motor",
     description:
-      "Mesin VTEC Turbo 1.5L menghasilkan tenaga 178 PS dan torsi 240 Nm, memberikan akselerasi yang responsif dan performa yang bertenaga. Teknologi turbocharger memastikan efisiensi bahan bakar optimal tanpa mengorbankan performa.",
-    detailLink: "/car/honda-civic-rs/engine",
+      "Mesin hybrid 2.0L DOHC i-VTEC Engine + Electric Motor menghasilkan tenaga 203 PS yang responsif dan efisiensi bahan bakar optimal. Teknologi hybrid memastikan performa bertenaga dengan emisi rendah untuk pengalaman berkendara yang ramah lingkungan.",
   },
   {
     id: 2,
-    image: "/placeholder.svg?height=300&width=400&text=Civic+RS+Sporty+Design",
-    title: "Desain Sporty Aerodinamis",
+    image: "/honda-civic-rs/tata-letak-1211-2.webp",
+    title: "17\" Sporty Black Matte Alloy Wheels",
     description:
-      "Eksterior dengan garis bodi yang aerodinamis, front grille agresif, dan detail sporty RS yang menawan. LED headlights dengan DRL signature memberikan karakter yang kuat dan modern di segala kondisi.",
+      "Velg alloy 17 inci dengan finishing sporty black matte memberikan tampilan agresif dan performa handling yang optimal. Desain aerodinamis mendukung stabilitas berkendara di berbagai kondisi jalan.",
   },
   {
     id: 3,
-    image: "/placeholder.svg?height=300&width=400&text=Civic+RS+Premium+Interior",
-    title: "Interior Premium Sport",
+    image: "/honda-civic-rs/tata-letak-1211-3.webp",
+    title: "10.2\" Interactive Cluster Meter",
     description:
-      "Kabin mewah dengan material premium, kursi sport dengan aksen merah, dan dashboard modern. Sistem infotainment 9 inci dengan konektivitas smartphone lengkap untuk pengalaman berkendara yang nyaman.",
+      "Cluster meter interaktif 10.2 inci dengan customized display memberikan informasi lengkap tentang performa kendaraan. Tampilan yang dapat disesuaikan memudahkan pengemudi memantau berbagai parameter berkendara.",
   },
   {
     id: 4,
-    image: "/placeholder.svg?height=300&width=400&text=Civic+RS+Honda+SENSING",
-    title: "Honda SENSING Suite",
+    image: "/honda-civic-rs/tata-letak-1211-4.webp",
+    title: "9\" Advanced Capacitive Touchscreen",
     description:
-      "Paket lengkap teknologi keselamatan aktif termasuk Collision Mitigation Braking, Lane Keeping Assist, Adaptive Cruise Control, dan Road Departure Mitigation untuk perlindungan maksimal.",
+      "Sistem infotainment 9 inci dengan teknologi capacitive touchscreen dan Display Audio with Google built-in. Konektivitas lengkap dengan smartphone dan akses mudah ke berbagai aplikasi untuk pengalaman berkendara yang terhubung.",
   },
   {
     id: 5,
-    image: "/placeholder.svg?height=300&width=400&text=Civic+RS+CVT+Transmission",
-    title: "CVT with Paddle Shifters",
+    image: "/honda-civic-rs/tata-letak-1211-5.webp",
+    title: "12 Speakers BOSE Audio System",
     description:
-      "Transmisi CVT yang halus dilengkapi paddle shifters untuk kontrol manual yang responsif. Mode berkendara Sport memberikan karakter yang lebih agresif sesuai dengan DNA sporty Civic RS.",
+      "Sistem audio premium BOSE dengan 12 speaker memberikan kualitas suara yang jernih dan immersive. Teknologi audio canggih menciptakan pengalaman mendengarkan musik yang luar biasa di dalam kabin.",
   },
 ]
 

@@ -2,46 +2,44 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { Plus, X } from "lucide-react" // X is now used for the internal close button
-import Link from "next/link" // Import Link for the "Selengkapnya" button
-import { Button } from "@/components/ui/button" // Import Button for the close button
+import { Plus, X } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 const features = [
   {
     id: 1,
-    image: "/placeholder.svg?height=300&width=400&text=Accord+Interior+Luxury",
-    title: "Interior Mewah & Ergonomis",
+    image: "/all-new-honda-accord/tata-letak-1211-1.webp",
+    title: "Hybrid e:HEV Technology",
     description:
-      "Kabin All New Honda Accord dirancang dengan material premium dan sentuhan akhir yang elegan, menciptakan suasana mewah dan nyaman untuk setiap perjalanan Anda.",
-    detailLink: "/car/all-new-honda-accord/interior", // Example link for "Selengkapnya"
+      "Teknologi hybrid e:HEV terdepan dengan mesin 2.0L DOHC i-VTEC yang dikombinasikan dengan motor listrik, menghasilkan performa optimal dan efisiensi bahan bakar yang luar biasa.",
   },
   {
     id: 2,
-    image: "/placeholder.svg?height=300&width=400&text=Accord+Turbo+Engine",
-    title: "Performa Turbo Responsif",
+    image: "/all-new-honda-accord/tata-letak-1211-2.webp",
+    title: "Premium Interior Design",
     description:
-      "Ditenagai mesin 1.5L VTEC Turbo yang menghasilkan tenaga besar dan torsi instan, memberikan akselerasi yang responsif dan pengalaman berkendara yang dinamis.",
+      "Interior mewah dengan material premium, multicolor ambient light, dan panoramic sunroof yang menciptakan suasana berkendara yang elegan dan nyaman.",
   },
   {
     id: 3,
-    image: "/placeholder.svg?height=300&width=400&text=Accord+Honda+SENSING",
-    title: "Honda SENSING Terdepan",
+    image: "/all-new-honda-accord/tata-letak-1211-3.webp",
+    title: "Advanced Connectivity",
     description:
-      "Dilengkapi paket fitur keselamatan aktif Honda SENSING yang komprehensif, memberikan perlindungan maksimal dan ketenangan pikiran di setiap perjalanan.",
+      "Sistem infotainment 12.3\" dengan Google built-in, head-up display 11.5\", dan Honda CONNECT dengan digital key untuk pengalaman berkendara yang terhubung.",
   },
   {
     id: 4,
-    image: "/placeholder.svg?height=300&width=400&text=Accord+Advanced+Tech",
-    title: "Teknologi Canggih",
+    image: "/all-new-honda-accord/tata-letak-1211-4.webp",
+    title: "Honda SENSING™ Safety",
     description:
-      "Sistem infotainment layar sentuh besar dengan konektivitas smartphone nirkabel, head-up display, dan fitur-fitur modern lainnya untuk kenyamanan maksimal.",
+      "Paket keselamatan Honda SENSING™ yang komprehensif dengan multi-view camera assist dan berbagai fitur keselamatan aktif untuk perlindungan maksimal.",
   },
   {
     id: 5,
-    image: "/placeholder.svg?height=300&width=400&text=Accord+Sleek+Design",
-    title: "Desain Eksterior Elegan",
+    image: "/all-new-honda-accord/tata-letak-1211-5.webp",
+    title: "Stylish RS Aero Kit",
     description:
-      "Garis bodi yang aerodinamis, lampu LED penuh, dan velg alloy sporty menciptakan tampilan yang menawan dan berkelas, menarik perhatian di setiap jalan.",
+      "Desain eksterior yang sporty dengan RS Aero Kit, full LED headlights dengan sequential turning signal, dan tampilan yang menawan di setiap sudut.",
   },
 ]
 
@@ -52,7 +50,7 @@ export function FeatureGridSection() {
     <section id="features" className="py-16 lg:py-24 bg-honda-light">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl lg:text-4xl font-bold text-honda-gray-dark text-center mb-12">
-          Fitur Unggulan All New Honda Accord
+          Fitur Unggulan All New Honda Accord 2.0L RS e:HEV
         </h2>
 
         <div className="grid grid-cols-1 gap-4 lg:gap-6 max-w-6xl mx-auto">
@@ -90,11 +88,6 @@ export function FeatureGridSection() {
                 }`}
               >
                 <p className="text-white text-lg leading-relaxed mb-4">{features[0].description}</p>
-                {features[0].detailLink && (
-                  <Link href={features[0].detailLink} className="text-honda-red-primary hover:underline text-base">
-                    Selengkapnya tentang Interior →
-                  </Link>
-                )}
                 <Button
                   variant="destructive"
                   size="icon"

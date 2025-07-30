@@ -11,50 +11,36 @@ const cityColors = [
   {
     name: "Platinum White Pearl",
     code: "#F8F8FF",
-    image: "/placeholder.svg?height=400&width=600&text=Platinum+White+Pearl+New+Honda+City",
+    image: "/new-honda-city/Platinum White Pearl.webp",
+  },
+  {
+    name: "Meteroid Gary Metallic",
+    code: "#708090",
+    image: "/new-honda-city/Meteroid Gary Metallic.webp",
   },
   {
     name: "Crystal Black Pearl",
     code: "#000000",
-    image: "/placeholder.svg?height=400&width=600&text=Crystal+Black+Pearl+New+Honda+City",
-  },
-  {
-    name: "Meteoroid Gray Metallic",
-    code: "#708090",
-    image: "/placeholder.svg?height=400&width=600&text=Meteoroid+Gray+Metallic+New+Honda+City",
-  },
-  {
-    name: "Lunar Silver Metallic",
-    code: "#C0C0C0",
-    image: "/placeholder.svg?height=400&width=600&text=Lunar+Silver+Metallic+New+Honda+City",
-  },
-  {
-    name: "Obsidian Blue Pearl",
-    code: "#151B54",
-    image: "/placeholder.svg?height=400&width=600&text=Obsidian+Blue+Pearl+New+Honda+City",
+    image: "/new-honda-city/Crystal Black Pearl.webp",
   },
 ]
 
 const specifications = [
-  { label: "Mesin", value: "1.5L DOHC i-VTEC 4-Cylinder" },
-  { label: "Tenaga Maksimum", value: "121 PS @ 6,600 rpm" },
-  { label: "Torsi Maksimum", value: "145 Nm @ 4,300 rpm" },
-  { label: "Transmisi", value: "CVT (Continuously Variable Transmission)" },
-  { label: "Sistem Penggerak", value: "Front Wheel Drive (FWD)" },
-  { label: "Lampu Depan", value: "Full LED Headlights with LED DRL" },
-  { label: "Velg", value: '16" Alloy Wheels' },
-  { label: "Rem Depan", value: "Ventilated Disc Brakes" },
-  { label: "Rem Belakang", value: "Drum Brakes" },
-  { label: "Suspensi Depan", value: "MacPherson Strut" },
-  { label: "Suspensi Belakang", value: "Torsion Beam" },
-  { label: "Audio System", value: '8" Touchscreen Display Audio' },
-  { label: "Konektivitas", value: "Apple CarPlay & Android Auto" },
-  { label: "AC", value: "Auto A/C with Digital Display" },
-  { label: "Kursi", value: "Leather-Trimmed Seats" },
+  { label: "Mesin", value: "1.5L DOHC i-VTEC Engine 121PS" },
   { label: "Keselamatan", value: "Honda SENSING" },
+  { label: "Velg", value: '16" Dashing Alloy Wheel Design' },
+  { label: "Lampu Depan", value: "LED Headlight with LED DRL" },
+  { label: "Lampu Kabut", value: "LED Fog Light" },
+  { label: "Auto Headlight", value: "Auto Headlight" },
+  { label: "Meter Cluster", value: '4.2" Interactive TFT Meter Cluster' },
+  { label: "Audio System", value: '8" Advanced Capacitive Touchscreen Display Audio' },
+  { label: "Speaker", value: "8-Speakers" },
   { label: "Airbag", value: "6 Airbags" },
-  { label: "Stabilitas", value: "Vehicle Stability Assist (VSA)" },
-  { label: "Bantuan Tanjakan", value: "Hill Start Assist (HSA)" },
+  { label: "Paddle Shift", value: "Paddle Shift" },
+  { label: "Remote Start", value: "Remote Engine Start" },
+  { label: "Auto Lock", value: "Walk-Away Auto Lock" },
+  { label: "Rear Seat Reminder", value: "Rear Seat Reminder" },
+  { label: "USB", value: "2nd Row USB C" },
 ]
 
 export function SpecificationSection() {
@@ -76,7 +62,7 @@ export function SpecificationSection() {
 
             <div className="relative mb-8">
               <Image
-                src="/placeholder.svg?height=400&width=600&text=New+Honda+City+Side+Profile"
+                src="/new-honda-city/spesifikasi-New Honda City.webp"
                 alt="New Honda City"
                 width={600}
                 height={400}
@@ -127,7 +113,7 @@ export function SpecificationSection() {
               <div className="flex flex-col items-center justify-center flex-grow p-4 md:p-8 overflow-y-auto">
                 <div className="relative w-full max-w-xl aspect-[3/2] mb-8">
                   <Image
-                    src={selectedColor.image || "/placeholder.svg"}
+                    src={selectedColor.image}
                     alt={`New Honda City - ${selectedColor.name}`}
                     fill
                     className="object-contain"

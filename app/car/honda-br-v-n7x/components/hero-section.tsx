@@ -7,7 +7,7 @@ export function HeroSection() {
   return (
     <section className="relative h-[60vh] lg:h-screen w-full overflow-hidden">
       <Image
-        src="/placeholder.svg?height=1080&width=1920&text=Honda+BR-V+N7X+Hero"
+        src="/honda-br-v-n7x/banner-utama.webp"
         alt="Honda BR-V N7X"
         fill
         className="object-cover"

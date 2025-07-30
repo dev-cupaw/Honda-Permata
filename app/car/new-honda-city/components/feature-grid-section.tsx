@@ -9,39 +9,39 @@ import { Button } from "@/components/ui/button"
 const features = [
   {
     id: 1,
-    image: "/placeholder.svg?height=300&width=400&text=City+Elegant+Design",
-    title: "Desain Eksterior Elegan",
+    image: "/new-honda-city/tata-letak-1211-1.webp",
+    title: "1.5L DOHC i-VTEC Engine 121PS",
     description:
-      "New Honda City tampil dengan desain eksterior yang lebih elegan dan modern, dilengkapi garis bodi yang aerodinamis, grille depan yang stylish, dan lampu LED yang menawan.",
-    detailLink: "/car/new-honda-city/design",
+      "Ditenagai mesin 1.5L DOHC i-VTEC yang menghasilkan tenaga 121 PS, memberikan performa akselerasi yang responsif dan efisiensi bahan bakar yang optimal untuk penggunaan sehari-hari.",
+    detailLink: "/car/new-honda-city/engine",
   },
   {
     id: 2,
-    image: "/placeholder.svg?height=300&width=400&text=City+Premium+Interior",
-    title: "Interior Premium & Nyaman",
+    image: "/new-honda-city/tata-letak-1211-2.webp",
+    title: "Honda SENSING & Safety Features",
     description:
-      "Kabin yang luas dengan material berkualitas tinggi, kursi yang nyaman, dan desain ergonomis. Sistem infotainment layar sentuh 8 inci dengan konektivitas smartphone lengkap.",
+      "Paket lengkap teknologi keselamatan aktif Honda SENSING dengan 6 Airbags, memberikan perlindungan maksimal untuk seluruh penumpang dalam berbagai kondisi berkendara.",
   },
   {
     id: 3,
-    image: "/placeholder.svg?height=300&width=400&text=City+i-VTEC+Engine",
-    title: "Mesin 1.5L i-VTEC Responsif",
+    image: "/new-honda-city/tata-letak-1211-3.webp",
+    title: "Premium Design & LED Technology",
     description:
-      "Ditenagai mesin 1.5L DOHC i-VTEC yang menghasilkan tenaga 121 PS dan torsi 145 Nm, memberikan performa akselerasi yang responsif dan efisiensi bahan bakar yang optimal.",
+      "Tampil dengan 16\" Dashing Alloy Wheel Design, LED Headlight with LED DRL, LED Fog Light, dan Auto Headlight untuk penampilan yang elegan dan visibilitas optimal.",
   },
   {
     id: 4,
-    image: "/placeholder.svg?height=300&width=400&text=City+Honda+SENSING",
-    title: "Honda SENSING",
+    image: "/new-honda-city/tata-letak-1211-4.webp",
+    title: "Advanced Infotainment System",
     description:
-      "Paket lengkap teknologi keselamatan aktif Honda SENSING termasuk Collision Mitigation Braking System, Lane Keeping Assist System, dan Adaptive Cruise Control untuk perlindungan maksimal.",
+      "Dilengkapi 4.2\" Interactive TFT Meter Cluster dan 8\" Advanced Capacitive Touchscreen Display Audio dengan 8-Speakers untuk pengalaman multimedia yang superior.",
   },
   {
     id: 5,
-    image: "/placeholder.svg?height=300&width=400&text=City+Smart+Key",
-    title: "Smart Key System",
+    image: "/new-honda-city/tata-letak-1211-5.webp",
+    title: "Smart Convenience Features",
     description:
-      "Fitur Smart Key System dengan One Push Ignition System memudahkan akses masuk dan menyalakan mesin tanpa kunci, menambah kenyamanan dan kepraktisan dalam penggunaan sehari-hari.",
+      "Fitur kenyamanan modern seperti Paddle Shift, Remote Engine Start, Walk-Away Auto Lock, Rear Seat Reminder, dan 2nd Row USB C untuk kemudahan berkendara.",
   },
 ]
 

@@ -9,39 +9,39 @@ import { Button } from "@/components/ui/button"
 const features = [
   {
     id: 1,
-    image: "/placeholder.svg?height=300&width=400&text=Type+R+2.0L+VTEC+Turbo",
-    title: "Mesin 2.0L VTEC Turbo",
+    image: "/honda-civic-type-r/tata-letak-1211-1.webp",
+    title: "Mesin 2.0L Turbocharged 319 PS",
     description:
-      "Ditenagai mesin 2.0L VTEC Turbo 4-silinder yang menghasilkan tenaga 320 PS dan torsi 400 Nm, memberikan akselerasi instan dan performa balap yang tak tertandingi.",
+      "Ditenagai mesin 2.0L Turbocharged yang menghasilkan tenaga 319 PS, memberikan akselerasi instan dan performa balap yang tak tertandingi untuk pengalaman berkendara yang ekstrem.",
     detailLink: "/car/honda-civic-type-r/engine",
   },
   {
     id: 2,
-    image: "/placeholder.svg?height=300&width=400&text=Type+R+Aerodynamic+Kit",
-    title: "Aerodynamic Body Kit",
+    image: "/honda-civic-type-r/tata-letak-1211-2.webp",
+    title: "4-Mode Driving System",
     description:
-      "Desain eksterior agresif dengan body kit aerodinamis, sayap belakang besar, dan diffuser fungsional yang tidak hanya meningkatkan tampilan tetapi juga performa dan stabilitas pada kecepatan tinggi.",
+      "Sistem berkendara 4-mode yang memungkinkan penyesuaian karakter kendaraan sesuai kondisi dan preferensi berkendara, dari mode harian hingga performa track yang agresif.",
   },
   {
     id: 3,
-    image: "/placeholder.svg?height=300&width=400&text=Type+R+Brembo+Brakes",
-    title: "Sistem Pengereman Brembo",
+    image: "/honda-civic-type-r/tata-letak-1211-3.webp",
+    title: "19\" Sporty Wheels with Brembo Calipers",
     description:
-      "Dilengkapi dengan sistem pengereman Brembo performa tinggi di bagian depan, memastikan daya henti yang superior dan konsisten bahkan dalam kondisi berkendara ekstrem di lintasan.",
+      "Dilengkapi dengan velg sporty 19 inci dan 2 kaliper Brembo di bagian depan, memastikan daya henti yang superior dan konsisten bahkan dalam kondisi berkendara ekstrem di lintasan.",
   },
   {
     id: 4,
-    image: "/placeholder.svg?height=300&width=400&text=Type+R+R+Mode",
-    title: "R+ Driving Mode",
+    image: "/honda-civic-type-r/tata-letak-1211-4.webp",
+    title: "10,2\" Interactive TFT Meter Cluster",
     description:
-      "Mode berkendara R+ mengoptimalkan respons mesin, transmisi, suspensi adaptif, dan kemudi untuk pengalaman berkendara paling ekstrem, ideal untuk penggunaan di lintasan balap.",
+      "Meter cluster TFT interaktif 10,2 inci yang menampilkan informasi kendaraan secara real-time dengan tampilan yang dapat disesuaikan untuk pengalaman berkendara yang lebih informatif.",
   },
   {
     id: 5,
-    image: "/placeholder.svg?height=300&width=400&text=Type+R+Sport+Seats",
-    title: "Sport Bucket Seats",
+    image: "/honda-civic-type-r/tata-letak-1211-5.webp",
+    title: "Honda LogR Datalogger System",
     description:
-      "Interior dilengkapi dengan kursi sport bucket ringan yang dirancang untuk memberikan dukungan lateral maksimal saat bermanuver agresif, menjaga pengemudi tetap stabil dan nyaman.",
+      "Sistem Honda LogR Datalogger yang merekam dan menganalisis data performa kendaraan, memungkinkan pengemudi untuk mengevaluasi dan meningkatkan teknik berkendara di lintasan.",
   },
 ]
 

@@ -9,39 +9,38 @@ import { Button } from "@/components/ui/button"
 const features = [
   {
     id: 1,
-    image: "/placeholder.svg?height=300&width=400&text=Brio+Stylish+Design",
-    title: "Desain Stylish & Modern",
+    image: "/honda brio/tata-letak-1211-1.webp",
+    title: "1.2L i-VTEC 90PS with 4 cylinder",
     description:
-      "New Honda Brio tampil dengan desain eksterior yang lebih segar dan modern, dilengkapi garis bodi yang dinamis dan detail sporty yang menarik perhatian di jalanan kota.",
-    detailLink: "/car/new-honda-brio/design",
+      "Mesin i-VTEC 1.2L dengan 4 silinder menghasilkan tenaga 90 PS yang responsif dan efisien. Teknologi i-VTEC memastikan performa optimal dengan konsumsi bahan bakar yang ekonomis untuk berkendara sehari-hari di perkotaan.",
   },
   {
     id: 2,
-    image: "/placeholder.svg?height=300&width=400&text=Brio+Fuel+Efficiency",
-    title: "Efisiensi Bahan Bakar Tinggi",
+    image: "/honda brio/tata-letak-1211-2.webp",
+    title: "5 M/T & CVT Transmission Options",
     description:
-      "Mesin i-VTEC 1.2L yang efisien memastikan konsumsi bahan bakar yang irit, menjadikannya pilihan ideal untuk penggunaan sehari-hari di perkotaan tanpa khawatir biaya operasional.",
+      "Tersedia pilihan transmisi 5-speed manual untuk kontrol penuh atau CVT untuk kenyamanan berkendara. Kedua pilihan transmisi memberikan perpindahan gigi yang halus dan efisiensi bahan bakar yang optimal.",
   },
   {
     id: 3,
-    image: "/placeholder.svg?height=300&width=400&text=Brio+Spacious+Interior",
-    title: "Interior Luas & Nyaman",
+    image: "/honda brio/tata-letak-1211-3.webp",
+    title: "7\" Touchscreen Display Audio",
     description:
-      "Meskipun kompak, New Honda Brio menawarkan ruang kabin yang surprisingly luas untuk 5 penumpang, dengan desain ergonomis dan material berkualitas untuk kenyamanan maksimal.",
+      "Sistem infotainment 7 inci dengan touchscreen display audio dilengkapi USB Port, AM/FM Radio, Bluetooth, Hands-free Telephone, dan Screen Mirroring untuk konektivitas lengkap dan hiburan optimal.",
   },
   {
     id: 4,
-    image: "/placeholder.svg?height=300&width=400&text=Brio+Agile+Handling",
-    title: "Handling Lincah & Responsif",
+    image: "/honda brio/tata-letak-1211-4.webp",
+    title: "LED Headlights & Safety Features",
     description:
-      "Dengan dimensi yang kompak dan sistem kemudi yang responsif, New Honda Brio sangat lincah untuk bermanuver di lalu lintas padat dan parkir di ruang sempit, memberikan pengalaman berkendara yang menyenangkan.",
+      "Dilengkapi LED Headlights dengan LED Day Running Light pada varian RS, serta fitur keselamatan lengkap termasuk ABS + EBD, Parking Sensor, dan sistem keamanan untuk perlindungan maksimal.",
   },
   {
     id: 5,
-    image: "/placeholder.svg?height=300&width=400&text=Brio+Safety+Features",
-    title: "Fitur Keselamatan Lengkap",
+    image: "/honda brio/tata-letak-1211-5.webp",
+    title: "Sporty Interior & Comfort Features",
     description:
-      "Dilengkapi dengan Dual Front SRS Airbags, G-CON + ACE™ Body, ABS + EBD, dan Pretensioner with Load Limiter Seatbelt, New Honda Brio memberikan perlindungan optimal untuk semua penumpang.",
+      "Interior sporty dengan Black & Gray color scheme, New Fabric Seat Pattern, Auto Up/Down Windows with Anti Pinch, 2nd Row Adjustable Headrest, dan Digital A/C untuk kenyamanan berkendara yang optimal.",
   },
 ]
 

@@ -7,8 +7,8 @@ export function HeroSection() {
   return (
     <section className="relative h-[60vh] lg:h-screen w-full overflow-hidden">
       <Image
-        src="/placeholder.svg?height=1080&width=1920&text=Honda+City+Hatchback+RS+Hero"
-        alt="Honda City Hatchback RS"
+        src="/honda-city-hatchback-rs/baner-utama.webp"
+        alt="New Honda City RS Hatchback CVT - Premium Compact Hatchback"
         fill
         className="object-cover"
         priority

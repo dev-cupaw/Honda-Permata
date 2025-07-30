@@ -3,45 +3,43 @@
 import { useState } from "react"
 import Image from "next/image"
 import { Plus, X } from "lucide-react"
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
 const features = [
   {
     id: 1,
-    image: "/placeholder.svg?height=300&width=400&text=Desain+Futuristik+e:N1",
-    title: "Desain Futuristik",
+    image: "/honda-e-n1/tata-letak-1211-1.webp",
+    title: "Electric Motor Technology",
     description:
-      "Tampilan modern dan aerodinamis yang menarik perhatian di jalan dengan garis-garis tajam dan proporsi yang sempurna. Setiap detail dirancang untuk mengoptimalkan aerodinamika sambil memberikan kesan visual yang kuat dan berkarakter.",
-    detailLink: "/car/honda-e-n1/design", // Example link for "Selengkapnya"
+      "Motor listrik AC Synchronous bertenaga 204 PS dengan torsi instan yang memberikan akselerasi responsif dan pengalaman berkendara yang halus tanpa emisi. Teknologi motor listrik terdepan untuk performa optimal.",
   },
   {
     id: 2,
-    image: "/placeholder.svg?height=300&width=400&text=Kabin+Cerdas+e:N1",
-    title: "Kabin Cerdas",
+    image: "/honda-e-n1/tata-letak-1211-2.webp",
+    title: "Advanced Battery System",
     description:
-      "Interior minimalis dengan layar sentuh besar dan konektivitas canggih untuk pengalaman berkendara yang terhubung. Dashboard digital yang luas, sistem infotainment terintegrasi, dan berbagai fitur konektivitas smart yang memudahkan perjalanan Anda.",
+      "Baterai Lithium-ion 68.8 kWh dengan jangkauan hingga 500km (NEDC) dan dukungan pengisian cepat DC. Teknologi baterai canggih untuk perjalanan jarak jauh tanpa khawatir.",
   },
   {
     id: 3,
-    image: "/placeholder.svg?height=300&width=400&text=Pengisian+Cepat+e:N1",
-    title: "Pengisian Cepat",
+    image: "/honda-e-n1/tata-letak-1211-3.webp",
+    title: "Smart Interior Design",
     description:
-      "Dukungan pengisian daya cepat untuk kenyamanan maksimal dalam perjalanan jarak jauh. Teknologi pengisian cepat memungkinkan Anda mengisi daya hingga 80% hanya dalam waktu 30 menit.",
+      "Interior futuristik dengan layar display 15.1\", TFT meter cluster 10.25\", ambient light biru, dan wireless charger. Kabin cerdas yang menghadirkan pengalaman berkendara masa depan.",
   },
   {
     id: 4,
-    image: "/placeholder.svg?height=300&width=400&text=Honda+CONNECT+e:N1",
-    title: "Honda CONNECT",
+    image: "/honda-e-n1/tata-letak-1211-4.webp",
+    title: "Honda SENSING™ Safety",
     description:
-      "Fitur konektivitas pintar untuk pengalaman berkendara yang lebih terhubung dan terintegrasi. Menghadirkan ekosistem digital yang lengkap, mulai dari remote monitoring hingga integrasi dengan smartphone.",
+      "Paket keselamatan Honda SENSING™ lengkap dengan multi-angle rear view camera, parking sensors, blind spot information, dan cross traffic monitor untuk perlindungan maksimal.",
   },
   {
     id: 5,
-    image: "/placeholder.svg?height=300&width=400&text=Performa+Listrik+e:N1",
-    title: "Performa Listrik Responsif",
+    image: "/honda-e-n1/tata-letak-1211-5.webp",
+    title: "3-Drive Mode System",
     description:
-      "Motor listrik bertenaga tinggi memberikan akselerasi instan dan pengalaman berkendara yang halus dan senyap. Nikmati performa tanpa emisi yang ramah lingkungan.",
+      "Sistem 3 mode berkendara (ECON, NORMAL, SPORT) dengan deceleration paddle selectors dan push button shifter untuk pengalaman berkendara yang dapat disesuaikan dengan preferensi Anda.",
   },
 ]
 
@@ -90,11 +88,6 @@ export function FeatureGridSection() {
                 }`}
               >
                 <p className="text-white text-lg leading-relaxed mb-4">{features[0].description}</p>
-                {features[0].detailLink && (
-                  <Link href={features[0].detailLink} className="text-honda-red-primary hover:underline text-base">
-                    Selengkapnya tentang Desain →
-                  </Link>
-                )}
                 <Button
                   variant="destructive"
                   size="icon"

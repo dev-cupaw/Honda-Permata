@@ -7,7 +7,7 @@ export function HeroSection() {
   return (
     <section className="relative h-[60vh] lg:h-screen w-full overflow-hidden">
       <Image
-        src="/placeholder.svg?height=1080&width=1920&text=Honda+e:N1+Hero"
+        src="/honda-e-n1/banner-utama.webp"
         alt="Honda e:N1"
         fill
         className="object-cover"
@@ -19,7 +19,7 @@ export function HeroSection() {
           size="lg"
           className="bg-honda-red-primary hover:bg-honda-red-dark text-white font-bold px-8 py-4 text-lg lg:text-xl"
         >
-          BOOK NOW
+          JELAJAHI SEKARANG
         </Button>
       </div>
     </section>

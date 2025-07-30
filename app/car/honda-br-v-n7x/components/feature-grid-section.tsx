@@ -9,39 +9,39 @@ import { Button } from "@/components/ui/button"
 const features = [
   {
     id: 1,
-    image: "/placeholder.svg?height=300&width=400&text=BR-V+N7X+Sporty+Design",
-    title: "Desain Sporty N7X Edition",
+    image: "/honda-br-v-n7x/tata-letak-1211-1.webp",
+    title: "1.5L DOHC i-VTEC Engine 121 PS",
     description:
-      "Honda BR-V N7X Edition tampil dengan desain eksterior yang lebih sporty dan modern, dilengkapi aero kit khusus, grille depan yang agresif, dan detail premium yang menawan.",
-    detailLink: "/car/honda-br-v-n7x/design",
+      "Ditenagai mesin 1.5L DOHC i-VTEC yang menghasilkan tenaga 121 PS, memberikan performa yang responsif dan efisiensi bahan bakar yang optimal untuk kebutuhan keluarga modern.",
+    detailLink: "/car/honda-br-v-n7x/engine",
   },
   {
     id: 2,
-    image: "/placeholder.svg?height=300&width=400&text=BR-V+N7X+7-Seater",
-    title: "Kabin Luas 7-Seater",
+    image: "/honda-br-v-n7x/tata-letak-1211-2.webp",
+    title: "Spacious 7-Seater Family SUV",
     description:
-      "Interior yang lapang dengan konfigurasi 7-seater yang fleksibel, memberikan kenyamanan maksimal bagi seluruh anggota keluarga. Ruang bagasi yang besar untuk berbagai kebutuhan.",
+      "Interior yang lapang dengan konfigurasi 7-seater yang fleksibel, memberikan kenyamanan maksimal bagi seluruh anggota keluarga dengan ruang bagasi yang besar untuk berbagai kebutuhan.",
   },
   {
     id: 3,
-    image: "/placeholder.svg?height=300&width=400&text=BR-V+N7X+i-VTEC+Engine",
-    title: "Mesin 1.5L i-VTEC",
+    image: "/honda-br-v-n7x/tata-letak-1211-3.webp",
+    title: "Advanced Safety & Technology",
     description:
-      "Ditenagai mesin 1.5L DOHC i-VTEC yang menghasilkan tenaga 121 PS dan torsi 145 Nm, memberikan performa yang responsif dan efisiensi bahan bakar yang optimal.",
+      "Dilengkapi dengan Honda SENSING, Honda LaneWatch™, 6-8 Airbags, dan berbagai fitur keselamatan canggih untuk perlindungan maksimal seluruh penumpang.",
   },
   {
     id: 4,
-    image: "/placeholder.svg?height=300&width=400&text=BR-V+N7X+Honda+SENSING",
-    title: "Honda SENSING",
+    image: "/honda-br-v-n7x/tata-letak-1211-4.webp",
+    title: "N7X Edition Premium Design",
     description:
-      "Paket lengkap teknologi keselamatan aktif Honda SENSING termasuk Collision Mitigation Braking System, Lane Keeping Assist System, dan Adaptive Cruise Control untuk perlindungan maksimal.",
+      "Tampil dengan desain eksklusif N7X Edition yang sporty dan elegan, dilengkapi dengan detail premium seperti Dark Chrome Grille, Black Alloy Wheels, dan interior hitam yang mewah.",
   },
   {
     id: 5,
-    image: "/placeholder.svg?height=300&width=400&text=BR-V+N7X+Remote+Engine+Start",
-    title: "Remote Engine Start",
+    image: "/honda-br-v-n7x/tata-letak-1211-5.webp",
+    title: "Smart Convenience Features",
     description:
-      "Fitur Remote Engine Start memungkinkan Anda menyalakan mesin dan AC dari jarak jauh, memberikan kenyamanan ekstra sebelum memasuki kendaraan, terutama di cuaca panas.",
+      "Fitur kenyamanan modern seperti Remote Engine Start, Walk-Away Auto Lock, Smart Entry System, dan berbagai teknologi canggih untuk kemudahan berkendara sehari-hari.",
   },
 ]
 

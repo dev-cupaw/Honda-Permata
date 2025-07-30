@@ -9,39 +9,39 @@ import { Button } from "@/components/ui/button"
 const features = [
   {
     id: 1,
-    image: "/placeholder.svg?height=300&width=400&text=CR-V+Premium+Design",
-    title: "Desain Premium & Gagah",
+    image: "/all-new-honda-cr-v/tata-letak-1211-1.webp",
+    title: "1.5L VTEC Turbo & 2.0L e:HEV Hybrid",
     description:
-      "All New Honda CR-V hadir dengan tampilan eksterior yang lebih mewah dan gagah, dilengkapi garis bodi yang tegas, grille depan yang menawan, dan lampu LED yang modern.",
-    detailLink: "/car/all-new-honda-cr-v/design",
+      "Tersedia dua pilihan mesin canggih: 1.5L DOHC VTEC Turbo Engine (190 PS & 240 Nm) dan 2.0L DOHC i-VTEC Engine + Electrical Motor (207 PS & 335 Nm) untuk performa optimal dan efisiensi bahan bakar superior.",
+    detailLink: "/car/all-new-honda-cr-v/engine",
   },
   {
     id: 2,
-    image: "/placeholder.svg?height=300&width=400&text=CR-V+e:HEV+Hybrid",
-    title: "Pilihan Mesin e:HEV Hybrid",
+    image: "/all-new-honda-cr-v/tata-letak-1211-2.webp",
+    title: "Interior Premium & Spacious",
     description:
-      "Tersedia varian e:HEV Hybrid yang menggabungkan mesin bensin dan motor listrik untuk efisiensi bahan bakar superior dan performa responsif, serta varian 1.5L VTEC Turbo.",
+      "Kabin yang sangat luas dengan konfigurasi 3 Row Seat (varian Turbo) atau 2 Row Seat (varian RS e:HEV), material berkualitas tinggi, dan desain interior yang elegan untuk kenyamanan maksimal.",
   },
   {
     id: 3,
-    image: "/placeholder.svg?height=300&width=400&text=CR-V+Spacious+7-Seater",
-    title: "Interior Luas & 7-Seater",
+    image: "/all-new-honda-cr-v/tata-letak-1211-3.webp",
+    title: "Advanced Technology Features",
     description:
-      "Kabin yang sangat luas dengan opsi konfigurasi 7-seater (untuk varian tertentu), material berkualitas tinggi, dan desain interior yang elegan untuk kenyamanan maksimal seluruh penumpang.",
+      "Dilengkapi teknologi canggih seperti 10.2\" Interactive TFT Meter Cluster, 9\" Advanced Capacitive Touchscreen Display Audio, Honda CONNECT, dan Wireless Charger untuk pengalaman berkendara modern.",
   },
   {
     id: 4,
-    image: "/placeholder.svg?height=300&width=400&text=CR-V+Honda+SENSING",
-    title: "Honda SENSING Generasi Baru",
+    image: "/all-new-honda-cr-v/tata-letak-1211-4.webp",
+    title: "Honda SENSING & Safety Features",
     description:
-      "Dilengkapi Honda SENSING generasi terbaru dengan fitur-fitur canggih seperti Collision Mitigation Braking System, Adaptive Cruise Control with Low-Speed Follow, dan Lane Keeping Assist System.",
+      "Sistem keselamatan Honda SENSING generasi terbaru dengan 8 Airbags, Hill Descent Control, Sequential LED Turning Signal, dan berbagai fitur keselamatan aktif untuk perlindungan maksimal.",
   },
   {
     id: 5,
-    image: "/placeholder.svg?height=300&width=400&text=CR-V+Advanced+Tech",
-    title: "Teknologi Canggih",
+    image: "/all-new-honda-cr-v/tata-letak-1211-5.webp",
+    title: "Premium Comfort & Convenience",
     description:
-      "Fitur-fitur modern seperti 9-inch Advanced Capacitive Touchscreen Display Audio, Head-Up Display, dan Multi-View Camera System (MVCS) meningkatkan kenyamanan dan keamanan berkendara.",
+      "Fitur kenyamanan premium seperti Panoramic Sunroof, Hands-Free Access Power Tailgate with Walk-Away Close, 8-Way Driver Power Seat with Memory, dan Interior Ambient Light untuk pengalaman berkendara yang istimewa.",
   },
 ]
 

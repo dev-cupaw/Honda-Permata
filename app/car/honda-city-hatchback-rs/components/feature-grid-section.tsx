@@ -9,39 +9,38 @@ import { Button } from "@/components/ui/button"
 const features = [
   {
     id: 1,
-    image: "/placeholder.svg?height=300&width=400&text=City+Hatchback+RS+Sporty+Design",
-    title: "Desain Sporty RS Aerokit",
+    image: "/honda-city-hatchback-rs/tataletak-1211-1.webp",
+    title: "1.5L DOHC i-VTEC Engine (121 PS)",
     description:
-      "Tampilan eksterior yang sporty dengan RS Aerokit lengkap, front grille agresif, dan detail sporty yang menawan. LED headlights dengan DRL signature memberikan karakter yang kuat dan modern.",
-    detailLink: "/car/honda-city-hatchback-rs/design",
+      "Mesin i-VTEC 1.5L DOHC menghasilkan tenaga 121 PS yang responsif dan efisien. Teknologi Earth Dreams memberikan performa optimal dengan konsumsi bahan bakar yang ekonomis untuk berkendara sehari-hari.",
   },
   {
     id: 2,
-    image: "/placeholder.svg?height=300&width=400&text=City+Hatchback+RS+Flexible+Space",
-    title: "Ruang Fleksibel Ultra Seat",
+    image: "/honda-city-hatchback-rs/tataletak-1211-2.webp",
+    title: "CVT with Earth Dreams Technology",
     description:
-      "Konfigurasi Ultra Seat yang dapat dilipat rata memberikan fleksibilitas maksimal untuk berbagai kebutuhan. Ruang bagasi yang luas dan dapat diperluas sesuai kebutuhan barang bawaan.",
+      "Transmisi CVT dengan teknologi Earth Dreams memberikan perpindahan gigi yang halus dan responsif. Sistem ini mengoptimalkan efisiensi bahan bakar sambil mempertahankan performa berkendara yang menyenangkan.",
   },
   {
     id: 3,
-    image: "/placeholder.svg?height=300&width=400&text=City+Hatchback+RS+i-VTEC+Engine",
-    title: "Mesin i-VTEC 1.5L",
+    image: "/honda-city-hatchback-rs/tataletak-1211-3.webp",
+    title: "Full LED Headlights with LED DRL",
     description:
-      "Mesin i-VTEC 1.5L DOHC menghasilkan tenaga 121 PS dan torsi 145 Nm, memberikan performa yang responsif dengan konsumsi bahan bakar yang efisien untuk berkendara sehari-hari.",
+      "Sistem pencahayaan Full LED Headlights dengan LED DRL memberikan visibilitas optimal dan tampilan modern. LED Fog Light melengkapi sistem pencahayaan untuk keamanan berkendara di segala kondisi.",
   },
   {
     id: 4,
-    image: "/placeholder.svg?height=300&width=400&text=City+Hatchback+RS+Honda+SENSING",
-    title: "Honda SENSING",
+    image: "/honda-city-hatchback-rs/tataletak-1211-4.webp",
+    title: "8\" Capacitive Touchscreen Display Audio",
     description:
-      "Paket lengkap teknologi keselamatan aktif Honda SENSING termasuk Collision Mitigation Braking, Lane Keeping Assist, dan Road Departure Mitigation untuk perlindungan maksimal.",
+      "Sistem infotainment 8 inci dengan teknologi capacitive touchscreen dan 8 speakers memberikan pengalaman multimedia yang optimal. Dilengkapi Honda CONNECT untuk konektivitas yang lengkap.",
   },
   {
     id: 5,
-    image: "/placeholder.svg?height=300&width=400&text=City+Hatchback+RS+Premium+Interior",
-    title: "Interior Premium Sport",
+    image: "/honda-city-hatchback-rs/tataletak-1211-5.webp",
+    title: "Honda SENSING & Safety Features",
     description:
-      "Interior premium dengan material berkualitas tinggi, kursi sport dengan aksen merah, dan dashboard modern. Sistem infotainment 8 inci dengan konektivitas smartphone lengkap.",
+      "Paket lengkap Honda SENSING dengan teknologi keselamatan aktif termasuk ABS + EBD + BA, Brake Override System, dan Multi-Angle Rear View Camera untuk perlindungan maksimal.",
   },
 ]
 

@@ -7,8 +7,8 @@ export function HeroSection() {
   return (
     <section className="relative h-[60vh] lg:h-screen w-full overflow-hidden">
       <Image
-        src="/placeholder.svg?height=1080&width=1920&text=Honda+Civic+Type+R+Hero"
-        alt="Honda Civic Type R"
+        src="/honda-civic-type-r/Banner-utama.webp"
+        alt="All New Honda Civic Type R"
         fill
         className="object-cover"
         priority

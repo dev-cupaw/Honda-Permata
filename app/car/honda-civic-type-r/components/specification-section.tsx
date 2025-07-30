@@ -11,44 +11,40 @@ const typeRColors = [
   {
     name: "Championship White",
     code: "#F8F8FF",
-    image: "/placeholder.svg?height=400&width=600&text=Championship+White+Honda+Civic+Type+R",
+    image: "/honda-civic-type-r/Championship White.webp",
   },
   {
     name: "Rallye Red",
     code: "#DC143C",
-    image: "/placeholder.svg?height=400&width=600&text=Rallye+Red+Honda+Civic+Type+R",
+    image: "/honda-civic-type-r/Rallye Red.webp",
+  },
+  {
+    name: "Racing Blue Pearl",
+    code: "#1E3A8A",
+    image: "/honda-civic-type-r/Racing Blue Pearl.webp",
   },
   {
     name: "Crystal Black Pearl",
     code: "#000000",
-    image: "/placeholder.svg?height=400&width=600&text=Crystal+Black+Pearl+Honda+Civic+Type+R",
+    image: "/honda-civic-type-r/Crystal Black Pearl.webp",
   },
   {
-    name: "Boost Blue Pearl",
-    code: "#0000FF",
-    image: "/placeholder.svg?height=400&width=600&text=Boost+Blue+Pearl+Honda+Civic+Type+R",
+    name: "Sonic Grey Pearl",
+    code: "#6B7280",
+    image: "/honda-civic-type-r/Sonic Grey Pearl.webp",
   },
 ]
 
 const specifications = [
-  { label: "Mesin", value: "2.0L VTEC Turbo DOHC 4-Cylinder" },
-  { label: "Tenaga Maksimum", value: "320 PS @ 6,500 rpm" },
-  { label: "Torsi Maksimum", value: "400 Nm @ 2,500-4,000 rpm" },
-  { label: "Transmisi", value: "6-Speed Manual with Rev-Match Control" },
-  { label: "Sistem Penggerak", value: "Front Wheel Drive (FWD)" },
-  { label: "Lampu Depan", value: "Full LED Headlights with LED DRL" },
-  { label: "Velg", value: '20" Alloy Wheels' },
-  { label: "Rem Depan", value: "Brembo Ventilated Disc Brakes" },
-  { label: "Rem Belakang", value: "Solid Disc Brakes" },
-  { label: "Suspensi", value: "Adaptive Damper System" },
-  { label: "Audio System", value: '9" Touchscreen Display Audio' },
-  { label: "Konektivitas", value: "Apple CarPlay & Android Auto" },
-  { label: "AC", value: "Dual Zone Automatic Climate Control" },
-  { label: "Kursi", value: "Sport Bucket Seats" },
-  { label: "Keselamatan", value: "Honda SENSING Suite" },
+  { label: "Mesin", value: "2.0L Turbocharged Engine 319 PS" },
+  { label: "Transmisi", value: "6 M/T" },
+  { label: "Sistem Berkendara", value: "4-mode Driving System" },
+  { label: "Velg", value: '19" Sporty Wheels with 2 Front Brembo Calipers' },
+  { label: "Meter Cluster", value: '10,2" Interactive TFT Meter Cluster' },
+  { label: "Data Logger", value: "Honda LogR Datalogger System" },
+  { label: "Keselamatan", value: "Honda SENSING" },
   { label: "Airbag", value: "8 Airbags" },
-  { label: "Mode Berkendara", value: "Comfort, Sport, +R" },
-  { label: "Knalpot", value: "Triple Exhaust with Active Valve" },
+  { label: "Knalpot", value: "Triple Exhaust System" },
 ]
 
 export function SpecificationSection() {
@@ -67,13 +63,13 @@ export function SpecificationSection() {
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-3xl lg:text-4xl font-bold text-honda-gray-dark text-center mb-12">
-              Honda Civic Type R
+              All New Honda Civic Type R
             </h2>
 
             <div className="relative mb-8">
               <Image
-                src="/placeholder.svg?height=400&width=600&text=Honda+Civic+Type+R+Side+Profile"
-                alt="Honda Civic Type R"
+                src="/honda-civic-type-r/honda-civic-type-r-spesifikasi.webp"
+                alt="All New Honda Civic Type R"
                 width={600}
                 height={400}
                 className="w-full h-auto rounded-lg shadow-lg mx-auto"
@@ -85,7 +81,7 @@ export function SpecificationSection() {
               size="lg"
               className="w-full max-w-sm mx-auto bg-honda-red-primary hover:bg-honda-red-dark text-white font-bold py-6 text-xl flex items-center justify-center gap-2"
             >
-              Rp 1.429.500.000 <ChevronRight className="h-5 w-5" />
+              Rp 1.445.500.000 <ChevronRight className="h-5 w-5" />
             </Button>
 
             <div className="space-y-6 mt-12 text-left">
@@ -113,7 +109,7 @@ export function SpecificationSection() {
             <DialogContent className="w-screen h-screen max-w-full max-h-full bg-white p-0 m-0 flex flex-col">
               <DialogHeader className="flex-shrink-0 p-4 border-b border-honda-gray-light relative">
                 <DialogTitle className="text-2xl font-bold text-honda-gray-dark text-left pl-4">
-                  Honda Civic Type R
+                  All New Honda Civic Type R 6 M/T
                 </DialogTitle>
                 <DialogClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
                   <span className="sr-only">Close</span>
@@ -123,8 +119,8 @@ export function SpecificationSection() {
               <div className="flex flex-col items-center justify-center flex-grow p-4 md:p-8 overflow-y-auto">
                 <div className="relative w-full max-w-xl aspect-[3/2] mb-8">
                   <Image
-                    src={selectedColor.image || "/placeholder.svg"}
-                    alt={`Honda Civic Type R - ${selectedColor.name}`}
+                    src={selectedColor.image}
+                    alt={`All New Honda Civic Type R - ${selectedColor.name}`}
                     fill
                     className="object-contain"
                   />
@@ -205,7 +201,7 @@ export function SpecificationSection() {
                   <h3 className="text-xl font-bold text-honda-red-primary mb-4">DETAIL</h3>
                   <div className="grid grid-cols-2 gap-y-2 text-honda-gray-dark">
                     <span className="font-medium">Variant</span>
-                    <span>Honda Civic Type R</span>
+                    <span>All New Honda Civic Type R 6 M/T</span>
                     <span className="font-medium">Color</span>
                     <span className="flex items-center gap-2">
                       {selectedColor.name}

@@ -86,6 +86,7 @@ export function DesktopHeader() {
             width={120} 
             height={28} 
             className="h-7 w-auto object-contain"
+            priority
           />
         </Link>
         <NavigationMenu>

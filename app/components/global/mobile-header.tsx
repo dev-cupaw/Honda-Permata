@@ -29,6 +29,7 @@ export function MobileHeader() {
               width={100}
               height={28}
               className="h-6 w-auto object-contain"
+              priority
             />
           </Link>
           <Button variant="ghost" size="icon" onClick={() => setIsRightDrawerOpen(true)} className="h-12 w-12">

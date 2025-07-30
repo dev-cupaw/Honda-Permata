@@ -7,8 +7,8 @@ export function HeroSection() {
   return (
     <section className="relative h-[60vh] lg:h-screen w-full overflow-hidden">
       <Image
-        src="/placeholder.svg?height=1080&width=1920&text=Honda+Civic+RS+Hero"
-        alt="Honda Civic RS"
+        src="/honda-civic-rs/banner-utama.webp"
+        alt="New Honda Civic RS e:HEV - Premium Hybrid Sedan"
         fill
         className="object-cover"
         priority

@@ -7,8 +7,8 @@ export function HeroSection() {
   return (
     <section className="relative h-[60vh] lg:h-screen w-full overflow-hidden">
       <Image
-        src="/placeholder.svg?height=1080&width=1920&text=All+New+Honda+Accord+Hero"
-        alt="All New Honda Accord"
+        src="/all-new-honda-accord/banner-utama.webp"
+        alt="All New Honda Accord 2.0L RS e:HEV"
         fill
         className="object-cover"
         priority

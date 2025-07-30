@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button"
 const features = [
   {
     id: 1,
-    image: "/placeholder.svg?height=300&width=400&text=WR-V+SUV+Design",
+    image: "/honda-wr-v/tata letak-1211-1.webp",
     title: "Desain SUV Modern & Sporty",
     description:
       "Honda WR-V menampilkan desain eksterior yang gagah dan sporty khas SUV, dengan ground clearance tinggi dan garis bodi yang dinamis, siap menaklukkan berbagai medan.",
@@ -17,28 +17,28 @@ const features = [
   },
   {
     id: 2,
-    image: "/placeholder.svg?height=300&width=400&text=WR-V+1.5L+Engine",
+    image: "/honda-wr-v/tata letak-1211-2.webp",
     title: "Mesin 1.5L i-VTEC Bertenaga",
     description:
       "Ditenagai mesin 1.5L i-VTEC DOHC yang menghasilkan tenaga 121 PS dan torsi 145 Nm, memberikan performa akselerasi yang responsif dan efisiensi bahan bakar yang optimal.",
   },
   {
     id: 3,
-    image: "/placeholder.svg?height=300&width=400&text=WR-V+Spacious+Interior",
+    image: "/honda-wr-v/tata letak-1211-3.webp",
     title: "Interior Nyaman & Fungsional",
     description:
       "Kabin yang lapang dengan material berkualitas, kursi yang nyaman, dan berbagai ruang penyimpanan cerdas. Sistem infotainment modern untuk kenyamanan dan hiburan sepanjang perjalanan.",
   },
   {
     id: 4,
-    image: "/placeholder.svg?height=300&width=400&text=WR-V+Honda+SENSING",
+    image: "/honda-wr-v/tata letak-1211-4.webp",
     title: "Honda SENSING",
     description:
       "Paket lengkap teknologi keselamatan aktif Honda SENSING termasuk Collision Mitigation Braking System, Lane Keeping Assist System, dan Adaptive Cruise Control untuk perlindungan maksimal.",
   },
   {
     id: 5,
-    image: "/placeholder.svg?height=300&width=400&text=WR-V+Smart+Entry",
+    image: "/honda-wr-v/tata letak-1211-5.webp",
     title: "Smart Entry System",
     description:
       "Fitur Smart Entry System dengan One Push Ignition System memudahkan akses masuk dan menyalakan mesin tanpa kunci, menambah kenyamanan dan kepraktisan dalam penggunaan sehari-hari.",
