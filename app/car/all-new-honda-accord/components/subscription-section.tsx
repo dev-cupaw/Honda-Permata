@@ -11,7 +11,7 @@ export function SubscriptionSection() {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
     const email = formData.get("email")
-    console.log("Subscribe email:", email)
+    console.warn("Subscribe email:", email)
     toast.success(`Terima kasih telah berlangganan dengan ${email}!`)
     e.currentTarget.reset()
   }

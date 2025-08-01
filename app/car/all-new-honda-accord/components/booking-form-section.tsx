@@ -24,7 +24,7 @@ export function BookingFormSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted:", formData)
+    console.warn("Form submitted:", formData)
     toast.success("Permintaan Anda telah terkirim! Kami akan segera menghubungi Anda.")
     setFormData({
       fullName: "",

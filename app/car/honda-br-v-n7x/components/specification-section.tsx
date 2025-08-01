@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useMemo } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose } from "@/components/ui/dialog"
@@ -301,7 +301,7 @@ export function SpecificationSection() {
   }, [api])
 
   const currentVariant = brvVariants[currentVariantIndex]
-  const currentColors = colorsByVariant[currentVariant?.name] || []
+  const currentColors = useMemo(() => colorsByVariant[currentVariant?.name] || [], [currentVariant?.name])
   const [selectedColor, setSelectedColor] = useState(currentColors[0])
 
   // Update selected color when variant changes

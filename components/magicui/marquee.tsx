@@ -2,13 +2,10 @@ import { cn } from "@/lib/utils"
 import React from "react"
 
 interface MarqueeProps extends React.HTMLAttributes<HTMLDivElement> {
-  className?: string
   reverse?: boolean
   pauseOnHover?: boolean
-  children?: React.ReactNode
   vertical?: boolean
   repeat?: number
-  [key: string]: any
 }
 
 const Marquee = React.forwardRef<HTMLDivElement, MarqueeProps>(

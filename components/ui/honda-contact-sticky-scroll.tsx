@@ -1,4 +1,5 @@
 "use client"
+import Image from "next/image"
 import { StickyScroll } from "@/components/ui/sticky-scroll-reveal"
 import { Phone, Clock, MessageCircle } from "lucide-react"
 
@@ -22,7 +23,7 @@ const content = [
       "Datang langsung ke showroom Honda Permata Serpong untuk melihat semua model Honda terbaru. Rasakan langsung kualitas dan fitur-fitur canggih mobil Honda. Tim kami akan memberikan penjelasan detail dan test drive gratis untuk Anda.",
     content: (
       <div className="flex h-full w-full items-center justify-center text-white">
-        <img
+        <Image
           src="/section-gallery/Showroom-Honda-Permata-Serpong.webp"
           width={300}
           height={300}

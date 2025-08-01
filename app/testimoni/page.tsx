@@ -12,9 +12,6 @@ export default function TestimoniPage() {
       <ParallaxHeroSection
         title="Testimoni Pelanggan"
         subtitle="Kepercayaan dan Kepuasan Pelanggan adalah Prioritas Utama Kami"
-        description="Dengarkan langsung pengalaman nyata dari ribuan pelanggan yang telah mempercayakan Honda Permata Serpong sebagai partner terbaik dalam memiliki kendaraan impian mereka."
-        backgroundImage="/section-testimoni/testimonial-hero-bg.webp"
-        height="70vh"
       />
 
       {/* Testimonial Marquee Section */}

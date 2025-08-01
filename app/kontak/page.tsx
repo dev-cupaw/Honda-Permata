@@ -24,7 +24,7 @@ export default function KontakPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted:", formData)
+    console.warn("Form submitted:", formData)
     // Handle form submission logic here
   }
 

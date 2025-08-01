@@ -13,7 +13,7 @@ export function SubscriptionSection() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log("Subscribe email:", email)
+    console.warn("Subscribe email:", email)
     toast.success(`Terima kasih! Anda akan menerima update terbaru di ${email}`)
     setEmail("")
   }

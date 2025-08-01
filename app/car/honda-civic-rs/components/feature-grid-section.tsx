@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Image from "next/image"
 import { Plus, X } from "lucide-react"
-import Link from "next/link"
+
 import { Button } from "@/components/ui/button"
 
 const features = [
@@ -87,11 +87,6 @@ export function FeatureGridSection() {
                 }`}
               >
                 <p className="text-white text-lg leading-relaxed mb-4">{features[0].description}</p>
-                {features[0].detailLink && (
-                  <Link href={features[0].detailLink} className="text-honda-red-primary hover:underline text-base">
-                    Selengkapnya tentang Mesin →
-                  </Link>
-                )}
                 <Button
                   variant="destructive"
                   size="icon"

@@ -8,8 +8,22 @@ import { ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 
+// Type definitions
+interface Color {
+  name: string
+  code: string
+  image: string
+}
+
+interface Variant {
+  name: string
+  price: string
+  image: string
+  specs: string[]
+}
+
 // Color configurations for each variant
-const colorsByVariant = {
+const colorsByVariant: Record<string, Color[]> = {
   "Honda WR-V 1.5L E M/T": [
     {
       name: "Taffeta White (E Type only)",
@@ -192,7 +206,7 @@ export function SpecificationSection() {
   const handlePrevStep = () => setCurrentStep((prev) => Math.max(1, prev - 1))
   const handleNextStep = () => setCurrentStep((prev) => Math.min(totalSteps, prev + 1))
 
-  const handleOpenColorModal = (variant) => {
+  const handleOpenColorModal = (variant: Variant) => {
     setSelectedVariantForModal(variant)
     const availableColors = colorsByVariant[variant.name]
     setSelectedColor(availableColors[0])
@@ -319,7 +333,7 @@ export function SpecificationSection() {
               </div>
 
               <div className="flex flex-wrap justify-center gap-4 mb-6">
-                {colorsByVariant[selectedVariantForModal?.name]?.map((color) => (
+                {colorsByVariant[selectedVariantForModal?.name]?.map((color: Color) => (
                   <button
                     key={color.name}
                     onClick={() => setSelectedColor(color)}

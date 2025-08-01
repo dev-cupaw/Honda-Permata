@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef, useState, useMemo } from "react"
 import { useMotionValueEvent, useScroll } from "motion/react"
 import { motion } from "motion/react"
 import { cn } from "@/lib/utils"
@@ -11,12 +11,12 @@ export const StickyScroll = ({
   content: {
     title: string
     description: string
-    content?: React.ReactNode | any
+    content?: React.ReactNode
   }[]
   contentClassName?: string
 }) => {
   const [activeCard, setActiveCard] = React.useState(0)
-  const ref = useRef<any>(null)
+  const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     container: ref,
     offset: ["start start", "end start"],
@@ -41,17 +41,17 @@ export const StickyScroll = ({
     "#dc2626", // red-600
   ]
 
-  const linearGradients = [
+  const linearGradients = useMemo(() => [
     "linear-gradient(to bottom right, #dc2626, #991b1b)", // Honda red gradient
     "linear-gradient(to bottom right, #991b1b, #7f1d1d)", // Darker Honda red
     "linear-gradient(to bottom right, #dc2626, #b91c1c)", // Honda red variation
-  ]
+  ], [])
 
   const [backgroundGradient, setBackgroundGradient] = useState(linearGradients[0])
 
   useEffect(() => {
     setBackgroundGradient(linearGradients[activeCard % linearGradients.length])
-  }, [activeCard])
+  }, [activeCard, linearGradients])
 
   return (
     <motion.div
