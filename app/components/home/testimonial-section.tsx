@@ -47,7 +47,7 @@ const ReviewCard = ({ img, name, location, body }: { img: string; name: string; 
       className={cn(
         "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4 mx-2",
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
-        "flex-shrink-0"
+        "flex-shrink-0",
       )}
     >
       <div className="flex flex-row items-center gap-2">
@@ -84,14 +84,14 @@ export function TestimonialSection() {
               <ReviewCard key={`${review.name}-${index}`} {...review} />
             ))}
           </Marquee>
-          
+
           {/* Baris kedua - bergerak ke kanan (reverse) */}
           <Marquee reverse pauseOnHover className="[--duration:20s] [--gap:1rem]">
             {secondRow.map((review, index) => (
               <ReviewCard key={`${review.name}-${index}-second`} {...review} />
             ))}
           </Marquee>
-          
+
           {/* Gradient overlay untuk fade effect */}
           <div className="pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-white to-transparent z-10"></div>
           <div className="pointer-events-none absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-white to-transparent z-10"></div>

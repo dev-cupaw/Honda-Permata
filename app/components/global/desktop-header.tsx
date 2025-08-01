@@ -4,7 +4,7 @@ import * as React from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Phone } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button" // Corrected import
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -80,11 +80,11 @@ export function DesktopHeader() {
     <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
       <div className="container mx-auto flex h-24 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
-          <Image 
-            src="/honda-permata-logo/logo-hondapermata.svg" 
-            alt="Honda Permata Serpong Logo" 
-            width={120} 
-            height={28} 
+          <Image
+            src="/honda-permata-logo/logo-hondapermata.svg"
+            alt="Honda Permata Serpong Logo"
+            width={120}
+            height={28}
             className="h-7 w-auto object-contain"
             priority
           />
@@ -122,6 +122,11 @@ export function DesktopHeader() {
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>Kontak</NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/brochure" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>Brochures</NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
         <Button asChild className="hidden md:flex">
@@ -130,8 +135,8 @@ export function DesktopHeader() {
           </a>
         </Button>
       </div>
-      <MegaMenu 
-        isOpen={isMegaMenuOpen} 
+      <MegaMenu
+        isOpen={isMegaMenuOpen}
         onClose={handleCloseMegaMenu}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}

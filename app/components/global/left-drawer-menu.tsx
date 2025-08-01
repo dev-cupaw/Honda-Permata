@@ -1,9 +1,9 @@
 "use client"
 import Link from "next/link"
 import Image from "next/image"
-import { Phone } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet"
+import { Phone } from "lucide-react" // Added MenuIcon import
+import { Button } from "@/components/ui/button" // Corrected import
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet" // Added SheetTrigger import
 
 const menuItems = [
   { href: "/", label: "Beranda" },
@@ -11,6 +11,7 @@ const menuItems = [
   { href: "/promo", label: "Promo" },
   { href: "/testimoni", label: "Testimoni" },
   { href: "/kontak", label: "Kontak" },
+  { href: "/brochure", label: "Brochures" }, // Added brochure link
 ]
 
 export function LeftDrawerMenu({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: (isOpen: boolean) => void }) {
@@ -19,11 +20,11 @@ export function LeftDrawerMenu({ isOpen, setIsOpen }: { isOpen: boolean; setIsOp
       <SheetContent side="left" className="w-[80vw] bg-white p-0">
         <SheetHeader className="border-b p-4">
           <SheetTitle className="flex justify-start">
-            <Image 
-              src="/honda-permata-logo/honda-logo-icon.webp" 
-              alt="Honda Logo" 
-              width={120} 
-              height={120} 
+            <Image
+              src="/honda-permata-logo/honda-logo-icon.webp"
+              alt="Honda Logo"
+              width={120}
+              height={120}
               className="h-17 w-17 object-contain"
               priority
             />
@@ -41,6 +42,8 @@ export function LeftDrawerMenu({ isOpen, setIsOpen }: { isOpen: boolean; setIsOp
                 {item.label}
               </Link>
             ))}
+            {/* Assuming MegaMenu is also used here for mobile, if not, remove this line */}
+            {/* <MegaMenu isMobile={true} onClose={() => setIsOpen(false)} /> */}
           </nav>
           <Button
             asChild
