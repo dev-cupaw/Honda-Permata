@@ -5,7 +5,7 @@ const promos = [
   {
     title: "DP Ringan Honda Brio & Jazz",
     link: "/promo/dp-ringan",
-    thumbnail: "/section-promosi/DP-Ringan-Honda-Brio-Jazz.webp",
+    thumbnail: "/section-promosi/Cashback-Puluhan-Juta.webp",
   },
   {
     title: "Cicilan Super Ringan HR-V & BR-V",
@@ -55,7 +55,7 @@ const promos = [
   {
     title: "Taksiran Harga Fair & Transparan",
     link: "/promo/taksiran-fair",
-    thumbnail: "/section-promosi/Taksiran-Harga-Fair-Transparan.webp",
+    thumbnail: "/section-promosi/Program-Trade-In-Terbaik.webp",
   },
   {
     title: "Layanan Darurat 24/7",
@@ -70,7 +70,7 @@ const promos = [
   {
     title: "Free Kaca Film V-Kool",
     link: "/promo/free-vkool",
-    thumbnail: "/section-promosi/Free-Kaca-Film-V-Kool.webp",
+    thumbnail: "/section-promosi/Free-Aksesoris-Pilihan.webp",
   },
   {
     title: "Approval Rate Tinggi",

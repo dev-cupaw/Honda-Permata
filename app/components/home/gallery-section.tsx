@@ -26,7 +26,7 @@ const galleryImages = [
     title: "Service Honda Resmi"
   },
   {
-    src: "/section-gallery/Office-Honda-Permata-Serpong.webp",
+    src: "/section-gallery/Honda-Permata-Serpong.webp",
     alt: "Office Honda Permata Serpong - Ruang Konsultasi Kredit dan Trade In",
     title: "Office Honda Permata"
   },
@@ -36,7 +36,7 @@ const galleryImages = [
     title: "Layanan Coating Premium"
   },
   {
-    src: "/section-gallery/Check-Kendaraan-Honda-Permata-Serpong.webp",
+    src: "/section-gallery/Service-Honda-Permata-Serpong.webp",
     alt: "Check Kendaraan Honda Permata Serpong - Inspeksi Menyeluruh Sebelum Pembelian",
     title: "Check Kendaraan"
   },
@@ -46,7 +46,7 @@ const galleryImages = [
     title: "Oli Berkualitas Honda"
   },
   {
-    src: "/section-gallery/Tampak-Depan-Honda-Permata-Serpong.webp",
+    src: "/section-gallery/Coating-Honda-Permata-Serpong.webp",
     alt: "Tampak Depan Honda Permata Serpong - Dealer Honda Terpercaya Gading Serpong",
     title: "Tampak Depan Dealer"
   },
