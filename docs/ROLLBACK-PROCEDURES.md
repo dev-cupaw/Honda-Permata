@@ -8,21 +8,21 @@ This document provides step-by-step rollback procedures for each critical fix im
 
 ### Immediate Actions
 1. **Revert to previous deployment**
-   ```bash
+   \`\`\`bash
    # If using Git-based deployment
    git revert HEAD --no-edit
    git push origin main
    
    # If using platform deployment (Vercel/Netlify)
    # Use platform's rollback feature in dashboard
-   ```
+   \`\`\`
 
 2. **Emergency environment variables**
-   ```bash
+   \`\`\`bash
    # Set emergency fallback values
    NEXT_PUBLIC_WHATSAPP_NUMBER=6282297098292
    NEXT_PUBLIC_TOAST_DELAY=5000
-   ```
+   \`\`\`
 
 ## Detailed Rollback Procedures by Fix
 
@@ -31,10 +31,10 @@ This document provides step-by-step rollback procedures for each critical fix im
 
 **Rollback Steps:**
 1. **File:** `hooks/use-toast.ts`
-   ```typescript
+   \`\`\`typescript
    // Emergency fallback - revert to safe value
    const TOAST_REMOVE_DELAY = 5000 // Safe 5-second delay
-   ```
+   \`\`\`
 
 2. **Verification:**
    - Test toast notifications appear and disappear
@@ -48,7 +48,7 @@ This document provides step-by-step rollback procedures for each critical fix im
 
 **Rollback Steps:**
 1. **Disable WhatsApp integration temporarily**
-   ```typescript
+   \`\`\`typescript
    // In form components, add emergency fallback
    const handleSubmit = (e: React.FormEvent) => {
      e.preventDefault()
@@ -59,7 +59,7 @@ This document provides step-by-step rollback procedures for each critical fix im
      // Or redirect directly
      window.open(`https://wa.me/6282297098292`, '_blank')
    }
-   ```
+   \`\`\`
 
 2. **Revert form handlers**
    - Replace `useFormHandler` with simple alert/redirect
@@ -73,7 +73,7 @@ This document provides step-by-step rollback procedures for each critical fix im
 
 **Rollback Steps:**
 1. **Hardcode emergency values**
-   ```typescript
+   \`\`\`typescript
    // In lib/contact-config.ts
    export const contactConfig = {
      whatsapp: {
@@ -86,7 +86,7 @@ This document provides step-by-step rollback procedures for each critical fix im
    export const validateContactConfig = () => {
      // No-op for emergency
    }
-   ```
+   \`\`\`
 
 2. **Update all components**
    - Replace `getWhatsAppNumber()` with hardcoded value
@@ -99,20 +99,20 @@ This document provides step-by-step rollback procedures for each critical fix im
 
 **Rollback Steps:**
 1. **Disable image optimization**
-   ```javascript
+   \`\`\`javascript
    // In next.config.mjs
    const nextConfig = {
      images: {
        unoptimized: true, // Disable optimization
      }
    }
-   ```
+   \`\`\`
 
 2. **Revert to standard img tags**
-   ```typescript
+   \`\`\`typescript
    // Replace Next.js Image components with standard img
    <img src="/path/to/image.jpg" alt="Description" />
-   ```
+   \`\`\`
 
 **Risk Level:** LOW - Performance impact only
 
@@ -121,7 +121,7 @@ This document provides step-by-step rollback procedures for each critical fix im
 
 **Rollback Steps:**
 1. **Revert to simple event listeners**
-   ```typescript
+   \`\`\`typescript
    // In desktop-header.tsx
    useEffect(() => {
      const handleClick = (e: MouseEvent) => {
@@ -134,7 +134,7 @@ This document provides step-by-step rollback procedures for each critical fix im
      document.addEventListener('click', handleClick)
      return () => document.removeEventListener('click', handleClick)
    }, []) // Simple dependency array
-   ```
+   \`\`\`
 
 **Risk Level:** LOW - UI interaction only
 
@@ -143,18 +143,18 @@ This document provides step-by-step rollback procedures for each critical fix im
 
 **Rollback Steps:**
 1. **Hardcode contact information**
-   ```typescript
+   \`\`\`typescript
    // In all components, replace dynamic values with:
    const WHATSAPP_NUMBER = '6282297098292'
    const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`
-   ```
+   \`\`\`
 
 2. **Update all contact links**
-   ```jsx
+   \`\`\`jsx
    <a href="https://wa.me/6282297098292" target="_blank" rel="noopener noreferrer">
      WhatsApp
    </a>
-   ```
+   \`\`\`
 
 **Risk Level:** MEDIUM - Customer contact impact
 
@@ -163,7 +163,7 @@ This document provides step-by-step rollback procedures for each critical fix im
 ### Complete Emergency Fallback
 If all else fails, use this emergency configuration:
 
-```typescript
+\`\`\`typescript
 // Emergency configuration object
 const EMERGENCY_CONFIG = {
   WHATSAPP_NUMBER: '6282297098292',
@@ -179,7 +179,7 @@ const emergencyFormHandler = (formData: any) => {
   const url = `https://wa.me/6282297098292?text=${encodeURIComponent(message)}`
   window.open(url, '_blank')
 }
-```
+\`\`\`
 
 ## Monitoring During Rollback
 

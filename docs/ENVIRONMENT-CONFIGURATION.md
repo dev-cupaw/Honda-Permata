@@ -10,7 +10,7 @@ The Honda Permata website uses environment variables to manage sensitive configu
 
 Create a `.env.local` file in the project root with the following variables:
 
-```bash
+\`\`\`bash
 # WhatsApp Integration (REQUIRED)
 NEXT_PUBLIC_WHATSAPP_NUMBER=6282297098292
 
@@ -20,13 +20,13 @@ NEXT_PUBLIC_TOAST_DELAY=5000
 # Development/Debug Settings (OPTIONAL)
 NODE_ENV=production
 NEXT_PUBLIC_DEBUG_MODE=false
-```
+\`\`\`
 
 ### Development Environment
 
 For local development, use these settings:
 
-```bash
+\`\`\`bash
 # WhatsApp Integration (REQUIRED)
 NEXT_PUBLIC_WHATSAPP_NUMBER=6282297098292
 
@@ -36,7 +36,7 @@ NEXT_PUBLIC_TOAST_DELAY=5000
 # Development Settings
 NODE_ENV=development
 NEXT_PUBLIC_DEBUG_MODE=true
-```
+\`\`\`
 
 ## Variable Descriptions
 
@@ -103,7 +103,7 @@ The system automatically validates environment variables on startup:
 
 ### Validation Error Messages
 
-```typescript
+\`\`\`typescript
 // Missing required variable
 "Missing required environment variables: NEXT_PUBLIC_WHATSAPP_NUMBER
 Please add them to your .env.local file"
@@ -113,33 +113,33 @@ Please add them to your .env.local file"
 
 // Invalid toast delay
 "Toast delay must be between 1000-30000 milliseconds. Using default: 5000"
-```
+\`\`\`
 
 ## Environment-Specific Configuration
 
 ### Local Development
-```bash
+\`\`\`bash
 # .env.local (for local development)
 NEXT_PUBLIC_WHATSAPP_NUMBER=6282297098292
 NEXT_PUBLIC_TOAST_DELAY=3000
 NEXT_PUBLIC_DEBUG_MODE=true
-```
+\`\`\`
 
 ### Staging Environment
-```bash
+\`\`\`bash
 # .env.local (for staging)
 NEXT_PUBLIC_WHATSAPP_NUMBER=6282297098292
 NEXT_PUBLIC_TOAST_DELAY=5000
 NEXT_PUBLIC_DEBUG_MODE=false
-```
+\`\`\`
 
 ### Production Environment
-```bash
+\`\`\`bash
 # .env.local (for production)
 NEXT_PUBLIC_WHATSAPP_NUMBER=6282297098292
 NEXT_PUBLIC_TOAST_DELAY=5000
 NODE_ENV=production
-```
+\`\`\`
 
 ## Security Considerations
 
@@ -181,7 +181,7 @@ NODE_ENV=production
 
 ### Type-Safe Configuration Access
 
-```typescript
+\`\`\`typescript
 // lib/contact-config.ts
 export const getWhatsAppNumber = (): string => {
   const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER
@@ -195,11 +195,11 @@ export const getToastDelay = (): number => {
   const delay = parseInt(process.env.NEXT_PUBLIC_TOAST_DELAY || '5000')
   return Math.min(Math.max(delay, 1000), 30000) // Clamp between 1-30 seconds
 }
-```
+\`\`\`
 
 ### Usage in Components
 
-```typescript
+\`\`\`typescript
 // In React components
 import { getWhatsAppNumber, getToastDelay } from '@/lib/contact-config'
 
@@ -209,7 +209,7 @@ const ContactForm = () => {
   
   // Use configuration values...
 }
-```
+\`\`\`
 
 ## Deployment Configuration
 
@@ -221,35 +221,35 @@ const ContactForm = () => {
    - Set environment scope (Production, Preview, Development)
 
 2. **Environment Variable Settings:**
-   ```
+   \`\`\`
    Name: NEXT_PUBLIC_WHATSAPP_NUMBER
    Value: 6282297098292
    Environments: Production, Preview, Development
-   ```
+   \`\`\`
 
 ### Other Hosting Platforms
 
 #### Netlify
-```bash
+\`\`\`bash
 # netlify.toml
 [build.environment]
   NEXT_PUBLIC_WHATSAPP_NUMBER = "6282297098292"
   NEXT_PUBLIC_TOAST_DELAY = "5000"
-```
+\`\`\`
 
 #### Railway
-```bash
+\`\`\`bash
 # Set via Railway CLI
 railway variables set NEXT_PUBLIC_WHATSAPP_NUMBER=6282297098292
 railway variables set NEXT_PUBLIC_TOAST_DELAY=5000
-```
+\`\`\`
 
 #### Docker
-```dockerfile
+\`\`\`dockerfile
 # Dockerfile
 ENV NEXT_PUBLIC_WHATSAPP_NUMBER=6282297098292
 ENV NEXT_PUBLIC_TOAST_DELAY=5000
-```
+\`\`\`
 
 ## Troubleshooting Configuration Issues
 
@@ -272,7 +272,7 @@ ENV NEXT_PUBLIC_TOAST_DELAY=5000
 
 ### Diagnostic Commands
 
-```bash
+\`\`\`bash
 # Check if .env.local exists
 ls -la .env.local
 
@@ -281,11 +281,11 @@ printenv | grep NEXT_PUBLIC
 
 # Test configuration in Node.js
 node -e "console.log(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER)"
-```
+\`\`\`
 
 ### Validation Testing
 
-```javascript
+\`\`\`javascript
 // Test configuration validation in browser console
 import { validateContactConfig } from '@/lib/contact-config'
 
@@ -295,7 +295,7 @@ try {
 } catch (error) {
   console.error('Configuration error:', error.message)
 }
-```
+\`\`\`
 
 ## Migration Guide
 
@@ -304,21 +304,21 @@ try {
 If migrating from hardcoded contact information:
 
 1. **Identify Hardcoded Values**
-   ```bash
+   \`\`\`bash
    # Search for hardcoded phone numbers
    grep -r "6282297098292" src/
    grep -r "082297098292" src/
-   ```
+   \`\`\`
 
 2. **Replace with Configuration**
-   ```typescript
+   \`\`\`typescript
    // Before
    const whatsappUrl = `https://wa.me/6282297098292`
    
    // After
    import { getWhatsAppNumber } from '@/lib/contact-config'
    const whatsappUrl = `https://wa.me/${getWhatsAppNumber()}`
-   ```
+   \`\`\`
 
 3. **Test Migration**
    - Verify all contact links work
@@ -330,21 +330,21 @@ If migrating from hardcoded contact information:
 When adding new environment variables:
 
 1. **Update Configuration Types**
-   ```typescript
+   \`\`\`typescript
    interface ContactConfig {
      whatsapp: {
        number: string
        businessHours: string // New field
      }
    }
-   ```
+   \`\`\`
 
 2. **Add Validation**
-   ```typescript
+   \`\`\`typescript
    export const getBusinessHours = (): string => {
      return process.env.NEXT_PUBLIC_BUSINESS_HOURS || '09:00-17:00'
    }
-   ```
+   \`\`\`
 
 3. **Update Documentation**
    - Add to this configuration guide

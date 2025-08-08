@@ -27,11 +27,11 @@
    - Try opening WhatsApp manually first
 
 **Diagnostic Steps:**
-```javascript
+\`\`\`javascript
 // Test WhatsApp URL generation in browser console
 const testUrl = `https://wa.me/6282297098292?text=${encodeURIComponent('Test message')}`
 window.open(testUrl, '_blank')
-```
+\`\`\`
 
 #### Problem: WhatsApp opens but message is malformed
 **Symptoms:**
@@ -51,7 +51,7 @@ window.open(testUrl, '_blank')
    - Test with simple ASCII characters first
 
 **Diagnostic Steps:**
-```javascript
+\`\`\`javascript
 // Test message formatting in browser console
 const testData = { nama: 'Test User', phone: '081234567890' }
 const integrator = new WhatsAppIntegrator({
@@ -59,7 +59,7 @@ const integrator = new WhatsAppIntegrator({
   baseUrl: 'https://wa.me'
 })
 console.log(integrator.formatMessage(testData, 'contact'))
-```
+\`\`\`
 
 ### 2. Form Validation Issues
 
@@ -86,7 +86,7 @@ console.log(integrator.formatMessage(testData, 'contact'))
    - Verify minimum length requirements
 
 **Diagnostic Steps:**
-```javascript
+\`\`\`javascript
 // Test validation in browser console
 const phoneRegex = /^(\+62|62|0)[0-9]{9,13}$/
 const testPhone = '081234567890'
@@ -95,7 +95,7 @@ console.log('Phone valid:', phoneRegex.test(testPhone.replace(/[-\s]/g, '')))
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const testEmail = 'test@example.com'
 console.log('Email valid:', emailRegex.test(testEmail))
-```
+\`\`\`
 
 ### 3. Toast Notification Issues
 
@@ -117,7 +117,7 @@ console.log('Email valid:', emailRegex.test(testEmail))
    - Check for JavaScript errors in console
 
 **Diagnostic Steps:**
-```javascript
+\`\`\`javascript
 // Check current toast delay setting
 console.log('Toast delay:', process.env.NEXT_PUBLIC_TOAST_DELAY || '5000')
 
@@ -129,7 +129,7 @@ toast({
   description: "This is a test message",
   variant: "default"
 })
-```
+\`\`\`
 
 ### 4. Environment Configuration Issues
 
@@ -146,10 +146,10 @@ toast({
    - Check for typos in variable names
 
 2. **Required Environment Variables**
-   ```
+   \`\`\`
    NEXT_PUBLIC_WHATSAPP_NUMBER=6282297098292
    NEXT_PUBLIC_TOAST_DELAY=5000
-   ```
+   \`\`\`
 
 3. **Restart Development Server**
    - Stop the development server (Ctrl+C)
@@ -157,11 +157,11 @@ toast({
    - Check console for configuration errors
 
 **Diagnostic Steps:**
-```javascript
+\`\`\`javascript
 // Check environment variables in browser console
 console.log('WhatsApp Number:', process.env.NEXT_PUBLIC_WHATSAPP_NUMBER)
 console.log('Toast Delay:', process.env.NEXT_PUBLIC_TOAST_DELAY)
-```
+\`\`\`
 
 ### 5. Performance Issues
 
@@ -188,14 +188,14 @@ console.log('Toast Delay:', process.env.NEXT_PUBLIC_TOAST_DELAY)
    - Run bundle analyzer: `npm run analyze`
 
 **Diagnostic Steps:**
-```bash
+\`\`\`bash
 # Check bundle size
 npm run build
 npm run analyze
 
 # Performance testing
 npm run lighthouse
-```
+\`\`\`
 
 ### 6. Mobile-Specific Issues
 
@@ -232,14 +232,14 @@ If the entire form system fails:
    - Display manual contact details
 
 2. **Emergency Contact Display**
-   ```typescript
+   \`\`\`typescript
    // Add to any page as emergency fallback
    <div className="emergency-contact">
      <h3>Hubungi Kami Langsung</h3>
      <p>WhatsApp: +62 822-9709-8292</p>
      <p>Email: info@hondapermataserpong.com</p>
    </div>
-   ```
+   \`\`\`
 
 ### 2. WhatsApp Service Outage
 If WhatsApp service is unavailable:
@@ -258,10 +258,10 @@ If WhatsApp service is unavailable:
 If environment variables are corrupted:
 
 1. **Hardcoded Fallback**
-   ```typescript
+   \`\`\`typescript
    const EMERGENCY_WHATSAPP = '6282297098292'
    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || EMERGENCY_WHATSAPP
-   ```
+   \`\`\`
 
 2. **Configuration Reset**
    - Restore .env.local from backup

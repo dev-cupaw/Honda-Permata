@@ -29,7 +29,7 @@ This guide provides comprehensive instructions for maintaining and extending the
 
 Create a TypeScript interface for your new form:
 
-```typescript
+\`\`\`typescript
 // In hooks/use-form-handler.ts or separate types file
 interface ServiceBookingFormData extends BaseFormData {
   serviceType: string
@@ -39,13 +39,13 @@ interface ServiceBookingFormData extends BaseFormData {
   preferredTime: string
   additionalNotes?: string
 }
-```
+\`\`\`
 
 ### Step 2: Update Form Type Union
 
 Add your new form type to the existing union:
 
-```typescript
+\`\`\`typescript
 // In hooks/use-form-handler.ts
 type FormType = 
   | 'contact' 
@@ -53,11 +53,11 @@ type FormType =
   | 'service'
   | 'service-booking' // New form type
   | 'brochure'
-```
+\`\`\`
 
 ### Step 3: Create Form Component
 
-```typescript
+\`\`\`typescript
 // components/forms/service-booking-form.tsx
 'use client'
 
@@ -269,13 +269,13 @@ export const ServiceBookingForm = ({ className }: ServiceBookingFormProps) => {
     </form>
   )
 }
-```
+\`\`\`
 
 ### Step 4: Update WhatsApp Message Formatting
 
 Add field labels for your new form fields:
 
-```typescript
+\`\`\`typescript
 // In lib/whatsapp-integration.ts
 private getFieldLabel(key: string): string {
   const labelMap: Record<string, string> = {
@@ -295,13 +295,13 @@ private getFieldLabel(key: string): string {
   }
   return labelMap[key] || key.charAt(0).toUpperCase() + key.slice(1)
 }
-```
+\`\`\`
 
 ### Step 5: Add Form-Specific Validation (Optional)
 
 If your form needs custom validation beyond the standard rules:
 
-```typescript
+\`\`\`typescript
 // In hooks/use-form-handler.ts
 const validateForm = (data: FormData, formType: FormType): string[] => {
   const errors: string[] = []
@@ -351,7 +351,7 @@ const validateForm = (data: FormData, formType: FormType): string[] => {
   
   return errors
 }
-```
+\`\`\`
 
 ## Modifying Existing Forms
 
@@ -366,7 +366,7 @@ Locate the form component you want to modify:
 
 Add or modify fields in the form data state:
 
-```typescript
+\`\`\`typescript
 // Add new field
 const [formData, setFormData] = useState({
   // Existing fields...
@@ -378,11 +378,11 @@ const [formData, setFormData] = useState({
   // New field
   preferredContactMethod: 'whatsapp' // New field with default value
 })
-```
+\`\`\`
 
 ### Step 3: Add Form Input Elements
 
-```typescript
+\`\`\`typescript
 // Add new input field
 <div>
   <label htmlFor="preferredContactMethod" className="block text-sm font-medium">
@@ -402,13 +402,13 @@ const [formData, setFormData] = useState({
     <option value="email">Email</option>
   </select>
 </div>
-```
+\`\`\`
 
 ### Step 4: Update Field Labels
 
 Add the new field label to the WhatsApp integrator:
 
-```typescript
+\`\`\`typescript
 // In lib/whatsapp-integration.ts
 private getFieldLabel(key: string): string {
   const labelMap: Record<string, string> = {
@@ -417,13 +417,13 @@ private getFieldLabel(key: string): string {
   }
   return labelMap[key] || key.charAt(0).toUpperCase() + key.slice(1)
 }
-```
+\`\`\`
 
 ## Form Validation Customization
 
 ### Adding New Validation Rules
 
-```typescript
+\`\`\`typescript
 // In hooks/use-form-handler.ts
 const validateForm = (data: FormData): string[] => {
   const errors: string[] = []
@@ -441,11 +441,11 @@ const validateForm = (data: FormData): string[] => {
   
   return errors
 }
-```
+\`\`\`
 
 ### Custom Validation Messages
 
-```typescript
+\`\`\`typescript
 // Create validation message mapping
 const getValidationMessage = (field: string, rule: string): string => {
   const messages: Record<string, Record<string, string>> = {
@@ -464,13 +464,13 @@ const getValidationMessage = (field: string, rule: string): string => {
   
   return messages[field]?.[rule] || `${field} tidak valid`
 }
-```
+\`\`\`
 
 ## WhatsApp Message Customization
 
 ### Custom Message Templates
 
-```typescript
+\`\`\`typescript
 // In lib/whatsapp-integration.ts
 formatMessage(formData: FormData, formType: string): string {
   const templates: Record<string, (data: FormData) => string> = {
@@ -519,11 +519,11 @@ Mohon konfirmasi ketersediaan unit dan jadwal. Terima kasih.`
   // Default template
   return this.getDefaultMessage(formData, formType)
 }
-```
+\`\`\`
 
 ### Dynamic Message Content
 
-```typescript
+\`\`\`typescript
 // Add conditional content based on form data
 formatMessage(formData: FormData, formType: string): string {
   let message = `Halo, saya ingin konsultasi tentang Honda.\n\n`
@@ -566,13 +566,13 @@ private getFormTypeLabel(formType: string): string {
   }
   return labels[formType] || formType
 }
-```
+\`\`\`
 
 ## Error Handling and User Feedback
 
 ### Custom Error Messages
 
-```typescript
+\`\`\`typescript
 // In hooks/use-form-handler.ts
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault()
@@ -602,11 +602,11 @@ const handleSubmit = async (e: React.FormEvent) => {
     }
   }
 }
-```
+\`\`\`
 
 ### Success Message Customization
 
-```typescript
+\`\`\`typescript
 // Custom success messages based on form type
 const getSuccessMessage = (formType: string): { title: string; description: string } => {
   const messages: Record<string, { title: string; description: string }> = {
@@ -629,7 +629,7 @@ const getSuccessMessage = (formType: string): { title: string; description: stri
     description: "Permintaan Anda telah dikirim."
   }
 }
-```
+\`\`\`
 
 ## Testing New Forms
 
@@ -661,7 +661,7 @@ const getSuccessMessage = (formType: string): { title: string; description: stri
 
 ### Automated Testing
 
-```typescript
+\`\`\`typescript
 // Example test for new form
 // __tests__/forms/service-booking-form.test.tsx
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
@@ -709,14 +709,14 @@ describe('ServiceBookingForm', () => {
     })
   })
 })
-```
+\`\`\`
 
 ## Performance Considerations
 
 ### Form Optimization
 
 1. **Lazy Loading**
-   ```typescript
+   \`\`\`typescript
    // Lazy load form components
    const ServiceBookingForm = lazy(() => import('@/components/forms/service-booking-form'))
    
@@ -724,10 +724,10 @@ describe('ServiceBookingForm', () => {
    <Suspense fallback={<div>Loading form...</div>}>
      <ServiceBookingForm />
    </Suspense>
-   ```
+   \`\`\`
 
 2. **Debounced Validation**
-   ```typescript
+   \`\`\`typescript
    // Debounce validation for better UX
    import { useDebouncedCallback } from 'use-debounce'
    
@@ -738,10 +738,10 @@ describe('ServiceBookingForm', () => {
      },
      300
    )
-   ```
+   \`\`\`
 
 3. **Memoization**
-   ```typescript
+   \`\`\`typescript
    // Memoize expensive calculations
    const whatsappIntegrator = useMemo(() => 
      new WhatsAppIntegrator({
@@ -749,13 +749,13 @@ describe('ServiceBookingForm', () => {
        baseUrl: getWhatsAppBaseUrl()
      }), []
    )
-   ```
+   \`\`\`
 
 ## Security Best Practices
 
 ### Input Sanitization
 
-```typescript
+\`\`\`typescript
 // Sanitize user inputs
 const sanitizeInput = (input: string): string => {
   return input
@@ -770,11 +770,11 @@ const sanitizedFormData = {
   nama: sanitizeInput(formData.nama),
   message: sanitizeInput(formData.message)
 }
-```
+\`\`\`
 
 ### XSS Prevention
 
-```typescript
+\`\`\`typescript
 // Escape special characters for URL encoding
 const escapeForUrl = (text: string): string => {
   return encodeURIComponent(text)
@@ -782,13 +782,13 @@ const escapeForUrl = (text: string): string => {
       return '%' + c.charCodeAt(0).toString(16)
     })
 }
-```
+\`\`\`
 
 ## Monitoring and Analytics
 
 ### Form Submission Tracking
 
-```typescript
+\`\`\`typescript
 // Track form submissions
 const trackFormSubmission = (formType: string, success: boolean) => {
   // Google Analytics
@@ -802,11 +802,11 @@ const trackFormSubmission = (formType: string, success: boolean) => {
   // Custom analytics
   console.log(`Form submission: ${formType} - ${success ? 'success' : 'failed'}`)
 }
-```
+\`\`\`
 
 ### Error Monitoring
 
-```typescript
+\`\`\`typescript
 // Monitor form errors
 const logFormError = (error: Error, formType: string, formData: any) => {
   console.error('Form error:', {
@@ -819,7 +819,7 @@ const logFormError = (error: Error, formType: string, formData: any) => {
     hasEmail: !!formData.email
   })
 }
-```
+\`\`\`
 
 ## Troubleshooting Common Issues
 
@@ -835,12 +835,12 @@ const logFormError = (error: Error, formType: string, formData: any) => {
    - Check variable format and value
 
 3. **Test Form Handler**
-   ```typescript
+   \`\`\`typescript
    // Debug form handler
    console.log('Form data:', formData)
    console.log('Form type:', formType)
    console.log('WhatsApp number:', getWhatsAppNumber())
-   ```
+   \`\`\`
 
 ### WhatsApp Not Opening
 
@@ -850,11 +850,11 @@ const logFormError = (error: Error, formType: string, formData: any) => {
    - Try different browsers
 
 2. **Verify URL Generation**
-   ```typescript
+   \`\`\`typescript
    // Test URL generation
    const testUrl = whatsappIntegrator.generateWhatsAppUrl(formData, formType)
    console.log('Generated URL:', testUrl)
-   ```
+   \`\`\`
 
 ### Validation Issues
 
@@ -864,11 +864,11 @@ const logFormError = (error: Error, formType: string, formData: any) => {
    - Check for typos in field names
 
 2. **Debug Validation**
-   ```typescript
+   \`\`\`typescript
    // Test validation function
    const errors = validateForm(formData)
    console.log('Validation errors:', errors)
-   ```
+   \`\`\`
 
 ## Best Practices Summary
 

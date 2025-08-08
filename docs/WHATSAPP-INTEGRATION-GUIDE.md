@@ -28,22 +28,22 @@ The Honda Permata website uses a centralized WhatsApp integration system that au
 ### For New Form Components
 
 1. **Import the Form Handler Hook**
-```typescript
+\`\`\`typescript
 import { useFormHandler } from '@/hooks/use-form-handler'
-```
+\`\`\`
 
 2. **Set Up Form State**
-```typescript
+\`\`\`typescript
 const [formData, setFormData] = useState({
   nama: '',
   phone: '',
   email: '',
   message: ''
 })
-```
+\`\`\`
 
 3. **Initialize the Form Handler**
-```typescript
+\`\`\`typescript
 const { handleSubmit, isSubmitting } = useFormHandler({
   formData,
   formType: 'contact', // or 'test-drive', 'service', etc.
@@ -55,17 +55,17 @@ const { handleSubmit, isSubmitting } = useFormHandler({
     console.error('Form submission error:', error)
   }
 })
-```
+\`\`\`
 
 4. **Connect to Form Element**
-```typescript
+\`\`\`typescript
 <form onSubmit={handleSubmit}>
   {/* Form fields */}
   <button type="submit" disabled={isSubmitting}>
     {isSubmitting ? 'Mengirim...' : 'Kirim'}
   </button>
 </form>
-```
+\`\`\`
 
 ### Supported Form Types
 
@@ -79,7 +79,7 @@ const { handleSubmit, isSubmitting } = useFormHandler({
 The system automatically formats messages based on form type:
 
 **Contact Form Example:**
-```
+\`\`\`
 Halo, saya ingin konsultasi tentang Honda.
 
 Sumber: contact
@@ -87,10 +87,10 @@ Nama: John Doe
 No. HP: 081234567890
 Email: john@example.com
 Pesan: Saya tertarik dengan Honda Civic
-```
+\`\`\`
 
 **Test Drive Form Example:**
-```
+\`\`\`
 Halo, saya ingin konsultasi tentang Honda.
 
 Sumber: test-drive
@@ -98,7 +98,7 @@ Nama: Jane Smith
 No. HP: 081234567890
 Model Honda: Honda CR-V
 Tanggal Preferensi: 2024-01-15
-```
+\`\`\`
 
 ## Field Mapping
 
