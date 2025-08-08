@@ -77,8 +77,8 @@ export function DesktopHeader() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/logo-honda.webp"
-            alt="Honda Logo"
+            src="/honda-permata-logo/logo-hondapermata.svg"
+            alt="Honda Permata Logo"
             width={240}
             height={80}
             className="object-contain h-8 w-auto"

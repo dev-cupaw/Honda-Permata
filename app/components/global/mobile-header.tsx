@@ -24,8 +24,8 @@ export function MobileHeader() {
           </Button>
           <Link href="/" className="flex items-center justify-center flex-1 mx-2">
             <Image
-              src="/logo-honda.webp"
-              alt="Honda Logo"
+              src="/honda-permata-logo/logo-hondapermata.svg"
+              alt="Honda Permata Logo"
               width={800}
               height={240}
               className="object-contain h-14 w-auto max-w-full"
