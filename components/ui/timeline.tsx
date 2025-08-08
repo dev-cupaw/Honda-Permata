@@ -37,7 +37,7 @@ export const Timeline = ({
   const opacityTransform = useTransform(scrollYProgress, [0, 0.02], [0, 1])
 
   return (
-    <div className={cn("w-full", className)} ref={containerRef}>
+    <div className={cn("w-full relative", className)} ref={containerRef} style={{ position: 'relative' }}>
       <div ref={ref} className="relative max-w-7xl mx-auto">
         {data.map((item, index) => (
           <div key={`timeline-entry-${index}`} className="flex justify-start pt-6 md:pt-28 md:gap-20">

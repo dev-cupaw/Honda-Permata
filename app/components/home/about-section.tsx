@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import Image from "next/image"
+import { OptimizedImage, RESPONSIVE_SIZES } from "@/components/ui/optimized-image"
 
 const aboutContent = [
   {
@@ -34,24 +34,24 @@ export function AboutSection() {
   // Desktop scroll animation dengan range transform kecil untuk smooth scroll
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ["start center", "end center"],
+    offset: ["start 60%", "end 40%"],
   })
 
   // Mobile scroll animation dengan range transform kecil untuk smooth scroll
   const { scrollYProgress: mobileScrollYProgress } = useScroll({
     target: mobileTargetRef,
-    offset: ["start center", "end center"],
+    offset: ["start 60%", "end 40%"],
   })
 
   // Range transform untuk menampilkan 1 card di awal, kemudian scroll ke card berikutnya
-  const x = useTransform(scrollYProgress, [0.1, 0.9], ["0%", "-75%"])
-  const mobileX = useTransform(mobileScrollYProgress, [0.1, 0.9], ["0%", "-75%"])
+  const x = useTransform(scrollYProgress, [0.15, 0.85], ["0%", "-75%"])
+  const mobileX = useTransform(mobileScrollYProgress, [0.15, 0.85], ["0%", "-75%"])
 
   return (
     <section className="bg-honda-light">
       {/* Mobile Layout - Horizontal Scroll Animation */}
-      <div className="lg:hidden" ref={mobileTargetRef}>
-        <div className="relative h-[300vh]">
+      <div className="lg:hidden relative" ref={mobileTargetRef} style={{ position: 'relative' }}>
+        <div className="relative h-[240vh]">
           <div className="sticky top-0 flex h-screen items-center justify-start overflow-hidden bg-honda-light">
             <motion.div style={{ x: mobileX }} className="flex gap-2 pl-4 pr-4">
               {aboutContent.map((item) => (
@@ -61,7 +61,15 @@ export function AboutSection() {
                 >
                   {/* Top Part - Clean Image */}
                   <div className="aspect-[4/3] relative overflow-hidden">
-                    <Image src={item.image || "/placeholder.svg"} alt={item.title} fill className="object-cover" />
+                    <OptimizedImage 
+                      src={item.image || "/placeholder.svg"} 
+                      alt={item.title} 
+                      fill 
+                      sizes={RESPONSIVE_SIZES.card}
+                      className="object-cover" 
+                      placeholder="blur"
+                      fallbackSrc="/placeholder.svg"
+                    />
                   </div>
 
                   {/* Bottom Part - Text Area */}
@@ -76,11 +84,13 @@ export function AboutSection() {
               <div className="flex-shrink-0 w-[92vw] bg-white rounded-lg shadow-lg overflow-hidden">
                 {/* Top Part - Clean Image */}
                 <div className="aspect-[4/3] relative overflow-hidden">
-                  <Image
+                  <OptimizedImage
                     src="/section-about/Section-About-personal.webp"
                     alt="Kenalan Lebih Jauh"
                     fill
+                    sizes={RESPONSIVE_SIZES.card}
                     className="object-cover"
+                    placeholder="blur"
                   />
                 </div>
 
@@ -99,8 +109,8 @@ export function AboutSection() {
       </div>
 
       {/* Desktop Layout - Horizontal Scroll */}
-      <div className="hidden lg:block" ref={targetRef}>
-        <div className="relative h-[400vh]">
+      <div className="hidden lg:block relative" ref={targetRef} style={{ position: 'relative' }}>
+        <div className="relative h-[320vh]">
           <div className="sticky top-0 flex h-screen items-center justify-start overflow-hidden bg-white">
             <motion.div style={{ x }} className="flex gap-4 pl-8 pr-8">
               {aboutContent.map((item) => (
@@ -108,11 +118,14 @@ export function AboutSection() {
                   key={item.title}
                   className="group relative h-[400px] w-[450px] shrink-0 overflow-hidden rounded-lg shadow-lg"
                 >
-                  <Image
+                  <OptimizedImage
                     src={item.image || "/placeholder.svg"}
                     alt={item.title}
                     fill
+                    sizes={RESPONSIVE_SIZES.card}
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    placeholder="blur"
+                    fallbackSrc="/placeholder.svg"
                   />
                   <div className="absolute inset-0 bg-black/60" />
                   <div className="relative z-10 flex h-full flex-col justify-end p-5 text-white">
@@ -122,11 +135,13 @@ export function AboutSection() {
                 </div>
               ))}
               <div className="group relative h-[400px] w-[450px] shrink-0 overflow-hidden rounded-lg shadow-lg">
-                <Image
+                <OptimizedImage
                   src="/section-about/Section-About-personal.webp"
                   alt="Kenalan Lebih Jauh"
                   fill
+                  sizes={RESPONSIVE_SIZES.card}
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  placeholder="blur"
                 />
                 <div className="absolute inset-0 bg-honda-red-primary/70" />
                 <div className="relative z-10 flex h-full flex-col items-center justify-center p-5 text-center text-white">

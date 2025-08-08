@@ -7,7 +7,10 @@ export function ParallaxHeroSection({ title, subtitle }: ParallaxHeroSectionProp
   return (
     <section
       className="relative h-[50vh] bg-cover bg-center bg-fixed flex items-center justify-center text-center"
-      style={{ backgroundImage: 'url("/section-kontak/Honda-2015.webp")' }}
+      style={{ 
+        backgroundImage: 'url("/section-kontak/Honda-2015.webp")',
+        position: 'relative' // Explicitly set position for scroll calculations
+      }}
     >
       <div className="absolute inset-0 bg-black opacity-60"></div> {/* Overlay for readability */}
       <div className="relative z-10 px-4">

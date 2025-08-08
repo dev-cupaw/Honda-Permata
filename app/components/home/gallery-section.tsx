@@ -1,7 +1,7 @@
 "use client"
 import { useScroll, useTransform, motion } from "framer-motion"
 import { useRef } from "react"
-import Image from "next/image"
+import { OptimizedImage, RESPONSIVE_SIZES } from "@/components/ui/optimized-image"
 
 // Gambar gallery dealer Honda Permata Serpong dengan deskripsi SEO-friendly
 const galleryImages = [
@@ -16,7 +16,7 @@ const galleryImages = [
     title: "Unit Honda Terbaru"
   },
   {
-    src: "/section-gallery/Honda-Gading-Serpong.webp",
+    src: "/section-gallery/Honda-Permata-Serpong.webp",
     alt: "Honda Gading Serpong - Dealer Resmi Honda Terpercaya di Tangerang Selatan",
     title: "Honda Gading Serpong"
   },
@@ -98,12 +98,14 @@ export function GallerySection() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {galleryImages.map((image, index) => (
               <div key={index} className="group aspect-square relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                <Image
+                <OptimizedImage
                   src={image.src}
                   alt={image.alt}
                   fill
+                  sizes={RESPONSIVE_SIZES.gallery}
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                   loading="lazy"
+                  placeholder="blur"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -116,7 +118,7 @@ export function GallerySection() {
       </div>
 
       {/* Desktop Layout - Parallax Scroll */}
-      <div className="hidden lg:block" ref={targetRef}>
+      <div className="hidden lg:block relative" ref={targetRef} style={{ position: 'relative' }}>
         <div className="relative h-[250vh]">
           <div className="sticky top-0 flex h-screen flex-col items-center justify-start overflow-hidden pt-20">
             <div className="relative z-10 mx-auto max-w-7xl bg-white/80 backdrop-blur-sm px-6 py-4 rounded-xl text-center lg:px-8">
@@ -137,13 +139,15 @@ export function GallerySection() {
                       className="group"
                     >
                       <div className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                        <Image
+                        <OptimizedImage
                           src={image.src}
                           className="h-96 w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                          height="500"
-                          width="500"
+                          height={500}
+                          width={500}
                           alt={image.alt}
                           loading="lazy"
+                          placeholder="blur"
+                          sizes={RESPONSIVE_SIZES.gallery}
                         />
                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
                         <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">

@@ -4,6 +4,7 @@ import Image from "next/image"
 import { Phone } from "lucide-react" // Added MenuIcon import
 import { Button } from "@/components/ui/button" // Corrected import
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet" // Added SheetTrigger import
+import { getWhatsAppNumber } from "@/lib/contact-config"
 
 const menuItems = [
   { href: "/", label: "Beranda" },
@@ -15,6 +16,8 @@ const menuItems = [
 ]
 
 export function LeftDrawerMenu({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: (isOpen: boolean) => void }) {
+  const whatsappNumber = getWhatsAppNumber()
+  
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetContent side="left" className="w-[80vw] bg-white p-0">
@@ -37,8 +40,7 @@ export function LeftDrawerMenu({ isOpen, setIsOpen }: { isOpen: boolean; setIsOp
                 key={item.href}
                 href={item.href}
                 className="text-xl font-medium text-honda-gray-dark transition-colors hover:text-honda-red-primary"
-                onClick={() => setIsOpen(false)}
-              >
+                onClick={() => setIsOpen(false)}>
                 {item.label}
               </Link>
             ))}
@@ -51,12 +53,12 @@ export function LeftDrawerMenu({ isOpen, setIsOpen }: { isOpen: boolean; setIsOp
             size="default"
             className="w-full bg-honda-red-primary text-sm hover:bg-honda-red-dark"
           >
-            <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer">
+            <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer">
               <Phone className="mr-2 h-4 w-4" /> WhatsApp Elon Musk
             </a>
           </Button>
         </div>
       </SheetContent>
     </Sheet>
-  )
+  );
 }

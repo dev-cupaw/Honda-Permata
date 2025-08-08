@@ -1,7 +1,6 @@
 "use client"
 import React, { useEffect, useRef, useState, useMemo } from "react"
-import { useMotionValueEvent, useScroll } from "motion/react"
-import { motion } from "motion/react"
+import { useMotionValueEvent, useScroll, motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 export const StickyScroll = ({
@@ -60,6 +59,7 @@ export const StickyScroll = ({
       }}
       className="relative flex h-[30rem] justify-center space-x-10 overflow-y-auto rounded-md p-10"
       ref={ref}
+      style={{ position: 'relative' }}
     >
       <div className="div relative flex items-start px-4">
         <div className="max-w-2xl">

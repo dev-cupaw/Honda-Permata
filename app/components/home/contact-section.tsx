@@ -1,15 +1,18 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { useState, useCallback } from "react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+
 import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
+
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { useFormHandler, validateField } from "@/hooks/use-form-handler"
+import { FormErrorSummary, InputWithError, TextareaWithError } from "@/components/ui/form-error"
+import type { ContactFormData } from "@/lib/whatsapp-integration"
 
 export function ContactSection() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ContactFormData>({
     nama: "",
     phone: "",
     email: "",
@@ -17,15 +20,52 @@ export function ContactSection() {
     message: "",
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.warn("Form submitted:", formData)
-    // Handle form submission logic here
-  }
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({})
 
-  const handleInputChange = (field: string, value: string) => {
+  // Form handler with WhatsApp integration
+  const { handleSubmit, isSubmitting, errors, clearErrors } = useFormHandler({
+    formData,
+    formType: "contact",
+    onSuccess: () => {
+      // Reset form on successful submission
+      setFormData({
+        nama: "",
+        phone: "",
+        email: "",
+        service: "",
+        message: "",
+      })
+      setFieldErrors({})
+    },
+    onError: (error) => {
+      console.error("Contact form submission error:", error)
+    }
+  })
+
+  const handleInputChange = useCallback((field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
-  }
+    
+    // Clear field error when user starts typing
+    if (fieldErrors[field]) {
+      setFieldErrors(prev => {
+        const newErrors = { ...prev }
+        delete newErrors[field]
+        return newErrors
+      })
+    }
+    
+    // Clear general errors when user makes changes
+    if (errors.length > 0) {
+      clearErrors()
+    }
+  }, [fieldErrors, errors.length, clearErrors])
+
+  const handleFieldBlur = useCallback((field: string, value: string) => {
+    const error = validateField(field, value)
+    if (error) {
+      setFieldErrors(prev => ({ ...prev, [field]: error }))
+    }
+  }, [])
 
   return (
     <section
@@ -49,60 +89,71 @@ export function ContactSection() {
         <div className="mx-auto max-w-2xl">
           <div className="rounded-2xl bg-white p-8 shadow-2xl">
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Enhanced Error Display */}
+              <FormErrorSummary 
+                errors={errors}
+                title="Terdapat kesalahan pada form:"
+                dismissible={true}
+                onDismiss={clearErrors}
+              />
+
               {/* Nama Lengkap */}
-              <div className="space-y-2">
-                <Label htmlFor="nama" className="text-sm font-medium text-honda-gray-dark">
-                  Nama Lengkap *
-                </Label>
-                <Input
-                  id="nama"
-                  type="text"
-                  required
-                  value={formData.nama}
-                  onChange={(e) => handleInputChange("nama", e.target.value)}
-                  className="bg-white border-honda-gray-light text-honda-gray-dark placeholder:text-honda-gray focus:border-honda-red-primary focus:ring-honda-red-primary/50"
-                  placeholder="Masukkan nama lengkap Anda"
-                />
-              </div>
+              <InputWithError
+                id="nama"
+                type="text"
+                label="Nama Lengkap"
+                required
+                value={formData.nama}
+                onChange={(e) => handleInputChange("nama", e.target.value)}
+                onBlur={(e) => handleFieldBlur("nama", e.target.value)}
+                error={fieldErrors.nama}
+                className="bg-white text-honda-gray-dark placeholder:text-honda-gray focus:ring-honda-red-primary/50 border-honda-gray-light focus:border-honda-red-primary"
+                placeholder="Masukkan nama lengkap Anda"
+                disabled={isSubmitting}
+                helpText="Masukkan nama lengkap sesuai identitas"
+              />
 
               {/* Nomor HP */}
-              <div className="space-y-2">
-                <Label htmlFor="phone" className="text-sm font-medium text-honda-gray-dark">
-                  Nomor HP *
-                </Label>
-                <Input
-                  id="phone"
-                  type="tel"
-                  required
-                  value={formData.phone}
-                  onChange={(e) => handleInputChange("phone", e.target.value)}
-                  className="bg-white border-honda-gray-light text-honda-gray-dark placeholder:text-honda-gray focus:border-honda-red-primary focus:ring-honda-red-primary/50"
-                  placeholder="Contoh: 08123456789"
-                />
-              </div>
+              <InputWithError
+                id="phone"
+                type="tel"
+                label="Nomor HP"
+                required
+                value={formData.phone}
+                onChange={(e) => handleInputChange("phone", e.target.value)}
+                onBlur={(e) => handleFieldBlur("phone", e.target.value)}
+                error={fieldErrors.phone}
+                className="bg-white text-honda-gray-dark placeholder:text-honda-gray focus:ring-honda-red-primary/50 border-honda-gray-light focus:border-honda-red-primary"
+                placeholder="Contoh: 08123456789 atau +628123456789"
+                disabled={isSubmitting}
+                helpText="Nomor HP aktif untuk dihubungi via WhatsApp"
+              />
 
               {/* Email */}
-              <div className="space-y-2">
-                <Label htmlFor="email" className="text-sm font-medium text-honda-gray-dark">
-                  Email *
-                </Label>
-                <Input
-                  id="email"
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={(e) => handleInputChange("email", e.target.value)}
-                  className="bg-white border-honda-gray-light text-honda-gray-dark placeholder:text-honda-gray focus:border-honda-red-primary focus:ring-honda-red-primary/50"
-                  placeholder="contoh@email.com"
-                />
-              </div>
+              <InputWithError
+                id="email"
+                type="email"
+                label="Email (Opsional)"
+                value={formData.email}
+                onChange={(e) => handleInputChange("email", e.target.value)}
+                onBlur={(e) => handleFieldBlur("email", e.target.value)}
+                error={fieldErrors.email}
+                className="bg-white text-honda-gray-dark placeholder:text-honda-gray focus:ring-honda-red-primary/50 border-honda-gray-light focus:border-honda-red-primary"
+                placeholder="contoh@email.com"
+                disabled={isSubmitting}
+                helpText="Email untuk komunikasi tambahan (opsional)"
+              />
 
               {/* Pilih Layanan */}
               <div className="space-y-2">
                 <Label htmlFor="service" className="text-sm font-medium text-honda-gray-dark">
-                  Pilih Layanan *
+                  Pilih Layanan (Opsional)
                 </Label>
-                <Select required onValueChange={(value) => handleInputChange("service", value)}>
+                <Select 
+                  value={formData.service || ""} 
+                  onValueChange={(value) => handleInputChange("service", value)}
+                  disabled={isSubmitting}
+                >
                   <SelectTrigger className="bg-white border-honda-gray-light text-honda-gray-dark focus:border-honda-red-primary focus:ring-honda-red-primary/50">
                     <SelectValue placeholder="Pilih layanan yang Anda butuhkan" />
                   </SelectTrigger>
@@ -136,26 +187,40 @@ export function ContactSection() {
               </div>
 
               {/* Pesan Tambahan */}
-              <div className="space-y-2">
-                <Label htmlFor="message" className="text-sm font-medium text-honda-gray-dark">
-                  Pesan Tambahan
-                </Label>
-                <Textarea
-                  id="message"
-                  rows={4}
-                  value={formData.message}
-                  onChange={(e) => handleInputChange("message", e.target.value)}
-                  className="bg-white border-honda-gray-light text-honda-gray-dark placeholder:text-honda-gray focus:border-honda-red-primary focus:ring-honda-red-primary/50 resize-none"
-                  placeholder="Ceritakan kebutuhan atau pertanyaan Anda lebih detail..."
-                />
-              </div>
+              <TextareaWithError
+                id="message"
+                label="Pesan Tambahan"
+                rows={4}
+                value={formData.message}
+                onChange={(e) => handleInputChange("message", e.target.value)}
+                error={fieldErrors.message}
+                className="bg-white border-honda-gray-light text-honda-gray-dark placeholder:text-honda-gray focus:border-honda-red-primary focus:ring-honda-red-primary/50 resize-none"
+                placeholder="Ceritakan kebutuhan atau pertanyaan Anda lebih detail..."
+                disabled={isSubmitting}
+                helpText="Jelaskan kebutuhan atau pertanyaan Anda (maksimal 1000 karakter)"
+              />
 
               {/* Submit Button */}
               <Button
                 type="submit"
-                className="w-full bg-honda-red-primary hover:bg-honda-red-dark text-white font-semibold py-4 text-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-honda-red-primary/25"
+                disabled={isSubmitting}
+                className={`w-full font-semibold py-4 text-lg transition-all duration-300 ${
+                  isSubmitting
+                    ? "bg-gray-400 cursor-not-allowed"
+                    : "bg-honda-red-primary hover:bg-honda-red-dark hover:scale-[1.02] hover:shadow-lg hover:shadow-honda-red-primary/25"
+                } text-white`}
               >
-                Kirim Pesan ke Elon Musk
+                {isSubmitting ? (
+                  <div className="flex items-center justify-center">
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Mengirim...
+                  </div>
+                ) : (
+                  "Kirim Pesan via WhatsApp"
+                )}
               </Button>
             </form>
           </div>

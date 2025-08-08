@@ -8,7 +8,7 @@ import { ContactSection } from "./components/home/contact-section"
 
 export default function Home() {
   return (
-    <>
+    <div className="relative">
       <HeroSection />
       <AboutSection />
       <ProductGridSection />
@@ -16,6 +16,6 @@ export default function Home() {
       <TestimonialSection />
       <GallerySection />
       <ContactSection />
-    </>
+    </div>
   )
 }

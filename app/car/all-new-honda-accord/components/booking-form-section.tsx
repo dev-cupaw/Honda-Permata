@@ -1,42 +1,49 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
-import { toast } from "sonner"
+import { useFormHandler } from "@/hooks/use-form-handler"
+import { getCarModelDisplayName } from "@/lib/car-models"
 
 export function BookingFormSection() {
+  const carModel = getCarModelDisplayName("all-new-honda-accord")
+  
   const [formData, setFormData] = useState({
     fullName: "",
     mobile: "",
     email: "",
-    carModel: "All New Honda Accord",
+    carModel: carModel,
     province: "",
     city: "",
     dealer: "",
     purchasePlan: "",
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.warn("Form submitted:", formData)
-    toast.success("Permintaan Anda telah terkirim! Kami akan segera menghubungi Anda.")
-    setFormData({
-      fullName: "",
-      mobile: "",
-      email: "",
-      carModel: "All New Honda Accord",
-      province: "",
-      city: "",
-      dealer: "",
-      purchasePlan: "",
-    }) // Clear form
-  }
+  const { handleSubmit, isSubmitting, errors } = useFormHandler({
+    formData,
+    formType: "test-drive",
+    onSuccess: () => {
+      // Reset form on successful submission
+      setFormData({
+        fullName: "",
+        mobile: "",
+        email: "",
+        carModel: carModel,
+        province: "",
+        city: "",
+        dealer: "",
+        purchasePlan: "",
+      })
+    },
+    onError: (error) => {
+      console.error("Form submission error:", error)
+    }
+  })
 
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
@@ -170,12 +177,26 @@ export function BookingFormSection() {
                 />
               </div>
 
+              {/* Error Display */}
+              {errors.length > 0 && (
+                <div className="bg-red-50 border border-red-200 rounded-md p-4">
+                  <div className="text-red-800 text-sm">
+                    <ul className="list-disc list-inside space-y-1">
+                      {errors.map((error, index) => (
+                        <li key={index}>{error}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              )}
+
               {/* Submit Button */}
               <Button
                 type="submit"
-                className="w-full bg-honda-red-primary hover:bg-honda-red-dark text-white font-semibold py-4 text-lg"
+                disabled={isSubmitting}
+                className="w-full bg-honda-red-primary hover:bg-honda-red-dark disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-4 text-lg"
               >
-                Kirim Permintaan Test Drive
+                {isSubmitting ? "Mengirim..." : "Kirim Permintaan Test Drive"}
               </Button>
             </form>
           </div>

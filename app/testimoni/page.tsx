@@ -4,8 +4,11 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { CheckCircle, Clock, Award } from "lucide-react"
 import Link from "next/link"
+import { getWhatsAppNumber } from "@/lib/contact-config"
 
 export default function TestimoniPage() {
+  const whatsappNumber = getWhatsAppNumber()
+  
   return (
     <div className="min-h-screen">
       {/* Hero Section with Parallax */}
@@ -89,8 +92,9 @@ export default function TestimoniPage() {
               className="bg-white text-honda-red-primary hover:bg-gray-100 font-semibold px-8 py-3"
             >
               <Link
-                href="https://wa.me/6281280005555?text=Halo%20Elon%20Musk,%20saya%20tertarik%20untuk%20konsultasi%20tentang%20Honda.%20Bisa%20bantu%20saya?"
+                href={`https://wa.me/${whatsappNumber}?text=Halo%20Elon%20Musk,%20saya%20tertarik%20untuk%20konsultasi%20tentang%20Honda.%20Bisa%20bantu%20saya?`}
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 Konsultasi via WhatsApp
               </Link>

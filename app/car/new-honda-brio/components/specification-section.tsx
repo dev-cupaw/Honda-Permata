@@ -3,10 +3,10 @@
 import React, { useState, useEffect, useMemo } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
 import type { CarouselApi } from "@/components/ui/carousel"
 
 // Color configurations for each variant
@@ -253,23 +253,33 @@ const brioVariants = [
 
 export function SpecificationSection() {
   const [isColorModalOpen, setIsColorModalOpen] = useState(false)
-  const [currentStep, setCurrentStep] = useState(1)
+  const [currentStep] = useState(1)
   const [api, setApi] = useState<CarouselApi>()
   const [currentVariantIndex, setCurrentVariantIndex] = useState(0)
+  const [canScrollPrev, setCanScrollPrev] = useState(false)
+  const [canScrollNext, setCanScrollNext] = useState(false)
 
   const totalSteps = 4
-
-  const handlePrevStep = () => setCurrentStep((prev) => Math.max(1, prev - 1))
-  const handleNextStep = () => setCurrentStep((prev) => Math.min(totalSteps, prev + 1))
 
   useEffect(() => {
     if (!api) {
       return
     }
 
-    api.on("select", () => {
+    const updateScrollState = () => {
+      setCanScrollPrev(api.canScrollPrev())
+      setCanScrollNext(api.canScrollNext())
       setCurrentVariantIndex(api.selectedScrollSnap())
-    })
+    }
+
+    updateScrollState()
+    api.on("select", updateScrollState)
+    api.on("reInit", updateScrollState)
+
+    return () => {
+      api.off("select", updateScrollState)
+      api.off("reInit", updateScrollState)
+    }
   }, [api])
 
   const currentVariant = brioVariants[currentVariantIndex]
@@ -283,10 +293,27 @@ export function SpecificationSection() {
     }
   }, [currentVariantIndex, currentColors])
 
+  // Color navigation functions
+  const currentColorIndex = currentColors.findIndex((color) => color.name === selectedColor?.name)
+  const canGoPrev = currentColorIndex > 0
+  const canGoNext = currentColorIndex < currentColors.length - 1
+  
+  const handlePrevColor = () => {
+    if (canGoPrev) {
+      setSelectedColor(currentColors[currentColorIndex - 1])
+    }
+  }
+  
+  const handleNextColor = () => {
+    if (canGoNext) {
+      setSelectedColor(currentColors[currentColorIndex + 1])
+    }
+  }
+
   return (
     <section className="py-16 lg:py-24 bg-white">
       <div className="container mx-auto px-4">
-        <div className="max-w-full overflow-hidden">
+        <div className="max-w-full overflow-hidden relative">
           <Carousel
             opts={{
               align: "start",
@@ -320,11 +347,12 @@ export function SpecificationSection() {
                         </Button>
                       </div>
 
-                      <div className="space-y-4 mt-8 text-left">
-                        <h3 className="text-lg font-bold text-honda-gray-dark text-center mb-3">Spesifikasi Utama</h3>
-                        <div className="space-y-1">
+                      <div className="space-y-6 mt-12 text-left">
+                        <h3 className="text-xl font-bold text-honda-gray-dark text-center mb-4">Spesifikasi Utama</h3>
+                        <div className="space-y-2">
                           {variant.specs.map((spec, specIndex) => (
-                            <div key={specIndex} className="py-1 border-b border-honda-gray-light">
+                            <div key={specIndex} className="py-2 border-b border-honda-gray-light flex items-start">
+                              <span className="text-honda-red-primary mr-2 mt-1">•</span>
                               <span className="text-honda-gray-dark text-sm font-semibold leading-6">{spec}</span>
                             </div>
                           ))}
@@ -335,9 +363,27 @@ export function SpecificationSection() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="-left-4 hidden sm:flex" />
-            <CarouselNext className="-right-4 hidden sm:flex" />
           </Carousel>
+          
+          {/* Navigation buttons positioned outside carousel */}
+          <button
+            onClick={() => api?.scrollPrev()}
+            className={`absolute left-4 top-1/2 -translate-y-1/2 z-20 flex h-12 w-12 rounded-full border border-honda-red-primary bg-white hover:bg-honda-red-primary hover:text-white text-honda-red-primary items-center justify-center transition-all duration-200 shadow-lg ${!canScrollPrev ? 'opacity-50 cursor-not-allowed' : ''}`}
+            disabled={!canScrollPrev}
+          >
+            <svg width="20" height="20" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.84182 3.13514C9.04327 3.32401 9.05348 3.64042 8.86462 3.84188L5.43521 7.49991L8.86462 11.1579C9.05348 11.3594 9.04327 11.6758 8.84182 11.8647C8.64036 12.0535 8.32394 12.0433 8.13508 11.8419L4.38508 7.84188C4.20477 7.64955 4.20477 7.35027 4.38508 7.15794L8.13508 3.15794C8.32394 2.95648 8.64036 2.94628 8.84182 3.13514Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path>
+            </svg>
+          </button>
+          <button
+            onClick={() => api?.scrollNext()}
+            className={`absolute right-4 top-1/2 -translate-y-1/2 z-20 flex h-12 w-12 rounded-full border border-honda-red-primary bg-white hover:bg-honda-red-primary hover:text-white text-honda-red-primary items-center justify-center transition-all duration-200 shadow-lg ${!canScrollNext ? 'opacity-50 cursor-not-allowed' : ''}`}
+            disabled={!canScrollNext}
+          >
+            <svg width="20" height="20" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path>
+            </svg>
+          </button>
         </div>
 
         {/* Consolidated Keterangan Section */}
@@ -355,24 +401,25 @@ export function SpecificationSection() {
               <DialogTitle className="text-2xl font-bold text-honda-gray-dark text-left pl-4">
                 {currentVariant?.name || "Pilih Varian"}
               </DialogTitle>
-              <DialogClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
-                <span className="sr-only">Close</span>
-              </DialogClose>
-            </DialogHeader>
+              <DialogDescription className="sr-only">
+                Color selection modal for New Honda Brio
+              </DialogDescription>
+</DialogHeader>
 
             <div className="flex flex-col items-center justify-center flex-grow p-4 md:p-8 overflow-y-auto">
               {/* Car Image */}
-              <div className="relative w-full max-w-xl aspect-[3/2] mb-8">
+              <div className="relative w-full max-w-sm aspect-[16/10] mb-8">
                 <Image
                   src={selectedColor?.image || "/placeholder.svg"}
                   alt={`${currentVariant?.name || "Honda Brio"} - ${selectedColor?.name || "Default Color"}`}
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-contain"
                 />
               </div>
 
               {/* Stepper - Visual only, no click functionality */}
-              <div className="relative flex justify-between items-center w-full max-w-md mb-8">
+              <div className="relative flex justify-between items-center w-full max-w-2xl mb-8">
                 {Array.from({ length: totalSteps }, (_, i) => {
                   const step = i + 1
                   return (
@@ -381,7 +428,7 @@ export function SpecificationSection() {
                         <div
                           className={cn(
                             "w-8 h-8 rounded-full flex items-center justify-center font-semibold",
-                            "bg-white text-honda-gray-dark border-2 border-honda-red-primary",
+                            "bg-white text-honda-gray-dark border border-honda-red-primary",
                             step === currentStep && "bg-honda-red-primary text-white",
                           )}
                         >
@@ -425,29 +472,29 @@ export function SpecificationSection() {
               <p className="text-honda-gray-dark font-medium text-lg mb-8">{selectedColor?.name || "Pilih Warna"}</p>
 
               {/* Navigation Buttons */}
-              <div className="flex justify-between w-full max-w-md mb-8">
+              <div className="flex justify-between w-full max-w-2xl mb-8">
                 <Button
-                  onClick={handlePrevStep}
+                  onClick={handlePrevColor}
                   variant="outline"
                   className="flex items-center gap-2 bg-transparent text-honda-gray-dark border-honda-gray-light hover:bg-honda-light"
-                  disabled={currentStep === 1}
+                  disabled={!canGoPrev}
                 >
                   PREV
                 </Button>
                 <Button
-                  onClick={handleNextStep}
+                  onClick={handleNextColor}
                   variant="destructive"
                   className="flex items-center gap-2 bg-honda-red-primary hover:bg-honda-red-dark"
-                  disabled={currentStep === totalSteps}
+                  disabled={!canGoNext}
                 >
                   NEXT <ChevronRight className="h-4 w-4" />
                 </Button>
               </div>
 
               {/* Detail Section */}
-              <div className="w-full max-w-md border-t border-honda-gray-light pt-6">
+              <div className="w-full max-w-3xl border-t border-honda-gray-light pt-6">
                 <h3 className="text-xl font-bold text-honda-red-primary mb-4">DETAIL</h3>
-                <div className="grid grid-cols-2 gap-y-2 text-honda-gray-dark">
+                <div className="grid grid-cols-2 gap-y-3 gap-x-4 text-honda-gray-dark">
                   <span className="font-medium">Variant</span>
                   <span>{currentVariant?.name || "N/A"}</span>
                   <span className="font-medium">Color</span>

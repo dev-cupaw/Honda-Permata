@@ -2,8 +2,11 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ParallaxHeroSection } from "@/components/shared/parallax-hero-section"
 import HondaPromoTracingBeam from "@/components/ui/honda-promo-tracing-beam"
+import { getWhatsAppNumber } from "@/lib/contact-config"
 
 export default function PromoPage() {
+  const whatsappNumber = getWhatsAppNumber()
+  
   return (
     <>
       <ParallaxHeroSection
@@ -37,7 +40,7 @@ export default function PromoPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild variant="secondary" size="lg" className="bg-white text-honda-red-primary hover:bg-gray-100">
-              <Link href="https://wa.me/6281234567890" target="_blank">
+              <Link href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer">
                 WhatsApp Sekarang
               </Link>
             </Button>

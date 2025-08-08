@@ -11,10 +11,13 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import Link from "next/link"
 import { ParallaxHeroSection } from "@/components/shared/parallax-hero-section"
 import HondaContactStickyScroll from "@/components/ui/honda-contact-sticky-scroll"
-import { Phone, MapPin, Clock, Mail, MessageCircle, Car } from "lucide-react"
+import { Phone, MapPin, Clock, Mail, MessageCircle, Car, AlertCircle, Loader2 } from "lucide-react"
+import { useFormHandler } from "@/hooks/use-form-handler"
+import { getWhatsAppNumber } from "@/lib/contact-config"
+import type { ContactFormData } from "@/lib/whatsapp-integration"
 
 export default function KontakPage() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ContactFormData>({
     nama: "",
     phone: "",
     email: "",
@@ -22,15 +25,31 @@ export default function KontakPage() {
     message: "",
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.warn("Form submitted:", formData)
-    // Handle form submission logic here
-  }
-
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
   }
+
+  const handleFormReset = () => {
+    setFormData({
+      nama: "",
+      phone: "",
+      email: "",
+      service: "",
+      message: "",
+    })
+  }
+
+  const { handleSubmit, isSubmitting, errors } = useFormHandler({
+    formData,
+    formType: 'contact',
+    onSuccess: handleFormReset,
+    onError: (error) => {
+      console.error('Contact form error:', error)
+    }
+  })
+
+  // Get WhatsApp number for display
+  const whatsappNumber = getWhatsAppNumber()
 
   return (
     <>
@@ -38,7 +57,6 @@ export default function KontakPage() {
         title="Hubungi Kami"
         subtitle="Tim Honda Permata Serpong siap membantu Anda menemukan mobil Honda impian dengan pelayanan terbaik dan penawaran menarik."
       />
-
       {/* Sticky Scroll Reveal Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 md:px-6">
@@ -53,7 +71,6 @@ export default function KontakPage() {
           <HondaContactStickyScroll />
         </div>
       </section>
-
       {/* Contact Information Cards */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 md:px-6">
@@ -76,8 +93,8 @@ export default function KontakPage() {
                 <h3 className="text-xl font-semibold text-honda-gray-dark mb-2">Telepon</h3>
                 <p className="text-honda-gray mb-4">Hubungi sales consultant kami</p>
                 <div className="space-y-2">
-                  <p className="font-semibold text-honda-gray-dark">Sales: 0812-8888-1234</p>
-                  <p className="font-semibold text-honda-gray-dark">Service: 0812-8888-5678</p>
+                  <p className="font-semibold text-honda-gray-dark">Sales: +{whatsappNumber}</p>
+                  <p className="font-semibold text-honda-gray-dark">Service: +{whatsappNumber}</p>
                   <p className="text-sm text-honda-gray">Tersedia 24/7</p>
                 </div>
               </CardContent>
@@ -92,10 +109,10 @@ export default function KontakPage() {
                 <h3 className="text-xl font-semibold text-honda-gray-dark mb-2">WhatsApp</h3>
                 <p className="text-honda-gray mb-4">Chat langsung dengan sales</p>
                 <div className="space-y-2">
-                  <p className="font-semibold text-honda-gray-dark">+62 812-8888-1234</p>
+                  <p className="font-semibold text-honda-gray-dark">+{whatsappNumber}</p>
                   <p className="text-sm text-honda-gray">Respon dalam 5 menit</p>
                   <Button asChild className="mt-4 bg-green-600 hover:bg-green-700">
-                    <Link href="https://wa.me/6281288881234" target="_blank">
+                    <Link href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer">
                       Chat WhatsApp
                     </Link>
                   </Button>
@@ -177,8 +194,9 @@ export default function KontakPage() {
                   <p className="text-sm text-honda-gray">Gratis & tanpa komitmen</p>
                   <Button asChild className="mt-4 bg-honda-red-primary hover:bg-honda-red-dark">
                     <Link
-                      href="https://wa.me/6281288881234?text=Halo,%20saya%20ingin%20jadwal%20test%20drive"
+                      href={`https://wa.me/${whatsappNumber}?text=Halo,%20saya%20ingin%20jadwal%20test%20drive`}
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       Jadwalkan Test Drive
                     </Link>
@@ -189,7 +207,6 @@ export default function KontakPage() {
           </div>
         </div>
       </section>
-
       {/* Contact Form Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 md:px-6">
@@ -205,6 +222,25 @@ export default function KontakPage() {
           <div className="max-w-2xl mx-auto">
             <Card className="shadow-lg">
               <CardContent className="p-8">
+                {/* Error Display */}
+                {errors.length > 0 && (
+                  <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                    <div className="flex items-start">
+                      <AlertCircle className="w-5 h-5 text-red-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <div>
+                        <h4 className="text-sm font-semibold text-red-800 mb-1">
+                          Mohon perbaiki kesalahan berikut:
+                        </h4>
+                        <ul className="text-sm text-red-700 space-y-1">
+                          {errors.map((error, index) => (
+                            <li key={index}>• {error}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Nama Lengkap */}
                   <div className="space-y-2">
@@ -259,7 +295,7 @@ export default function KontakPage() {
                     <Label htmlFor="service" className="text-sm font-medium text-honda-gray-dark">
                       Pilih Layanan *
                     </Label>
-                    <Select required onValueChange={(value) => handleInputChange("service", value)}>
+                    <Select required value={formData.service || ""} onValueChange={(value) => handleInputChange("service", value)}>
                       <SelectTrigger className="bg-white border-honda-gray-light text-honda-gray-dark focus:border-honda-red-primary focus:ring-honda-red-primary/50">
                         <SelectValue placeholder="Pilih layanan yang Anda butuhkan" />
                       </SelectTrigger>
@@ -328,9 +364,17 @@ export default function KontakPage() {
                   {/* Submit Button */}
                   <Button
                     type="submit"
-                    className="w-full bg-honda-red-primary hover:bg-honda-red-dark text-white font-semibold py-4 text-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-honda-red-primary/25"
+                    disabled={isSubmitting}
+                    className="w-full bg-honda-red-primary hover:bg-honda-red-dark disabled:bg-honda-gray disabled:cursor-not-allowed text-white font-semibold py-4 text-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-honda-red-primary/25 disabled:hover:scale-100 disabled:hover:shadow-none"
                   >
-                    Kirim Pesan
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                        Mengirim...
+                      </>
+                    ) : (
+                      'Kirim Pesan'
+                    )}
                   </Button>
 
                   {/* Alternative Contact */}
@@ -338,16 +382,16 @@ export default function KontakPage() {
                     <p className="text-sm text-honda-gray mb-3">Atau hubungi kami langsung:</p>
                     <div className="flex flex-col sm:flex-row gap-3 justify-center">
                       <Button asChild variant="outline" size="sm" className="bg-transparent">
-                        <Link href="tel:081288881234">
+                        <Link href={`tel:+${whatsappNumber}`}>
                           <Phone className="w-4 h-4 mr-2" />
                           Telepon
                         </Link>
                       </Button>
                       <Button asChild size="sm" className="bg-green-600 hover:bg-green-700">
                         <Link
-                          href="https://wa.me/6281288881234?text=Halo,%20saya%20ingin%20konsultasi%20tentang%20Honda"
+                          href={`https://wa.me/${whatsappNumber}?text=Halo,%20saya%20ingin%20konsultasi%20tentang%20Honda`}
                           target="_blank"
-                        >
+                          rel="noopener noreferrer">
                           <MessageCircle className="w-4 h-4 mr-2" />
                           WhatsApp
                         </Link>
@@ -360,7 +404,6 @@ export default function KontakPage() {
           </div>
         </div>
       </section>
-
       {/* Call to Action */}
       <section className="py-16 bg-gradient-to-r from-honda-red-primary to-honda-red-dark">
         <div className="container mx-auto px-4 md:px-6 text-center">
@@ -371,8 +414,9 @@ export default function KontakPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" variant="secondary" className="bg-white text-honda-red-primary hover:bg-gray-100">
               <Link
-                href="https://wa.me/6281288881234?text=Halo,%20saya%20tertarik%20dengan%20mobil%20Honda"
+                href={`https://wa.me/${whatsappNumber}?text=Halo,%20saya%20tertarik%20dengan%20mobil%20Honda`}
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 Konsultasi WhatsApp
               </Link>
@@ -389,5 +433,5 @@ export default function KontakPage() {
         </div>
       </section>
     </>
-  )
+  );
 }

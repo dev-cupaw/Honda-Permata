@@ -22,14 +22,21 @@ export function MobileHeader() {
             <Menu className="h-8 w-8 !size-8" />
             <span className="sr-only">Open main menu</span>
           </Button>
-          <Link href="/" className="flex items-center justify-center">
+          <Link href="/" className="flex items-center justify-center flex-1 mx-2">
             <Image
-              src="/honda-permata-logo/logo-hondapermata.svg"
-              alt="Honda Permata Serpong Logo"
-              width={100}
-              height={28}
-              className="h-6 w-auto object-contain"
+              src="/logo-honda.webp"
+              alt="Honda Logo"
+              width={800}
+              height={240}
+              className="object-contain h-14 w-auto max-w-full"
               priority
+              quality={100}
+              unoptimized
+              style={{
+                imageRendering: 'crisp-edges',
+                WebkitImageRendering: 'crisp-edges',
+                MozImageRendering: 'crisp-edges'
+              }}
             />
           </Link>
           <Button variant="ghost" size="icon" onClick={() => setIsRightDrawerOpen(true)} className="h-12 w-12">
@@ -41,5 +48,5 @@ export function MobileHeader() {
       <LeftDrawerMenu isOpen={isLeftDrawerOpen} setIsOpen={setIsLeftDrawerOpen} />
       <RightDrawerMenu isOpen={isRightDrawerOpen} setIsOpen={setIsRightDrawerOpen} />
     </>
-  )
+  );
 }

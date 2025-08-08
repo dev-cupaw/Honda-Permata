@@ -1,7 +1,10 @@
 import Link from "next/link"
 import { Facebook, Instagram, Youtube } from "lucide-react"
+import { getWhatsAppNumber } from "@/lib/contact-config"
 
 export function Footer() {
+  const whatsappNumber = getWhatsAppNumber()
+  
   return (
     <footer className="bg-honda-gray-dark text-honda-light">
       <div className="container mx-auto px-6 py-12">
@@ -61,8 +64,8 @@ export function Footer() {
               </a>
               <br />
               WhatsApp:{" "}
-              <a href="https://wa.me/6281234567890" className="hover:text-white">
-                +62 812-3456-7890
+              <a href={`https://wa.me/${whatsappNumber}`} className="hover:text-white" target="_blank" rel="noopener noreferrer">
+                +{whatsappNumber}
               </a>
               <br />
               Website:{" "}

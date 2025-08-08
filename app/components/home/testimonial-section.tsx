@@ -37,7 +37,7 @@ const testimonials = [
     name: "Sdr. Kevin",
     location: "Tangerang Selatan",
     body: "Pertama kali beli mobil, agak deg-degan. Tapi Mas Elon Musk bikin saya tenang. Semua pertanyaan dijawab sabar, dan dikasih opsi pembiayaan yang pas. Terima kasih!",
-    img: "/section-testimoni/Sdr-Kevin.webp",
+    img: "/placeholder-user.jpg",
   },
 ]
 

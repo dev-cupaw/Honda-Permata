@@ -28,7 +28,11 @@ export function RightDrawerMenu({ isOpen, setIsOpen }: { isOpen: boolean; setIsO
         <div className="h-full overflow-y-auto p-4">
           <div className="grid grid-cols-2 gap-4">
             {cars.map((car) => (
-              <Link href={car.href} key={car.name} className="group block text-center" onClick={() => setIsOpen(false)}>
+              <Link
+                href={car.href}
+                key={car.name}
+                className="group block text-center"
+                onClick={() => setIsOpen(false)}>
                 <div className="overflow-hidden rounded-lg">
                   <Image
                     src={car.image || "/placeholder.svg"}
@@ -53,5 +57,5 @@ export function RightDrawerMenu({ isOpen, setIsOpen }: { isOpen: boolean; setIsO
         </div>
       </SheetContent>
     </Sheet>
-  )
+  );
 }

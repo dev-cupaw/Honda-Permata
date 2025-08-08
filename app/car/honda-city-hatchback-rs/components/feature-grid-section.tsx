@@ -112,7 +112,7 @@ export function FeatureGridSection() {
                 onClick={() => setActiveFeatureId(feature.id)}
               >
                 <div className="aspect-[4/3] relative">
-                  <Image src={feature.image || "/placeholder.svg"} alt={feature.title} fill className="object-cover" />
+                  <Image src={feature.image || "/placeholder.svg"} alt={feature.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover" />
                   <div
                     className={`absolute inset-0 bg-black/20 transition-colors duration-300 ${
                       activeFeatureId === feature.id ? "opacity-0" : "group-hover:bg-black/40"

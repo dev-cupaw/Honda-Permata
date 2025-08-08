@@ -9,7 +9,18 @@ import type {
 } from "@/components/ui/toast"
 
 const TOAST_LIMIT = 1
-const TOAST_REMOVE_DELAY = 1000000
+
+// Validation function to ensure delay values stay within 1-30 second range
+const validateToastDelay = (delay: number): number => {
+  if (delay < 1000) return 5000 // Minimum 1 second, default to 5
+  if (delay > 30000) return 30000 // Maximum 30 seconds
+  return delay
+}
+
+// Safe delay with validation - default to 5 seconds (industry standard)
+const TOAST_REMOVE_DELAY = validateToastDelay(
+  parseInt(process.env.NEXT_PUBLIC_TOAST_DELAY || '5000')
+)
 
 type ToasterToast = ToastProps & {
   id: string

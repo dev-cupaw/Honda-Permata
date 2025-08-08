@@ -1,11 +1,10 @@
 "use client"
 
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
   return (
-    <section className="relative h-[60vh] lg:h-screen w-full overflow-hidden">
+    <section className="relative h-[48vh] lg:h-[80vh] w-full overflow-hidden pt-20 lg:pt-24">
       <Image
         src="/honda-civic-rs/banner-utama.webp"
         alt="New Honda Civic RS e:HEV - Premium Hybrid Sedan"
@@ -13,15 +12,6 @@ export function HeroSection() {
         className="object-cover"
         priority
       />
-      <div className="absolute inset-0 bg-black/30" />
-      <div className="absolute inset-0 flex items-center justify-center">
-        <Button
-          size="lg"
-          className="bg-honda-red-primary hover:bg-honda-red-dark text-white font-bold px-8 py-4 text-lg lg:text-xl"
-        >
-          BOOK NOW
-        </Button>
-      </div>
     </section>
   )
 }

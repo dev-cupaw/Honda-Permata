@@ -41,6 +41,7 @@ export const HeroParallax = ({
     <div
       ref={ref}
       className="h-[300vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      style={{ position: 'relative' }}
     >
       <Header title={title} description={description} />
       <motion.div
@@ -105,7 +106,9 @@ export const ProductCard = ({
       key={product.title}
       className="group/product h-96 w-[30rem] relative flex-shrink-0"
     >
-      <Link href={product.link} className="block group-hover/product:shadow-2xl">
+      <Link
+        href={product.link}
+        className="block group-hover/product:shadow-2xl">
         <Image
           src={product.thumbnail || "/placeholder.svg"}
           height={600}
@@ -117,5 +120,5 @@ export const ProductCard = ({
       <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
       <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">{product.title}</h2>
     </motion.div>
-  )
+  );
 }
