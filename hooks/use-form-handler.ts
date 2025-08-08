@@ -77,7 +77,7 @@ export function useFormHandler({
 
   // Create fallback handler instance
   const fallbackHandler = useMemo(() => {
-    return new WhatsAppFallbackHandler(whatsappIntegrator, toast)
+    return new WhatsAppFallbackHandler(whatsappIntegrator, toast as (options: unknown) => void)
   }, [whatsappIntegrator, toast])
 
   /**

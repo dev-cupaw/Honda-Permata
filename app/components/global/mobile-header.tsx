@@ -36,7 +36,7 @@ export function MobileHeader() {
                 imageRendering: 'crisp-edges',
                 WebkitImageRendering: 'crisp-edges',
                 MozImageRendering: 'crisp-edges'
-              }}
+              } as React.CSSProperties}
             />
           </Link>
           <Button variant="ghost" size="icon" onClick={() => setIsRightDrawerOpen(true)} className="h-12 w-12">

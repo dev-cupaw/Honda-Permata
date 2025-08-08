@@ -51,10 +51,10 @@ class FormMonitoring {
       error,
       userAgent: typeof window !== 'undefined' ? window.navigator.userAgent : undefined,
       formData: formData ? {
-        hasName: !!formData.nama,
-        hasPhone: !!formData.phone,
-        hasEmail: !!formData.email,
-        hasMessage: !!formData.message
+        hasName: !!(formData as any).nama,
+        hasPhone: !!(formData as any).phone,
+        hasEmail: !!(formData as any).email,
+        hasMessage: !!(formData as any).message
       } : undefined
     }
 

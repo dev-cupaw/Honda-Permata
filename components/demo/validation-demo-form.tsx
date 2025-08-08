@@ -217,7 +217,7 @@ export function ValidationDemoForm() {
           <ul className="mt-1 space-y-1">
             <li>• Submitting: {isSubmitting ? 'Ya' : 'Tidak'}</li>
             <li>• Jumlah Error: {errors.length}</li>
-            <li>• Field Terisi: {Object.values(formData).filter(v => v.trim()).length}/4</li>
+            <li>• Field Terisi: {Object.values(formData).filter(v => typeof v === 'string' && v.trim()).length}/4</li>
             <li>• Success State: {showSuccess ? 'Ya' : 'Tidak'}</li>
           </ul>
         </div>

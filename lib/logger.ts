@@ -65,8 +65,8 @@ class Logger {
     if (this.shouldLog('error')) {
       const errorContext = error ? { 
         ...context, 
-        error: error.message || error,
-        stack: error.stack 
+        error: error instanceof Error ? error.message : String(error),
+        stack: error instanceof Error ? error.stack : undefined
       } : context
       
       console.error(this.formatMessage('error', message, errorContext))

@@ -255,7 +255,7 @@ export function validateForm(
   // Form-specific validations
   if (formType === 'test-drive') {
     const model = formData.model || formData.carModel
-    if (!model?.trim()) {
+    if (!model || typeof model !== 'string' || !model.trim()) {
       const error = new FormValidationError(
         'model',
         'Model Honda wajib dipilih untuk test drive',
@@ -267,7 +267,7 @@ export function validateForm(
   }
   
   if (formType === 'service') {
-    if (!formData.serviceType?.trim()) {
+    if (!formData.serviceType || typeof formData.serviceType !== 'string' || !formData.serviceType.trim()) {
       const error = new FormValidationError(
         'serviceType',
         'Jenis layanan wajib dipilih',
