@@ -1,3 +1,5 @@
+"use client"
+
 import { cn } from "@/lib/utils"
 import { Marquee } from "@/components/magicui/marquee"
 import Image from "next/image"
@@ -51,7 +53,17 @@ const ReviewCard = ({ img, name, location, body }: { img: string; name: string; 
       )}
     >
       <div className="flex flex-row items-center gap-2">
-        <Image className="rounded-full" width="32" height="32" alt={name} src={img || "/placeholder.svg"} />
+        <Image 
+          className="rounded-full" 
+          width="32" 
+          height="32" 
+          alt={name} 
+          src={img || "/placeholder-user.jpg"} 
+          onError={(e) => {
+            const target = e.target as HTMLImageElement;
+            target.src = "/placeholder-user.jpg";
+          }}
+        />
         <div className="flex flex-col">
           <figcaption className="text-sm font-medium text-honda-gray-dark">{name}</figcaption>
           <p className="text-xs font-medium text-honda-gray">{location}</p>

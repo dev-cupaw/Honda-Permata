@@ -58,7 +58,7 @@ const brochureFeatures = [
   },
   {
     id: 7,
-    image: "/honda-hr-v/Banner-Product-Desktop.png",
+    image: "/honda-hr-v/banner-hr-v.webp",
     title: "Honda HR-V",
     description:
       "SUV kompak dengan teknologi hybrid e:HEV, desain stylish, dan fleksibilitas ruang yang sempurna untuk gaya hidup aktif Anda.",
@@ -82,7 +82,7 @@ const brochureFeatures = [
   },
   {
     id: 10,
-    image: "/honda brio/banner-utama.webp",
+    image: "/honda-brio/banner-utama.webp",
     title: "New Honda Brio",
     description:
       "Hatchback kompak dengan desain fresh, teknologi modern, dan efisiensi bahan bakar terbaik untuk mobilitas harian yang ekonomis.",
@@ -90,7 +90,7 @@ const brochureFeatures = [
   },
   {
     id: 11,
-    image: "/new-honda-city/banner-utama.webp",
+    image: "/new-honda-city/banner-city.webp",
     title: "New Honda City",
     description:
       "Sedan kompak dengan ruang kabin luas, teknologi canggih, dan desain elegan untuk kenyamanan berkendara sehari-hari.",

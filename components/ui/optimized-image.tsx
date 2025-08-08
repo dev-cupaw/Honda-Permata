@@ -59,9 +59,15 @@ export function OptimizedImage({
       code: error.code
     })
 
+    // Try fallback source if available and not already tried
+    if (fallbackSrc && currentSrc !== fallbackSrc) {
+      setCurrentSrc(fallbackSrc)
+      return
+    }
+
     setHasOptimizationError(true)
     onError?.(error)
-  }, [currentSrc, onError])
+  }, [currentSrc, fallbackSrc, onError])
 
   // Handle general image loading errors (broken src, network issues, etc.)
   const handleImageError = useCallback((error: React.SyntheticEvent<HTMLImageElement, Event> | Error) => {

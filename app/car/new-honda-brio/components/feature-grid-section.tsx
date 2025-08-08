@@ -9,35 +9,35 @@ import { Button } from "@/components/ui/button"
 const features = [
   {
     id: 1,
-    image: "/honda brio/tata-letak-1211-1.webp",
+    image: "/honda-brio/tata-letak-1211-1.webp",
     title: "1.2L i-VTEC 90PS with 4 cylinder",
     description:
       "Mesin i-VTEC 1.2L dengan 4 silinder menghasilkan tenaga 90 PS yang responsif dan efisien. Teknologi i-VTEC memastikan performa optimal dengan konsumsi bahan bakar yang ekonomis untuk berkendara sehari-hari di perkotaan.",
   },
   {
     id: 2,
-    image: "/honda brio/tata-letak-1211-2.webp",
+    image: "/honda-brio/tata-letak-1211-3.webp",
     title: "5 M/T & CVT Transmission Options",
     description:
       "Tersedia pilihan transmisi 5-speed manual untuk kontrol penuh atau CVT untuk kenyamanan berkendara. Kedua pilihan transmisi memberikan perpindahan gigi yang halus dan efisiensi bahan bakar yang optimal.",
   },
   {
     id: 3,
-    image: "/honda brio/tata-letak-1211-3.webp",
+    image: "/honda-brio/tata-letak-1211-3.webp",
     title: "7\" Touchscreen Display Audio",
     description:
       "Sistem infotainment 7 inci dengan touchscreen display audio dilengkapi USB Port, AM/FM Radio, Bluetooth, Hands-free Telephone, dan Screen Mirroring untuk konektivitas lengkap dan hiburan optimal.",
   },
   {
     id: 4,
-    image: "/honda brio/tata-letak-1211-4.webp",
+    image: "/honda-brio/tata-letak-1211-4.webp",
     title: "LED Headlights & Safety Features",
     description:
       "Dilengkapi LED Headlights dengan LED Day Running Light pada varian RS, serta fitur keselamatan lengkap termasuk ABS + EBD, Parking Sensor, dan sistem keamanan untuk perlindungan maksimal.",
   },
   {
     id: 5,
-    image: "/honda brio/tata-letak-1211-5.webp",
+    image: "/honda-brio/tata-letak-1211-5.webp",
     title: "Sporty Interior & Comfort Features",
     description:
       "Interior sporty dengan Black & Gray color scheme, New Fabric Seat Pattern, Auto Up/Down Windows with Anti Pinch, 2nd Row Adjustable Headrest, dan Digital A/C untuk kenyamanan berkendara yang optimal.",

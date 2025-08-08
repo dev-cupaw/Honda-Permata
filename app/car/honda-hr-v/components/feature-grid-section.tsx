@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button"
 const features = [
   {
     id: 1,
-    image: "/honda-hr-v/honda-crv-1211-1.png",
+    image: "/honda-hr-v/honda-crv-1211-1.webp",
     title: "Desain Stylish & Modern",
     description:
       "New Honda HR-V hadir dengan tampilan eksterior yang lebih sporty dan modern, dilengkapi garis bodi yang aerodinamis dan detail premium yang menarik perhatian di setiap sudut.",
@@ -17,28 +17,28 @@ const features = [
   },
   {
     id: 2,
-    image: "/honda-hr-v/honda-crv-1211-2.png",
+    image: "/honda-hr-v/honda-crv-1211-2.webp",
     title: "Honda SENSING Lengkap",
     description:
       "Paket teknologi keselamatan aktif Honda SENSING memberikan perlindungan menyeluruh, termasuk Collision Mitigation Braking System, Lane Keeping Assist System, dan Adaptive Cruise Control.",
   },
   {
     id: 3,
-    image: "/honda-hr-v/honda-crv-1211-3.png",
+    image: "/honda-hr-v/honda-crv-1211-3.webp",
     title: "Interior Nyaman & Fleksibel",
     description:
       "Kabin yang lapang dengan material berkualitas tinggi, kursi yang nyaman, serta konfigurasi Ultra Seat yang fleksibel untuk berbagai kebutuhan penumpang dan barang bawaan.",
   },
   {
     id: 4,
-    image: "/honda-hr-v/honda-crv-1211-4.png",
+    image: "/honda-hr-v/honda-crv-1211-4.webp",
     title: "Performa e:HEV Hybrid",
     description:
       "Varian e:HEV hybrid menggabungkan mesin bensin dan motor listrik untuk efisiensi bahan bakar superior tanpa mengorbankan performa responsif dan bertenaga.",
   },
   {
     id: 5,
-    image: "/honda-hr-v/honda-crv-1211-5.png",
+    image: "/honda-hr-v/honda-crv-1211-5.webp",
     title: "Infotainment Canggih",
     description:
       "Sistem infotainment layar sentuh yang intuitif dengan konektivitas smartphone, Bluetooth, dan berbagai fitur hiburan untuk menemani perjalanan Anda.",

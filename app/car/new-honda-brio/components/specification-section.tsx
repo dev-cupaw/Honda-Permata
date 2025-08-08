@@ -15,135 +15,135 @@ const brioColorsByVariant = {
     {
       name: "Electric Lime Metallic",
       code: "#32CD32",
-      image: "/honda brio/Honda Brio Satya S M-T - Electric Lime Metallic.webp",
+      image: "/honda-brio/Honda Brio Satya S M-T - Electric Lime Metallic.webp",
     },
     {
       name: "Rallye Red (Satya)",
       code: "#DC143C",
-      image: "/honda brio/Honda Brio Satya S M-T - Rallye Red (Satya).webp",
+      image: "/honda-brio/Honda Brio Satya S M-T - Rallye Red (Satya).webp",
     },
     {
       name: "Taffeta White (Satya)",
       code: "#F8F8FF",
-      image: "/honda brio/Honda Brio Satya S M-T - Taffeta White (Satya).webp",
+      image: "/honda-brio/Honda Brio Satya S M-T - Taffeta White (Satya).webp",
     },
     {
       name: "Meteroid Gray Metallic",
       code: "#708090",
-      image: "/honda brio/Honda Brio Satya S M-T - Meteroid Gray Metallic.webp",
+      image: "/honda-brio/Honda Brio Satya S M-T - Meteroid Gray Metallic.webp",
     },
     {
       name: "Crystal Black Pearl",
       code: "#000000",
-      image: "/honda brio/Honda Brio Satya S M-T - Crystal Black Pearl.webp",
+      image: "/honda-brio/Honda Brio Satya S M-T - Crystal Black Pearl.webp",
     },
   ],
   "Honda Brio Satya E M/T": [
     {
       name: "Electric Lime Metallic",
       code: "#32CD32",
-      image: "/honda brio/Honda Brio Satya E M-T - Electric Lime Metallic.webp",
+      image: "/honda-brio/Honda Brio Satya E M-T - Electric Lime Metallic.webp",
     },
     {
       name: "Rallye Red (Satya)",
       code: "#DC143C",
-      image: "/honda brio/Honda Brio Satya E M-T - Rallye Red (Satya).webp",
+      image: "/honda-brio/Honda Brio Satya E M-T - Rallye Red (Satya).webp",
     },
     {
       name: "Taffeta White (Satya)",
       code: "#F8F8FF",
-      image: "/honda brio/Honda Brio Satya E M-T - Taffeta White (Satya).webp",
+      image: "/honda-brio/Honda Brio Satya E M-T - Taffeta White (Satya).webp",
     },
     {
       name: "Meteroid Gray Metallic",
       code: "#708090",
-      image: "/honda brio/Honda Brio Satya E M-T - Meteroid Gray Metallic.webp",
+      image: "/honda-brio/Honda Brio Satya E M-T - Meteroid Gray Metallic.webp",
     },
     {
       name: "Crystal Black Pearl",
       code: "#000000",
-      image: "/honda brio/Honda Brio Satya E M-T - Crystal Black Pearl.webp",
+      image: "/honda-brio/Honda Brio Satya E M-T - Crystal Black Pearl.webp",
     },
   ],
   "Honda Brio Satya E CVT": [
     {
       name: "Electric Lime Metallic",
       code: "#32CD32",
-      image: "/honda brio/Honda Brio Satya E CVT - Electric Lime Metallic.webp",
+      image: "/honda-brio/Honda Brio Satya E CVT - Electric Lime Metallic.webp",
     },
     {
       name: "Rallye Red (Satya)",
       code: "#DC143C",
-      image: "/honda brio/Honda Brio Satya E CVT - Rallye Red (Satya).webp",
+      image: "/honda-brio/Honda Brio Satya E CVT - Rallye Red (Satya).webp",
     },
     {
       name: "Taffeta White (Satya)",
       code: "#F8F8FF",
-      image: "/honda brio/Honda Brio Satya E CVT - Taffeta White (Satya).webp",
+      image: "/honda-brio/Honda Brio Satya E CVT - Taffeta White (Satya).webp",
     },
     {
       name: "Meteroid Gray Metallic",
       code: "#708090",
-      image: "/honda brio/Honda Brio Satya E CVT - Meteroid Gray Metallic.webp",
+      image: "/honda-brio/Honda Brio Satya E CVT - Meteroid Gray Metallic.webp",
     },
     {
       name: "Crystal Black Pearl",
       code: "#000000",
-      image: "/honda brio/Honda Brio Satya E CVT - Crystal Black Pearl.webp",
+      image: "/honda-brio/Honda Brio Satya E CVT - Crystal Black Pearl.webp",
     },
   ],
   "Honda Brio RS M/T": [
     {
       name: "Electric Lime Metallic",
       code: "#32CD32",
-      image: "/honda brio/Honda Brio RS M-T - Electric Lime Metallic.webp",
+      image: "/honda-brio/Honda Brio RS M-T - Electric Lime Metallic.webp",
     },
     {
       name: "Meteroid Gray Metallic",
       code: "#708090",
-      image: "/honda brio/Honda Brio RS M-T - Meteroid Gray Metallic.webp",
+      image: "/honda-brio/Honda Brio RS M-T - Meteroid Gray Metallic.webp",
     },
     {
       name: "Crystal Black Pearl",
       code: "#000000",
-      image: "/honda brio/Honda Brio RS M-T - Crystal Black Pearl.webp",
+      image: "/honda-brio/Honda Brio RS M-T - Crystal Black Pearl.webp",
     },
     {
       name: "Phoenix Orange Pearl Two Tone (RS)",
       code: "#FF4500",
-      image: "/honda brio/Honda Brio RS M-T - Phoenix Orange Pearl Two Tone (RS).webp",
+      image: "/honda-brio/Honda Brio RS M-T - Phoenix Orange Pearl Two Tone (RS).webp",
     },
     {
       name: "Stellar Diamond Pearl (RS)",
       code: "#E6E6FA",
-      image: "/honda brio/Honda Brio RS M-T - Stellar Diamond Pearl (RS).webp",
+      image: "/honda-brio/Honda Brio RS M-T - Stellar Diamond Pearl (RS).webp",
     },
   ],
   "Honda Brio RS CVT": [
     {
       name: "Electric Lime Metallic",
       code: "#32CD32",
-      image: "/honda brio/Honda Brio RS CVT - Electric Lime Metallic.webp",
+      image: "/honda-brio/Honda Brio RS CVT - Electric Lime Metallic.webp",
     },
     {
       name: "Meteroid Gray Metallic",
       code: "#708090",
-      image: "/honda brio/Honda Brio RS CVT - Meteroid Gray Metallic.webp",
+      image: "/honda-brio/Honda Brio RS CVT - Meteroid Gray Metallic.webp",
     },
     {
       name: "Crystal Black Pearl",
       code: "#000000",
-      image: "/honda brio/Honda Brio RS CVT - Crystal Black Pearl.webp",
+      image: "/honda-brio/Honda Brio RS CVT - Crystal Black Pearl.webp",
     },
     {
       name: "Phoenix Orange Pearl Two Tone (RS)",
       code: "#FF4500",
-      image: "/honda brio/Honda Brio RS CVT - Phoenix Orange Pearl Two Tone (RS).webp",
+      image: "/honda-brio/Honda Brio RS CVT - Phoenix Orange Pearl Two Tone (RS).webp",
     },
     {
       name: "Stellar Diamond Pearl (RS)",
       code: "#E6E6FA",
-      image: "/honda brio/Honda Brio RS CVT - Stellar Diamond Pearl (RS).webp",
+      image: "/honda-brio/Honda Brio RS CVT - Stellar Diamond Pearl (RS).webp",
     },
   ],
 }
@@ -167,7 +167,7 @@ const brioVariants = [
       "Parking Sensor",
       "7\" Touchscreen Display Audio, USB Port, AM/FM Radio, Bluetooth, Hands-free Telephone, Screen Mirroring",
     ],
-    image: "/honda brio/Spesifikasi-Honda Brio Satya S M-T.webp",
+    image: "/honda-brio/Spesifikasi-Honda Brio Satya S M-T.webp",
   },
   {
     name: "Honda Brio Satya E M/T",
@@ -182,7 +182,7 @@ const brioVariants = [
       "Alarm System",
       "Shifter Illumination",
     ],
-    image: "/honda brio/Spesifikasi Honda Brio Satya E M-T.webp",
+    image: "/honda-brio/Spesifikasi Honda Brio Satya E M-T.webp",
   },
   {
     name: "Honda Brio Satya E CVT",
@@ -197,7 +197,7 @@ const brioVariants = [
       "Alarm System",
       "Shifter Illumination",
     ],
-    image: "/honda brio/Spesifikasi Honda Brio Satya E CVT.webp",
+    image: "/honda-brio/Spesifikasi Honda Brio Satya E CVT.webp",
   },
   {
     name: "Honda Brio RS M/T",
@@ -222,7 +222,7 @@ const brioVariants = [
       "Tweeter Speakers",
       "*Tambahan harga Rp 2,500,000 untuk two tone color",
     ],
-    image: "/honda brio/Spesifikasi Honda Brio RS M-T.webp",
+    image: "/honda-brio/Spesifikasi Honda Brio RS M-T.webp",
   },
   {
     name: "Honda Brio RS CVT",
@@ -247,7 +247,7 @@ const brioVariants = [
       "Tweeter Speakers",
       "*Tambahan harga Rp 2,500,000 untuk two tone color",
     ],
-    image: "/honda brio/Spesifikasi - Honda Brio RS CVT.webp",
+    image: "/honda-brio/Spesifikasi - Honda Brio RS CVT.webp",
   },
 ]
 

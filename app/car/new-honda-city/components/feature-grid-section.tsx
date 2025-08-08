@@ -17,7 +17,7 @@ const features = [
   },
   {
     id: 2,
-    image: "/new-honda-city/tata-letak-1211-2.webp",
+    image: "/new-honda-city/tata-letak-1211-3.webp",
     title: "Honda SENSING & Safety Features",
     description:
       "Paket lengkap teknologi keselamatan aktif Honda SENSING dengan 6 Airbags, memberikan perlindungan maksimal untuk seluruh penumpang dalam berbagai kondisi berkendara.",

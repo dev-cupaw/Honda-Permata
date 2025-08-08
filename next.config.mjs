@@ -19,6 +19,17 @@ const nextConfig = {
     
     // Fallback configuration
     loader: 'default',
+    
+    // Minimize layout shift
+    minimumCacheTTL: 60,
+    
+    // Remote patterns for external images (if needed)
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
   
   // Performance optimizations

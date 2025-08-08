@@ -6,7 +6,7 @@ export function HeroSection() {
   return (
     <section className="relative h-[48vh] lg:h-[80vh] w-full overflow-hidden pt-20 lg:pt-24">
       <Image
-        src="/new-honda-city/banner-utama.webp"
+        src="/new-honda-city/banner-city.webp"
         alt="New Honda City"
         fill
         className="object-cover"

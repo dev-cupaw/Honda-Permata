@@ -32,7 +32,7 @@ const hrvVariants = [
       "Walk-Away Auto Lock",
       "Rear Seat Reminder",
     ],
-    image: "/honda-hr-v/Spesifikasi - New Honda HR-V E CVT.png",
+    image: "/honda-hr-v/Spesifikasi - New Honda HR-V E CVT.webp",
   },
   {
     name: "New Honda HR-V E+ CVT",
@@ -47,7 +47,7 @@ const hrvVariants = [
       "Wireless Charging Console",
       "4 Speakers + 4 Tweeters",
     ],
-    image: "/honda-hr-v/spesifikasi - New Honda HR-V E+ CVT.png",
+    image: "/honda-hr-v/spesifikasi - New Honda HR-V E+ CVT.webp",
   },
   {
     name: "New Honda HR-V e:HEV",
@@ -68,7 +68,7 @@ const hrvVariants = [
       "Door Visor",
       "Exhaust Pipe Finisher",
     ],
-    image: "/honda-hr-v/spesifikasi - New Honda HR-V e-HEV.png",
+    image: "/honda-hr-v/spesifikasi - New Honda HR-V e-HEV.webp",
   },
   {
     name: "New Honda HR-V RS e:HEV",
@@ -86,7 +86,7 @@ const hrvVariants = [
       "6 Airbags (Front, Side & Side Curtains)",
       "Auto Wiper",
     ],
-    image: "/honda-hr-v/Spesifikasi - New Honda HR-V RS e-HEV.png",
+    image: "/honda-hr-v/Spesifikasi - New Honda HR-V RS e-HEV.webp",
   },
 ]
 
@@ -94,37 +94,37 @@ const hrvColors = [
   {
     name: "Sand Khaki Pearl Two Tone",
     code: "rgb(137, 127, 106)",
-    image: "/honda-hr-v/New Honda HR-V E CVT - Sand Khaki Pearl Two Tone.png",
+    image: "/honda-hr-v/New Honda HR-V e-HEV - Sand Khaki Pearl Two Tone.webp",
   },
   {
     name: "Platinum White Pearl",
     code: "rgb(234, 234, 233)",
-    image: "/honda-hr-v/New Honda HR-V E CVT - Platinum White Pearl.png",
+    image: "/honda-hr-v/New Honda HR-V e-HEV - Platinum White Pearl.webp",
   },
   {
     name: "Meteoroid Gray Metallic",
     code: "rgb(130, 131, 133)",
-    image: "/honda-hr-v/New Honda HR-V E CVT - Meteoroid Gray Metallic.png",
+    image: "/honda-hr-v/New Honda HR-V e-HEV - Meteoroid Gray Metallic.webp",
   },
   {
     name: "Crystal Black Pearl",
     code: "rgb(0, 0, 0)",
-    image: "/honda-hr-v/New Honda HR-V E CVT - Crystal Black Pearl.png",
+    image: "/honda-hr-v/New Honda HR-V e-HEV - Crystal Black Pearl.webp",
   },
   {
     name: "Sand Khaki Pearl",
     code: "rgb(137, 127, 106)",
-    image: "/honda-hr-v/New Honda HR-V E CVT - Sand Khaki Pearl.png",
+    image: "/honda-hr-v/New Honda HR-V e-HEV - Sand Khaki Pearl.webp",
   },
   {
     name: "Ignite Red Metallic (Type RS)",
     code: "rgb(204, 51, 51)",
-    image: "/honda-hr-v/New Honda HR-V RS e-HEV - Ignite Red Metallic (Type RS).png",
+    image: "/honda-hr-v/New Honda HR-V RS e-HEV - Ignite Red Metallic (Type RS).webp",
   },
   {
     name: "Ignite Red Metallic Two Tone (Type RS)",
     code: "rgb(204, 51, 51)",
-    image: "/honda-hr-v/New Honda HR-V RS e-HEV - Ignite Red Metallic Two Tone (Type RS).png",
+    image: "/honda-hr-v/New Honda HR-V RS e-HEV - Ignite Red Metallic Two Tone (Type RS).webp",
   },
 ]
 
@@ -142,13 +142,13 @@ export function SpecificationSection() {
   const currentColorIndex = hrvColors.findIndex(color => color.name === selectedColor.name)
   const canGoPrev = currentColorIndex > 0
   const canGoNext = currentColorIndex < hrvColors.length - 1
-  
+
   const handlePrevColor = () => {
     if (canGoPrev) {
       setSelectedColor(hrvColors[currentColorIndex - 1])
     }
   }
-  
+
   const handleNextColor = () => {
     if (canGoNext) {
       setSelectedColor(hrvColors[currentColorIndex + 1])
