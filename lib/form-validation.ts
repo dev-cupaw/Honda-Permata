@@ -88,20 +88,20 @@ export const FIELD_VALIDATION_RULES: Record<string, FieldValidationRule> = {
       return null
     }
   },
-  
+
   phone: {
     required: true,
     customValidator: (value: string) => {
       const trimmed = value.trim()
       if (!trimmed) return 'Nomor HP wajib diisi'
-      
+
       const cleanPhone = trimmed.replace(/[-\s]/g, '')
-      
+
       // First check basic format
       if (!INDONESIAN_PHONE_REGEX.test(cleanPhone)) {
         return VALIDATION_MESSAGES.INVALID_PHONE
       }
-      
+
       // Additional length checks after cleaning for edge cases
       let digits = cleanPhone
       if (digits.startsWith('+62')) {
@@ -109,49 +109,49 @@ export const FIELD_VALIDATION_RULES: Record<string, FieldValidationRule> = {
       } else if (digits.startsWith('62')) {
         digits = '0' + digits.slice(2)
       }
-      
+
       // Remove leading zero for digit counting
       const actualDigits = digits.replace(/^0/, '')
       if (actualDigits.length < 8) return VALIDATION_MESSAGES.PHONE_TOO_SHORT
       if (actualDigits.length > 13) return VALIDATION_MESSAGES.PHONE_TOO_LONG
-      
+
       return null
     }
   },
-  
+
   email: {
     required: false,
     maxLength: 254,
     customValidator: (value: string) => {
       const trimmed = value.trim()
       if (!trimmed) return null // Email is optional
-      
+
       if (!EMAIL_REGEX.test(trimmed)) {
         return VALIDATION_MESSAGES.INVALID_EMAIL
       }
-      
+
       if (trimmed.length > 254) {
         return VALIDATION_MESSAGES.EMAIL_TOO_LONG
       }
-      
+
       return null
     }
   },
-  
+
   message: {
     required: false,
     maxLength: 1000,
     customValidator: (value: string) => {
       if (!value) return null // Message is optional
-      
+
       if (value.trim().length > 1000) {
         return VALIDATION_MESSAGES.MESSAGE_TOO_LONG
       }
-      
+
       return null
     }
   },
-  
+
   model: {
     required: true,
     customValidator: (value: string) => {
@@ -160,7 +160,7 @@ export const FIELD_VALIDATION_RULES: Record<string, FieldValidationRule> = {
       return null
     }
   },
-  
+
   serviceType: {
     required: true,
     customValidator: (value: string) => {
@@ -179,49 +179,49 @@ export const FIELD_VALIDATION_RULES: Record<string, FieldValidationRule> = {
  * @returns Validation error message or null if valid
  */
 export function validateField(
-  fieldName: string, 
-  value: string, 
+  fieldName: string,
+  value: string,
   customRules?: FieldValidationRule
 ): string | null {
   const rules = customRules || FIELD_VALIDATION_RULES[fieldName]
-  
+
   if (!rules) {
     console.warn(`No validation rules found for field: ${fieldName}`)
     return null
   }
-  
+
   const trimmedValue = value?.trim() || ''
-  
+
   // Check required field
   if (rules.required && !trimmedValue) {
     return `${getFieldDisplayName(fieldName)} ${VALIDATION_MESSAGES.REQUIRED}`
   }
-  
+
   // Skip other validations if field is empty and not required
   if (!trimmedValue && !rules.required) {
     return null
   }
-  
+
   // Check minimum length
   if (rules.minLength && trimmedValue.length < rules.minLength) {
     return `${getFieldDisplayName(fieldName)} minimal ${rules.minLength} karakter`
   }
-  
+
   // Check maximum length
   if (rules.maxLength && trimmedValue.length > rules.maxLength) {
     return `${getFieldDisplayName(fieldName)} maksimal ${rules.maxLength} karakter`
   }
-  
+
   // Check pattern
   if (rules.pattern && !rules.pattern.test(trimmedValue)) {
     return `${getFieldDisplayName(fieldName)} ${VALIDATION_MESSAGES.INVALID_FORMAT}`
   }
-  
+
   // Run custom validator
   if (rules.customValidator) {
     return rules.customValidator(trimmedValue)
   }
-  
+
   return null
 }
 
@@ -232,12 +232,12 @@ export function validateField(
  * @returns Validation result with errors and field-specific errors
  */
 export function validateForm(
-  formData: Record<string, unknown>, 
+  formData: Record<string, unknown>,
   formType?: string
 ): ValidationResult {
   const errors: FormValidationError[] = []
   const fieldErrors: Record<string, string> = {}
-  
+
   // Standard field validations
   Object.entries(formData).forEach(([fieldName, value]) => {
     const error = validateField(fieldName, String(value || ''))
@@ -251,7 +251,7 @@ export function validateForm(
       fieldErrors[fieldName] = error
     }
   })
-  
+
   // Form-specific validations
   if (formType === 'test-drive') {
     const model = formData.model || formData.carModel
@@ -265,7 +265,7 @@ export function validateForm(
       fieldErrors.model = error.message
     }
   }
-  
+
   if (formType === 'service') {
     if (!formData.serviceType || typeof formData.serviceType !== 'string' || !formData.serviceType.trim()) {
       const error = new FormValidationError(
@@ -277,7 +277,7 @@ export function validateForm(
       fieldErrors.serviceType = error.message
     }
   }
-  
+
   return {
     isValid: errors.length === 0,
     errors,
@@ -307,7 +307,7 @@ export function getFieldDisplayName(fieldName: string): string {
     licensePlate: 'Nomor Polisi',
     vehicleModel: 'Model Kendaraan'
   }
-  
+
   return displayNames[fieldName] || fieldName.charAt(0).toUpperCase() + fieldName.slice(1)
 }
 
@@ -318,16 +318,16 @@ export function getFieldDisplayName(fieldName: string): string {
  */
 export function formatPhoneNumber(phone: string): string {
   if (!phone) return ''
-  
+
   const cleaned = phone.replace(/\D/g, '')
-  
+
   // Indonesian phone number formatting
   if (cleaned.startsWith('62')) {
     return `+${cleaned}`
   } else if (cleaned.startsWith('0')) {
     return `+62${cleaned.slice(1)}`
   }
-  
+
   return phone
 }
 
@@ -338,7 +338,7 @@ export function formatPhoneNumber(phone: string): string {
  */
 export function sanitizeInput(input: string): string {
   if (!input) return ''
-  
+
   return input
     .trim()
     .replace(/[<>]/g, '') // Remove potential HTML tags
@@ -365,10 +365,10 @@ export function validateAndSanitizeForm(
   Object.entries(formData).forEach(([key, value]) => {
     sanitizedData[key] = sanitizeInput(String(value || ''))
   })
-  
+
   // Validate sanitized data
   const validation = validateForm(sanitizedData, formType)
-  
+
   return {
     sanitizedData,
     validation
@@ -410,7 +410,7 @@ export function debounceValidation(
   delay: number = 300
 ): (value: string) => Promise<string | null> {
   let timeoutId: NodeJS.Timeout
-  
+
   return (value: string): Promise<string | null> => {
     return new Promise((resolve) => {
       clearTimeout(timeoutId)

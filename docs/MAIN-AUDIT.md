@@ -72,7 +72,7 @@ Honda Permata Serpong website telah berhasil ditransformasi dari sistem yang **c
 ## 🏗️ Struktur Proyek & Arsitektur
 
 ### Pohon Struktur Lengkap
-```
+\`\`\`
 Honda-Permata/
 ├── 📁 app/                          # Next.js App Router (Primary Application)
 │   ├── 📁 components/               # Application-specific components
@@ -120,7 +120,7 @@ Honda-Permata/
 ├── 📄 tsconfig.json                # TypeScript configuration
 ├── 📄 tailwind.config.ts           # Tailwind CSS configuration
 └── 📄 .eslintrc.json              # ESLint configuration
-```
+\`\`\`
 
 ### 🛠️ Teknologi Stack Assessment
 - **Next.js:** 15.4.5 ✅ (Latest stable - Excellent choice)

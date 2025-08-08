@@ -2,17 +2,17 @@
 
 import { useState, useCallback, useMemo } from 'react'
 import { useToast } from './use-toast'
-import { 
-  WhatsAppIntegrator, 
-  FormData, 
+import {
+  WhatsAppIntegrator,
+  FormData,
   WhatsAppIntegrationError,
   WhatsAppFallbackHandler,
-  createWhatsAppIntegrator 
+  createWhatsAppIntegrator
 } from '@/lib/whatsapp-integration'
 import { getWhatsAppNumber, getWhatsAppBaseUrl } from '@/lib/contact-config'
 
 // Import validation utilities
-import { 
+import {
   validateForm as validateFormData,
   validateField as validateSingleField,
   ValidationResult,
@@ -91,7 +91,7 @@ export function useFormHandler({
     Object.entries(data).forEach(([key, value]) => {
       sanitizedData[key] = sanitizeInput(String(value || ''))
     })
-    
+
     return validateFormData(sanitizedData, formType)
   }, [formType])
 
@@ -116,15 +116,15 @@ export function useFormHandler({
    * Handles WhatsApp integration errors with comprehensive fallback actions
    */
   const handleWhatsAppError = useCallback(async (
-    error: WhatsAppIntegrationError, 
-    formData: FormData, 
+    error: WhatsAppIntegrationError,
+    formData: FormData,
     formType: string
   ) => {
     console.error('WhatsApp integration error:', error)
 
     try {
       const fallbackAction = await fallbackHandler.handleError(error, formData, formType)
-      
+
       // Execute the fallback action
       switch (fallbackAction.type) {
         case 'DIRECT_URL':
@@ -133,12 +133,12 @@ export function useFormHandler({
             console.log('Direct URL fallback executed:', fallbackAction.url)
           }
           break
-          
+
         case 'SIMPLIFIED_MESSAGE':
           if (fallbackAction.url) {
             // Try to open the simplified URL
             const fallbackWindow = window.open(fallbackAction.url, '_blank', 'noopener,noreferrer')
-            
+
             // Check if this also gets blocked
             setTimeout(() => {
               if (WhatsAppIntegrator.detectPopupBlocked(fallbackWindow)) {
@@ -148,12 +148,12 @@ export function useFormHandler({
             }, 1000)
           }
           break
-          
+
         case 'MANUAL_CONTACT':
           // Manual contact info is already shown in toast by fallback handler
           console.log('Manual contact fallback:', fallbackAction.contactInfo)
           break
-          
+
         case 'COPY_TO_CLIPBOARD':
           // Future enhancement - copy contact info to clipboard
           if (fallbackAction.message && navigator.clipboard) {
@@ -170,18 +170,18 @@ export function useFormHandler({
           }
           break
       }
-      
+
       return fallbackAction
     } catch (fallbackError) {
       console.error('Fallback handler failed:', fallbackError)
-      
+
       // Ultimate emergency fallback
       toast({
         title: "Hubungi Kami Langsung",
         description: "WhatsApp: +6282297098292",
         variant: "default"
       })
-      
+
       // Return emergency fallback action
       return {
         type: 'MANUAL_CONTACT' as const,
@@ -199,22 +199,22 @@ export function useFormHandler({
    */
   const normalizeFormData = useCallback((data: FormData): FormData => {
     const normalized = { ...data }
-    
+
     // Normalize name field
     if ((data as any).fullName && !data.nama) {
       normalized.nama = (data as any).fullName
     }
-    
+
     // Normalize phone field
     if ((data as any).mobile && !data.phone) {
       normalized.phone = (data as any).mobile
     }
-    
+
     // Normalize car model field
     if ((data as any).carModel && !data.model) {
       normalized.model = (data as any).carModel
     }
-    
+
     return normalized
   }, [])
 
@@ -237,13 +237,13 @@ export function useFormHandler({
     if (!validation.isValid) {
       const errorMessages = validation.errors.map(error => error.message)
       setErrors(errorMessages)
-      
+
       toast({
         title: "Form tidak valid",
         description: errorMessages.join(', '),
         variant: "destructive"
       })
-      
+
       onError?.(errorMessages.join(', '))
       return
     }
@@ -252,25 +252,25 @@ export function useFormHandler({
 
     // Normalize form data for consistent field names
     const normalizedData = normalizeFormData(formData)
-    
+
     try {
-      
+
       // Generate WhatsApp URL
       const whatsappUrl = whatsappIntegrator.generateWhatsAppUrl(normalizedData, formType)
-      
+
       // Show success message
       toast({
         title: "Berhasil!",
         description: "Anda akan diarahkan ke WhatsApp untuk melanjutkan percakapan.",
         variant: "default"
       })
-      
+
       // Small delay to ensure toast is visible before redirect
       await new Promise(resolve => setTimeout(resolve, 500))
-      
+
       // Open WhatsApp in new tab with security attributes
       const newWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer')
-      
+
       // Enhanced popup blocker detection with fallback
       setTimeout(() => {
         if (WhatsAppIntegrator.detectPopupBlocked(newWindow)) {
@@ -280,20 +280,20 @@ export function useFormHandler({
             'Popup was blocked by browser',
             new Error('Browser blocked popup window')
           )
-          
+
           handleWhatsAppError(popupError, normalizedData, formType)
         }
       }, 1000)
-      
+
       // Call success callback
       onSuccess?.()
-      
+
       // Reset form if callback provided
       onReset?.()
-      
+
     } catch (error) {
       console.error('Form submission error:', error)
-      
+
       if (error instanceof WhatsAppIntegrationError) {
         await handleWhatsAppError(error, normalizedData, formType)
       } else {
@@ -303,13 +303,13 @@ export function useFormHandler({
           'Network or unexpected error occurred',
           error instanceof Error ? error : new Error('Unknown error')
         )
-        
+
         await handleWhatsAppError(networkError, normalizedData, formType)
       }
-      
+
       const errorMessage = error instanceof Error ? error.message : 'Unknown error'
       onError?.(errorMessage)
-      
+
     } finally {
       setIsSubmitting(false)
     }
@@ -318,7 +318,7 @@ export function useFormHandler({
     formData,
     formType,
     whatsappIntegrator,
-    validateFormData,
+    validateFormDataInternal, // Changed from validateFormData
     normalizeFormData,
     clearErrors,
     handleWhatsAppError,
